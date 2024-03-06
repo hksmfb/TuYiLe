@@ -1,0 +1,16 @@
+file(
+    GLOB_RECURSE
+    resource
+    ${CMAKE_CURRENT_SOURCE_DIR}/manager/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/texture/src/*.cc
+)
+add_library(
+    resourceLib STATIC
+    ${resource}
+)
+target_include_directories(
+    resourceLib INTERFACE PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/manager/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/texture/include
+)
+target_link_libraries(resourceLib PUBLIC 3rdpartyLib coreLib)

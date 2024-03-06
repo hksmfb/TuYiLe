@@ -1,0 +1,18 @@
+file(
+    GLOB_RECURSE
+    core
+    ${CMAKE_CURRENT_SOURCE_DIR}/guid/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/math/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/thread/src/*.cc
+)
+add_library(
+    coreLib STATIC
+    ${core}
+)
+target_include_directories(
+    coreLib INTERFACE PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/guid/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/math/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/thread/include
+)
+target_link_libraries(coreLib PUBLIC 3rdpartyLib platformLib)

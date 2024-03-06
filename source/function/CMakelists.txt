@@ -1,0 +1,20 @@
+file(
+    GLOB_RECURSE
+    functions
+    ${CMAKE_CURRENT_SOURCE_DIR}/tick/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/job/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/render/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/scene/src/*.cc
+)
+add_library(
+    functionLib STATIC
+    ${functions}
+)
+target_include_directories(
+    functionLib INTERFACE PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/tick/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/job/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/render/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/scene/include
+)
+target_link_libraries(functionLib PUBLIC 3rdpartyLib resourceLib)
