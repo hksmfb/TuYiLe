@@ -112,6 +112,23 @@ void VulkanInterface::CreateLogicalDevice() {
   queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
   queueCreateInfo.queueFamilyIndex = indices;
   queueCreateInfo.queueCount = 1;
+  queueCreateInfo.pQueuePriorities = &queue_riorities_;
+
+  VkPhysicalDeviceFeatures deviceFeatures = {};
+  VkDeviceCreateInfo createInfo = {};
+  createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+  createInfo.pQueueCreateInfos = &queueCreateInfo;
+  createInfo.queueCreateInfoCount = 1;
+  createInfo.pEnabledFeatures = &deviceFeatures;
+
+  createInfo.enabledExtensionCount = 0;
+
+  if (vkCreateDevice(physical_device_, &createInfo, nullptr, &logical_device_) != VK_SUCCESS) {
+    throw std::runtime_error("failed to create logical device!");
+  }
+
+  vkGetDeviceQueue(logical_device_, indices, 0, &graphics_queue_);
+
 }
 
 
