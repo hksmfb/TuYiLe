@@ -101,7 +101,17 @@ void VulkanInterface::FindQueueFamilies() {
 }
 
 void VulkanInterface::CreateLogicalDevice() {
-
+  int indices {0};
+  for (auto queuefamily : queue_family_properties_) {
+    if (queuefamily.queueCount > 0 && (queuefamily.queueFlags & VK_QUEUE_GRAPHICS_BIT)) {
+      break;
+    }
+    ++indices;
+  }
+  VkDeviceQueueCreateInfo queueCreateInfo = {};
+  queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+  queueCreateInfo.queueFamilyIndex = indices;
+  queueCreateInfo.queueCount = 1;
 }
 
 

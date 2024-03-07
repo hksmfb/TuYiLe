@@ -30,6 +30,7 @@ class VulkanInterface : public GLInterface {
   VkPhysicalDeviceProperties physical_device_properties_ {};
   VkPhysicalDeviceMemoryProperties physical_device_memory_properties_ {};
   std::vector<VkQueueFamilyProperties> queue_family_properties_;
+  VkDevice logical_device_;
 };
 
 }
