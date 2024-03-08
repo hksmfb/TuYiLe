@@ -10,6 +10,7 @@
 #include "GLFW/glfw3.h"
 
 #include "platform_rhi_glinterface.h"
+#include "platform_rhi_vulkan_init.h"
 
 namespace platformlayer {
 namespace graphicinterface {

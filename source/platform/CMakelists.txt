@@ -2,6 +2,7 @@ file(
     GLOB_RECURSE
     platform
     ${CMAKE_CURRENT_SOURCE_DIR}/rhi/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/vulkan/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/window/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/data/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/file/src/*.cc
@@ -16,6 +17,7 @@ target_include_directories(
     platformLib INTERFACE PUBLIC
     ${CMAKE_SOURCE_DIR}/source/3rdparty
     ${CMAKE_CURRENT_SOURCE_DIR}/rhi/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/vulkan/include
     ${CMAKE_CURRENT_SOURCE_DIR}/window/include
     ${CMAKE_CURRENT_SOURCE_DIR}/data/include
     ${CMAKE_CURRENT_SOURCE_DIR}/file/include

@@ -6,7 +6,9 @@ namespace vulkan {
 
 VulkanInterface::VulkanInterface() {
   interfacename_ = "Vulkan";
-  CreateInstance();
+  VulkanInit init;
+  instance_ = init.CreateInstance();
+  // CreateInstance();
   SelectPhysicalDevice();
   CreateLogicalDevice();
   FindQueueFamilies();
