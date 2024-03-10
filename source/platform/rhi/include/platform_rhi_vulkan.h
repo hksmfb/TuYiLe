@@ -5,9 +5,6 @@
 #include <vector>
 
 #include "vulkan/vulkan.h"
-#include "glad/glad.h"
-#define GLFW_INCLUDE_VULKAN
-#include "GLFW/glfw3.h"
 
 #include "platform_rhi_glinterface.h"
 #include "platform_rhi_vulkan_init.h"
@@ -20,6 +17,7 @@ class VulkanInterface : public GLInterface {
  public:
   VulkanInterface();
   ~VulkanInterface();
+  void WindowInit(GLFWwindow* window);
   void ClearColor(int R, int G, int B, float Alpha);
  private:
   void CreateInstance();
@@ -27,6 +25,8 @@ class VulkanInterface : public GLInterface {
   void CreateLogicalDevice();
   void FindQueueFamilies();
   instance ins_;
+  VkSurfaceKHR surface_;
+
   VkInstance instance_ {VK_NULL_HANDLE};
   VkPhysicalDevice physical_device_ {VK_NULL_HANDLE};
   VkPhysicalDeviceProperties physical_device_properties_ {};

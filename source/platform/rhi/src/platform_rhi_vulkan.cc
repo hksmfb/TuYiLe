@@ -19,6 +19,13 @@ VulkanInterface::~VulkanInterface() {
 
 }
 
+void VulkanInterface::WindowInit(GLFWwindow* window) {
+  if (glfwCreateWindowSurface(ins_.instance, window, nullptr, &surface_) != VK_SUCCESS) {
+    std::cout << "failed to create window surface!" << std::endl;
+    // throw std::runtime_error("failed to create window surface!");
+  }
+}
+
 void VulkanInterface::ClearColor(int R, int G, int B, float Alpha) {
 
 }

@@ -14,6 +14,7 @@ namespace RHI {
 
 extern graphicinterface::GLInterface* interface;
 
+void WindowInit();
 void ClearColor(int R, int G, int B, float Alpha);
 
 void DepthTest(bool b);

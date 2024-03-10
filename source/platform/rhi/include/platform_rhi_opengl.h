@@ -1,7 +1,7 @@
 #ifndef PLATFORM_RHI_OPENGL_H_
 #define PLATFORM_RHI_OPENGL_H_
 
-#include "glad/glad.h"
+#include <iostream>
 
 #include "platform_rhi_glinterface.h"
 
@@ -13,6 +13,7 @@ class OpenGLInterface : public GLInterface {
  public:
   OpenGLInterface();
   ~OpenGLInterface();
+  void WindowInit(GLFWwindow* window);
   void ClearColor(int R, int G, int B, float Alpha);
  private:
 };
