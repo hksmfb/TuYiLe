@@ -26,6 +26,7 @@ class VulkanInterface : public GLInterface {
   void SelectPhysicalDevice();
   void CreateLogicalDevice();
   void FindQueueFamilies();
+  instance ins_;
   VkInstance instance_ {VK_NULL_HANDLE};
   VkPhysicalDevice physical_device_ {VK_NULL_HANDLE};
   VkPhysicalDeviceProperties physical_device_properties_ {};
