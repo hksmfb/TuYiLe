@@ -13,7 +13,7 @@ class OpenGLInterface : public GLInterface {
  public:
   OpenGLInterface();
   ~OpenGLInterface();
-  void WindowInit(GLFWwindow* window);
+  void WindowInit();
   void ClearColor(int R, int G, int B, float Alpha);
  private:
 };

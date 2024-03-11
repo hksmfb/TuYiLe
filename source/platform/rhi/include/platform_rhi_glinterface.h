@@ -7,13 +7,15 @@
 #define GLFW_INCLUDE_VULKAN
 #include "GLFW/glfw3.h"
 
+#include "platform_window_manager.h"
+
 namespace platformlayer {
 namespace graphicinterface {
 
 class GLInterface {
  public:
   virtual void ClearColor(int R, int G, int B, float Alpha) = 0;
-  virtual void WindowInit(GLFWwindow* window) = 0;
+  virtual void WindowInit() = 0;
   std::string GetInterfaceName();
  protected:
   std::string interfacename_ {"Vulkan"};

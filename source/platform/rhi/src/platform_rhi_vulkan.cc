@@ -6,6 +6,7 @@ namespace vulkan {
 
 VulkanInterface::VulkanInterface() {
   interfacename_ = "Vulkan";
+  windowmanager->GlInterfaceInit("Vulkan");
   VulkanInit init;
   instanceinfo info;
   init.SetInstance(info, ins_);
@@ -13,15 +14,22 @@ VulkanInterface::VulkanInterface() {
   // SelectPhysicalDevice();
   // CreateLogicalDevice();
   // FindQueueFamilies();
+  WindowInit();
 }
 
 VulkanInterface::~VulkanInterface() {
 
 }
 
-void VulkanInterface::WindowInit(GLFWwindow* window) {
-  if (glfwCreateWindowSurface(ins_.instance, window, nullptr, &surface_) != VK_SUCCESS) {
-    std::cout << "failed to create window surface!" << std::endl;
+void VulkanInterface::WindowInit() {
+  if (glfwCreateWindowSurface(ins_.instance, windowmanager->GetGLFWwindow(), nullptr, &surface_) != VK_SUCCESS) {
+    std::cout << "failed to create window surface!" 
+    << glfwCreateWindowSurface(ins_.instance, windowmanager->GetGLFWwindow(), nullptr, &surface_) << std::endl;
+    uint32_t count;
+    const char** extensions = glfwGetRequiredInstanceExtensions(&count);
+    for(int i = 0; i < count; ++i) {
+      printf("%s\n", extensions[i]);
+    }
     // throw std::runtime_error("failed to create window surface!");
   }
 }

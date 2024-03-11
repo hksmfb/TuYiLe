@@ -10,17 +10,18 @@ WindowManager::WindowManager(int width, int height, std::string title) {
   width_ = width;
   height_ = height;
   title_ = title;
-  RHItype_ = RHI::interface->GetInterfaceName();
-  if (RHItype_ == std::string("OpenGL")) {
-    OpenGLInit();
-  } else {
-    VulkanInit();
-  }
-  
 }
 
 WindowManager::~WindowManager() {
   glfwTerminate();
+}
+
+void WindowManager::GlInterfaceInit(std::string GL) {
+  if (GL == std::string("OpenGL")) {
+    OpenGLInit();
+  } else {
+    VulkanInit();
+  }
 }
 
 void WindowManager::OpenGLInit() {
@@ -37,6 +38,10 @@ void WindowManager::VulkanInit() {
   glfwInit();
   glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
   glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+}
+
+GLFWwindow* WindowManager::GetGLFWwindow() {
+  return window_;
 }
 
 bool WindowManager::isRunning() {
@@ -71,7 +76,6 @@ void WindowManager::InitCurrentThreadContext() {
     std::cout << "Failed to create GLFW window" << std::endl;
     glfwTerminate();
   }
-  RHI::interface->WindowInit(this->window_);
   // if (RHItype_ == std::string("OpenGL")) {
   //   glfwMakeContextCurrent(this->window_);
   //   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {

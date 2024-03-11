@@ -11,7 +11,6 @@
 #include "GLFW/glfw3.h"
 
 #include "platform_window_callback.h"
-#include "platform_rhi_rhi.h"
 
 namespace platformlayer {
 
@@ -19,8 +18,8 @@ class WindowManager {
   public:
     WindowManager(int width, int height, std::string title);
     ~WindowManager();
-    void OpenGLInit();
-    void VulkanInit();
+    void GlInterfaceInit(std::string GL);
+    GLFWwindow* GetGLFWwindow();
     /**
      * @brief check if window is running.
      * @return bool.
@@ -65,6 +64,8 @@ class WindowManager {
     void run();
   
   private:
+    void OpenGLInit();
+    void VulkanInit();
     void CaptureMouse(char status);
     std::string RHItype_ {"Vulkan"};
     GLFWwindow* window_;

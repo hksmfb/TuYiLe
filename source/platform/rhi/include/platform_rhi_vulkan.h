@@ -17,7 +17,7 @@ class VulkanInterface : public GLInterface {
  public:
   VulkanInterface();
   ~VulkanInterface();
-  void WindowInit(GLFWwindow* window);
+  void WindowInit();
   void ClearColor(int R, int G, int B, float Alpha);
  private:
   void CreateInstance();

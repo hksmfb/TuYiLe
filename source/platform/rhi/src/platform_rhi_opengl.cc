@@ -6,14 +6,16 @@ namespace opengl {
 
 OpenGLInterface::OpenGLInterface() {
   interfacename_ = "OpenGL";
+  windowmanager->GlInterfaceInit("OpenGL");
+  WindowInit();
 }
 
 OpenGLInterface::~OpenGLInterface() {
 
 }
 
-void OpenGLInterface::WindowInit(GLFWwindow* window) {
-  glfwMakeContextCurrent(window);
+void OpenGLInterface::WindowInit() {
+  glfwMakeContextCurrent(windowmanager->GetGLFWwindow());
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
     std::cout << "Failed to initialize GLAD" << std::endl;
   }

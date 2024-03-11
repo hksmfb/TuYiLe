@@ -29,28 +29,23 @@ void VulkanInit::SetInstance(instanceinfo info, instance& ins) {
   const char** glfwExtensions;
   
   glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-
+  
   createInfo.enabledExtensionCount = glfwExtensionCount;
   createInfo.ppEnabledExtensionNames = glfwExtensions;
-
+  
   createInfo.enabledLayerCount = 0;
-
+  
   VkResult result = vkCreateInstance(&createInfo, nullptr, &ins.instance);
 
   if (vkCreateInstance(&createInfo, nullptr, &ins.instance) != VK_SUCCESS) {
-    // std::cout << "failed to create instance!" << std::endl;
+    std::cout << "failed to create instance!" << std::endl;
     // throw std::runtime_error("failed to create instance!");
   }
-
+  
   uint32_t extensionCount = 0;
   vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
   std::vector<VkExtensionProperties> extensions(extensionCount);
   vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, extensions.data());
-
-  // std::cout << "available extensions:\n";
-  // for (const auto& extension : extensions) {
-  //   std::cout << '\t' << extension.extensionName << '\n';
-  // }
 
   //----------------------------------physical device--------------------
 
@@ -124,7 +119,7 @@ void VulkanInit::SetInstance(instanceinfo info, instance& ins) {
   }
 
   vkGetDeviceQueue(ins.logical_device, indices, 0, &ins.graphics_queue);
-
+  
 }
 
 // VkPhysicalDevice VulkanInit::SelectPhysicalDevice() {
