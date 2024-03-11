@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "platform_rhi_glinterface.h"
+#include "platform_rhi_shader.h"
 
 namespace platformlayer {
 namespace graphicinterface {

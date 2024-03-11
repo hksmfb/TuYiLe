@@ -8,6 +8,7 @@
 #include <unordered_map>
 
 #include "platform_rhi_glinterface.h"
+#include "platform_rhi_shader.h"
 
 namespace platformlayer {
 namespace RHI {
