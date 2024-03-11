@@ -11,7 +11,7 @@
 
 void GlobalVarInit() {
   platformlayer::windowmanager = new platformlayer::WindowManager(800, 800, "TuYiLe");
-  platformlayer::graphicinterface::RhiInitializer("Vulkan");
+  platformlayer::graphicinterface::RhiInitializer("OpenGL");
   platformlayer::inputmanager = new platformlayer::InputManager();
   corelayer::guidmanager = new corelayer::GUIDManager();
   corelayer::threadmanager = new corelayer::ThreadManager();

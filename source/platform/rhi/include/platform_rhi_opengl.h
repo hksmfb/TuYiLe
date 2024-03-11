@@ -15,6 +15,7 @@ class OpenGLInterface : public GLInterface {
   ~OpenGLInterface();
   void WindowInit();
   void ClearColor(int R, int G, int B, float Alpha);
+  void SetViewport(int posx, int posy, int width, int height);
  private:
 };
 

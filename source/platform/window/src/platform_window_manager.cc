@@ -18,8 +18,10 @@ WindowManager::~WindowManager() {
 
 void WindowManager::GlInterfaceInit(std::string GL) {
   if (GL == std::string("OpenGL")) {
+    RHItype_ = "OpenGL";
     OpenGLInit();
   } else {
+    RHItype_ = "Vulkan";
     VulkanInit();
   }
 }
@@ -76,16 +78,15 @@ void WindowManager::InitCurrentThreadContext() {
     std::cout << "Failed to create GLFW window" << std::endl;
     glfwTerminate();
   }
-  // if (RHItype_ == std::string("OpenGL")) {
-  //   glfwMakeContextCurrent(this->window_);
-  //   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-  //     std::cout << "Failed to initialize GLAD" << std::endl;
-  //   }
-  //   glViewport(0,0,width_, height_);
-  // } else {
+  if (RHItype_ == std::string("OpenGL")) {
+    glfwMakeContextCurrent(this->window_);
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+      std::cout << "Failed to initialize GLAD" << std::endl;
+    }
+  } else {
     
 
-  // }
+  }
   glfwSetFramebufferSizeCallback(window_, framebuffer_size_callback);
   glfwSetCursorPosCallback(window_, cursor_position_callback);
   glfwSetMouseButtonCallback(window_, mouse_button_callback);

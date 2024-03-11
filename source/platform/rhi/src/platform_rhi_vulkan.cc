@@ -38,6 +38,10 @@ void VulkanInterface::ClearColor(int R, int G, int B, float Alpha) {
 
 }
 
+void VulkanInterface::SetViewport(int posx, int posy, int width, int height) {
+  
+}
+
 void VulkanInterface::CreateInstance() {
   VkApplicationInfo appInfo{};
   appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;

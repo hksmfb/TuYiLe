@@ -19,6 +19,7 @@ class VulkanInterface : public GLInterface {
   ~VulkanInterface();
   void WindowInit();
   void ClearColor(int R, int G, int B, float Alpha);
+  void SetViewport(int posx, int posy, int width, int height);
  private:
   void CreateInstance();
   void SelectPhysicalDevice();

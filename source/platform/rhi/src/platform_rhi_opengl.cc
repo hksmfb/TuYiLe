@@ -15,15 +15,16 @@ OpenGLInterface::~OpenGLInterface() {
 }
 
 void OpenGLInterface::WindowInit() {
-  glfwMakeContextCurrent(windowmanager->GetGLFWwindow());
-  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-    std::cout << "Failed to initialize GLAD" << std::endl;
-  }
+
 }
 
 void OpenGLInterface::ClearColor(int R, int G, int B, float Alpha) {
   glClearColor(R/255.0f, G/255.0f, B/255.0f, Alpha);
   glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void OpenGLInterface::SetViewport(int posx, int posy, int width, int height) {
+  glViewport(posx, posy, width, height);
 }
 
 }
