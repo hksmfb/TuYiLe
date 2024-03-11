@@ -46,6 +46,19 @@ GLFWwindow* WindowManager::GetGLFWwindow() {
   return window_;
 }
 
+void WindowManager::SetSize(int widht, int height) {
+  width_ = widht;
+  height_ = height;
+  glfwSetWindowSize(window_, widht, height);
+}
+
+int WindowManager::GetWidth() {
+  return width_;
+}
+int WindowManager::GetHeight() {
+  return height_;
+}
+
 bool WindowManager::isRunning() {
   if (window_ == NULL || glfwWindowShouldClose(this->window_)) {
     return false;

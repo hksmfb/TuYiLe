@@ -20,9 +20,13 @@ void ThreadManager::AppendTask(std::function<void()> task) {
 }
 
 void ThreadManager::SetRenderUpdate(std::function<void()> Run) {
-  renderthread_.RunTask([](){platformlayer::windowmanager->InitCurrentThreadContext();});
-  while (renderthread_.IsOccupied()) {}
-  renderthread_.RunTask([](){platformlayer::windowmanager->SetCurrentThreadContext();});
+  renderthread_.RunTask([](){
+    platformlayer::windowmanager->InitCurrentThreadContext();
+    platformlayer::windowmanager->SetCurrentThreadContext();
+    int width = platformlayer::windowmanager->GetWidth();
+    int height = platformlayer::windowmanager->GetHeight();
+    platformlayer::RHI::SetViewport(0, 0, width, height);
+  });
   while (renderthread_.IsOccupied()) {}
   renderthread_.RunTask(Run);
 }

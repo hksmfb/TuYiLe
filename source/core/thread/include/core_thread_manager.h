@@ -12,6 +12,7 @@
 
 #include "core_thread_pool.h"
 #include "platform_time_timer.h"
+#include "platform_rhi_rhi.h"
 
 namespace corelayer {
 
