@@ -10,6 +10,7 @@ class Mesh {
  public:
   void SetVertices();
   void SetIndex();
+  void Draw();
  private:
 };
 

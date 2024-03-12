@@ -6,6 +6,7 @@ namespace scene{
 
 class SceneBase {
  public:
+    void Draw();
  private:
 };
 

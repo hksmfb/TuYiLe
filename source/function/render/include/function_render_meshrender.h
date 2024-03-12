@@ -6,6 +6,7 @@
 
 #include "function_render_renderbase.h"
 #include "platform_data_datatype.h"
+#include "platform_rhi_rhi.h"
 #include "core_math_vectransform.h"
 
 namespace functionlayer {
@@ -15,7 +16,7 @@ class MeshRender : public RenderBase{
     MeshRender();
     ~MeshRender();
     void SetMesh(platformlayer::datatype::Mesh* mesh);
-    // void SetShader(platformlayer::Shader* shader);
+    void SetShader(platformlayer::RHI::Shader* shader);
     void SetTexture(platformlayer::datatype::Texture* texture);
     void SetTransform(const corelayer::VecTransform& trans);
     void Draw();
@@ -26,7 +27,8 @@ class MeshRender : public RenderBase{
     void SetMat4(const std::string &name, const glm::mat4& mat);
     void SetVec3(const std::string &name, const glm::vec3& vec);
   private:
-    platformlayer::datatype::Mesh* mesh_;
+    platformlayer::RHI::Mesh* mesh_ {nullptr};
+    platformlayer::RHI::Shader* shader_ {nullptr};
     platformlayer::datatype::Texture* texture_;
     corelayer::VecTransform transform_;
     std::unordered_map<std::string, float> floatlist_;

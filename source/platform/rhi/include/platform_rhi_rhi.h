@@ -7,7 +7,9 @@
 #include <map>
 #include <unordered_map>
 
+#include "platform_data_datatype.h"
 #include "platform_rhi_glinterface.h"
+#include "platform_rhi_opengl_mesh.h"
 #include "platform_rhi_opengl_shader.h"
 
 namespace platformlayer {
@@ -17,6 +19,7 @@ extern graphicinterface::GLInterface* interface;
 
 void SetViewport(int posx, int posy, int width, int height);
 void ClearColor(int R, int G, int B, float Alpha);
+Mesh* CreateMesh(datatype::Mesh& mesh);
 Shader* CreateShader(std::string vertex, std::string fragment);
 
 void DepthTest(bool b);

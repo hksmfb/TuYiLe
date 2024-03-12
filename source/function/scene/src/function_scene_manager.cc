@@ -11,6 +11,10 @@ SceneManager::~SceneManager() {
 
 }
 
+SceneBase* SceneManager::GetScene() {
+  return scene_;
+}
+
 SceneManager* scenemanager = nullptr;
 
 }

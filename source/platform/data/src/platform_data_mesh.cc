@@ -13,20 +13,20 @@ Mesh::~Mesh() {
 
 Mesh& Mesh::operator=(const Mesh& m) {
   vertices_.clear();
-  indecates_.clear();
+  indices_.clear();
   vertices_.reserve(m.vertices_.size());
-  indecates_.reserve(m.indecates_.size());
+  indices_.reserve(m.indices_.size());
   vertices_ = m.vertices_;
-  indecates_ = m.indecates_;
+  indices_ = m.indices_;
   return *this;
 }
 
 void Mesh::reserve(size_t num_vertices) {
   vertices_.reserve(num_vertices);
-  indecates_.reserve(num_vertices);
+  indices_.reserve(num_vertices);
 }
 
-void Mesh::SetVertices(std::vector<vertex>& vertices) {
+void Mesh::SetVertex(std::vector<vertex>& vertices) {
   size_t size = vertices.size()*8;
   vertices_.clear();
   vertices_.reserve(size);
@@ -42,18 +42,26 @@ void Mesh::SetVertices(std::vector<vertex>& vertices) {
   }
 }
 
-void Mesh::SetVertices(std::vector<float>& vertices) {
+void Mesh::SetVertex(std::vector<float>& vertices) {
   size_t size = vertices.size();
   vertices_.clear();
   vertices_.reserve(size);
   vertices_ = vertices;
 }
 
-void Mesh::SetIndecates(std::vector<unsigned int>& indecates) {
-  size_t size = indecates.size();
-  indecates_.clear();
-  indecates_.reserve(size);
-  indecates_ = indecates;
+void Mesh::SetIndex(std::vector<unsigned int>& indices) {
+  size_t size = indices.size();
+  indices_.clear();
+  indices_.reserve(size);
+  indices_ = indices;
+}
+
+std::vector<float>& Mesh::GetVertex() {
+  return vertices_;
+}
+
+std::vector<unsigned int>& Mesh::GetIndex() {
+  return indices_;
 }
 
 }

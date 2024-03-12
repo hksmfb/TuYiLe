@@ -10,6 +10,7 @@ class SceneManager {
  public:
   SceneManager();
   ~SceneManager();
+  SceneBase* GetScene();
  private:
   SceneBase* scene_;
 };

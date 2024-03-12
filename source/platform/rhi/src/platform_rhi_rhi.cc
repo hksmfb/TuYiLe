@@ -13,6 +13,17 @@ void ClearColor(int R, int G, int B, float Alpha) {
   interface->ClearColor(R, G, B, Alpha);
 }
 
+Mesh* CreateMesh(datatype::Mesh& mesh) {
+  if (interface->GetInterfaceName() == std::string("OpenGL")) {
+    auto ret = new graphicinterface::opengl::OpenGLMesh();
+    ret->SetIndex(mesh.GetIndex());
+    ret->SetVertex(mesh.GetVertex());
+    return ret;
+  } else {
+    return nullptr;
+  }
+}
+
 Shader* CreateShader(std::string vertex, std::string fragment) {
   if (interface->GetInterfaceName() == std::string("OpenGL")) {
     return new graphicinterface::opengl::OpenGLShader(vertex, fragment);
