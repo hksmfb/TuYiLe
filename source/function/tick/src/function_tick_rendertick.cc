@@ -1,5 +1,5 @@
 #include "function_tick_rendertick.h"
-#include "platform_rhi_rhi.h"
+
 namespace functionlayer {
 namespace tick{
 

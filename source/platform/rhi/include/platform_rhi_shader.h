@@ -11,8 +11,8 @@ namespace RHI {
 
 class Shader {
  public:
-  Shader();
-  ~Shader();
+  // Shader();
+  // ~Shader();
   void Use();
   void SetFloat();
   void SetInt();

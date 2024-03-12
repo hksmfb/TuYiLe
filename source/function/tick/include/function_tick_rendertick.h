@@ -6,6 +6,7 @@
 #include "function_tick_tickbase.h"
 #include "function_render_renderlist.h"
 #include "platform_window_manager.h"
+#include "platform_rhi_rhi.h"
 
 namespace functionlayer {
 namespace tick {
