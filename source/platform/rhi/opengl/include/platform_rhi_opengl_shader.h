@@ -12,8 +12,8 @@ namespace opengl {
 class OpenGLShader : public RHI::Shader {
  public:
   OpenGLShader(
-    std::vector<char>& vertex_shader_source,
-    std::vector<char>& fregment_shader_source
+    std::string& vertex_shader_source,
+    std::string& fragment_shader_source
   );
   ~OpenGLShader();
   void Use();

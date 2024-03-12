@@ -2,6 +2,9 @@
 #define PLATFORM_RHI_SHADER_H_
 
 #include <vector>
+#include <string>
+#include <cstring>
+#include <iostream>
 
 namespace platformlayer {
 namespace RHI {
