@@ -1,6 +1,8 @@
 #ifndef PLATFORM_RHI_SHADER_H_
 #define PLATFORM_RHI_SHADER_H_
 
+#include <vector>
+
 namespace platformlayer {
 namespace RHI {
 

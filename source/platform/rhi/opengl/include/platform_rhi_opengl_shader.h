@@ -11,7 +11,10 @@ namespace opengl {
 
 class OpenGLShader : public RHI::Shader {
  public:
-  OpenGLShader();
+  OpenGLShader(
+    std::vector<char>& vertex_shader_source,
+    std::vector<char>& fregment_shader_source
+  );
   ~OpenGLShader();
   void Use();
   void SetFloat();

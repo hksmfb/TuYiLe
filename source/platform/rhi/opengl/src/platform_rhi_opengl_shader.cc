@@ -4,8 +4,11 @@ namespace platformlayer {
 namespace graphicinterface {
 namespace opengl {
 
-OpenGLShader::OpenGLShader() {
-
+OpenGLShader::OpenGLShader(
+  std::vector<char>& vertex_shader_source,
+  std::vector<char>& fregment_shader_source
+) {
+  
 }
 
 OpenGLShader::~OpenGLShader() {
