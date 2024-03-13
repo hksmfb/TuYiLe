@@ -27,7 +27,7 @@ void main()
     FragColor = vertexColor;
 }
 )";
-shader_ = platformlayer::RHI::CreateShader(vert, frag);
+render::CreateShader(vert, frag);
 std::vector<float> vec({
   0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
   -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,

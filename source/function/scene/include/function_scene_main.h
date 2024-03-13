@@ -2,6 +2,7 @@
 #define FUNCTION_SCENE_MAIN_H_
 
 #include "function_scene_scenebase.h"
+#include "function_render_shader.h"
 #include "platform_rhi_rhi.h"
 
 namespace functionlayer {
@@ -11,6 +12,7 @@ class MainScene : public SceneBase {
  public:
   MainScene();
   ~MainScene();
+  void Update();
   void Draw();
  private:
   platformlayer::RHI::Mesh* mesh_;

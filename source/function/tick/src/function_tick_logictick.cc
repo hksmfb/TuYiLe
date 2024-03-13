@@ -12,7 +12,7 @@ LogicTick::~LogicTick() {
 }
 
 void LogicTick::Update() {
-  
+  scene::scenemanager->GetScene()->Update();
 }
 
 }

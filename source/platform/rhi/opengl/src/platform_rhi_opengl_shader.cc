@@ -44,8 +44,8 @@ OpenGLShader::OpenGLShader(
   glLinkProgram(id_);
   glGetProgramiv(id_, GL_LINK_STATUS, &success);
   if (!success) {
-      glGetProgramInfoLog(id_, 512, NULL, infoLog);
-      std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+    glGetProgramInfoLog(id_, 512, NULL, infoLog);
+    std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
   }
   glDeleteShader(vertex);
   glDeleteShader(fragment);

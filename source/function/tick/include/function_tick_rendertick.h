@@ -7,6 +7,7 @@
 #include "function_render_renderlist.h"
 #include "platform_window_manager.h"
 #include "platform_rhi_rhi.h"
+#include "function_render_pipeline.h"
 
 namespace functionlayer {
 namespace tick {

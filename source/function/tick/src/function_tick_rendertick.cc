@@ -13,6 +13,8 @@ RenderTick::~RenderTick() {
 
 void RenderTick::Update() {
   platformlayer::RHI::ClearColor(0,0,0,1);
+  render::pipeline::renderpipeline->InitShader();
+  render::pipeline::renderpipeline->ForwardRendering(&drawbuffer_[current_status_index_]);
   platformlayer::windowmanager->Update();
 }
 

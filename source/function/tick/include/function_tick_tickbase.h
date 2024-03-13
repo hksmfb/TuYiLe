@@ -6,6 +6,7 @@
 #include <list>
 
 #include "platform_time_timer.h"
+#include "function_scene_manager.h"
 
 namespace functionlayer {
 namespace tick {

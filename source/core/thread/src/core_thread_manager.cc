@@ -30,9 +30,6 @@ void ThreadManager::SetRenderUpdate(std::function<void()> Run) {
     printf("init finish\n");
   });
   while (renderthread_.IsOccupied()) {}
-  printf("set viewport\n");
-  glViewport(0,0,800,800);
-  printf("viewport finish\n");
   renderthread_.RunTask(Run);
 }
 
