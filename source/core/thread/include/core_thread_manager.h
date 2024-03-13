@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <thread>
+#include <mutex>
 #include <unordered_map>
 #include <tuple>
 #include <functional>

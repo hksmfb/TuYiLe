@@ -13,9 +13,9 @@ void ClearColor(int R, int G, int B, float Alpha) {
   interface->ClearColor(R, G, B, Alpha);
 }
 
-Mesh* CreateMesh(datatype::Mesh& mesh) {
+std::shared_ptr<Mesh> CreateMesh(datatype::Mesh mesh) {
   if (interface->GetInterfaceName() == std::string("OpenGL")) {
-    auto ret = new graphicinterface::opengl::OpenGLMesh();
+    auto ret = std::make_shared<graphicinterface::opengl::OpenGLMesh>();
     ret->SetIndex(mesh.GetIndex());
     ret->SetVertex(mesh.GetVertex());
     return ret;
@@ -26,6 +26,7 @@ Mesh* CreateMesh(datatype::Mesh& mesh) {
 
 std::shared_ptr<Shader> CreateShader(std::string vertex, std::string fragment) {
   if (interface->GetInterfaceName() == std::string("OpenGL")) {
+    printf("create shader\n");
     return std::make_shared<graphicinterface::opengl::OpenGLShader>(vertex, fragment);
   } else {
     return nullptr;

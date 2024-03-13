@@ -1,19 +1,23 @@
-#include "function_render_shader.h"
+#include "function_render_resourceloader.h"
 
 namespace functionlayer {
 namespace render {
 
 void CreateShader(std::string& vertexshader, std::string& fragmentshader) {
-  printf("render shader in\n");
   std::string vert = vertexshader;
   std::string frag = fragmentshader;
   pipeline::renderpipeline->CreateShaderTask([vert, frag](){
-    printf("rhi create shader\n");
     auto shaderprogram = platformlayer::RHI::CreateShader(vert, frag);
-    printf("rhi create shader finish\n");
     resourcelayer::resourcemanager->SetShaderProgram(shaderprogram);
   });
-  printf("render shader out\n");
+}
+
+void CreateMesh(platformlayer::datatype::Mesh& mesh) {
+  platformlayer::datatype::Mesh m = mesh;
+  pipeline::renderpipeline->CreateMeshTask([m](){
+    auto loadedmesh = platformlayer::RHI::CreateMesh(m);
+    resourcelayer::resourcemanager->SetLoadedMesh(loadedmesh);
+  });
 }
 
 }

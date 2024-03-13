@@ -1,6 +1,7 @@
 #ifndef FUNCTION_RENDER_MESRENDER_H_
 #define FUNCTION_RENDER_MESRENDER_H_
 
+#include <memory>
 #include <unordered_map>
 #include <string>
 
@@ -15,8 +16,8 @@ class MeshRender : public RenderBase{
   public:
     MeshRender();
     ~MeshRender();
-    void SetMesh(platformlayer::datatype::Mesh* mesh);
-    void SetShader(platformlayer::RHI::Shader* shader);
+    void SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh);
+    void SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader);
     void SetTexture(platformlayer::datatype::Texture* texture);
     void SetTransform(const corelayer::VecTransform& trans);
     void Draw();
@@ -27,8 +28,8 @@ class MeshRender : public RenderBase{
     void SetMat4(const std::string &name, const glm::mat4& mat);
     void SetVec3(const std::string &name, const glm::vec3& vec);
   private:
-    platformlayer::RHI::Mesh* mesh_ {nullptr};
-    platformlayer::RHI::Shader* shader_ {nullptr};
+    std::shared_ptr<platformlayer::RHI::Mesh> mesh_ {nullptr};
+    std::shared_ptr<platformlayer::RHI::Shader> shader_ {nullptr};
     platformlayer::datatype::Texture* texture_;
     corelayer::VecTransform transform_;
     std::unordered_map<std::string, float> floatlist_;

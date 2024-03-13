@@ -27,9 +27,9 @@ void main()
     FragColor = vertexColor;
 }
 )";
-printf("scene main: render create shader\n");
+
 render::CreateShader(vert, frag);
-printf("scene main: render create shader complete\n");
+
 std::vector<float> vec({
   0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
   -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
@@ -39,10 +39,10 @@ std::vector<unsigned int> ind({
   0, 1, 3,
   1, 2, 3
 });
-// platformlayer::datatype::Mesh mesh;
-// mesh.SetVertex(vec);
-// mesh.SetIndex(ind);
-// mesh_ = platformlayer::RHI::CreateMesh(mesh);
+platformlayer::datatype::Mesh mesh;
+mesh.SetVertex(vec);
+mesh.SetIndex(ind);
+render::CreateMesh(mesh);
 }
 
 MainScene::~MainScene() {
@@ -50,10 +50,8 @@ MainScene::~MainScene() {
 }
 
 void MainScene::Draw() {
-printf("scene draw in\n");
-shader_->Use();
-mesh_->Draw();
-printf("scene draw in\n");
+  shader_->Use();
+  mesh_->Draw();
 }
 
 }

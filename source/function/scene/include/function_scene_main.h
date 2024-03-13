@@ -2,7 +2,7 @@
 #define FUNCTION_SCENE_MAIN_H_
 
 #include "function_scene_scenebase.h"
-#include "function_render_shader.h"
+#include "function_render_resourceloader.h"
 #include "platform_rhi_rhi.h"
 
 namespace functionlayer {

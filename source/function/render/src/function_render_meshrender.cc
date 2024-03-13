@@ -11,14 +11,11 @@ MeshRender::~MeshRender() {
   
 }
 
-void MeshRender::SetMesh(platformlayer::datatype::Mesh* mesh) {
-  if (mesh_ != nullptr) {
-    delete mesh_;
-  }
-  mesh_ = platformlayer::RHI::CreateMesh(*mesh);
+void MeshRender::SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh) {
+  mesh_ = mesh;
 }
 
-void MeshRender::SetShader(platformlayer::RHI::Shader* shader) {
+void MeshRender::SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader) {
   shader_ = shader;
 }
 

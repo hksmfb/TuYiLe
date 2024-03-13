@@ -4,6 +4,7 @@
 #include <functional>
 #include <vector>
 
+#include "core_thread_manager.h"
 #include "function_render_renderlist.h"
 
 namespace functionlayer {
@@ -16,11 +17,16 @@ class RenderPipeline {
   ~RenderPipeline();
   void CreateShaderTask(std::function<void()> task);
   void InitShader();
+  void CreateMeshTask(std::function<void()> task);
+  void InitMesh();
   void ForwardRendering(RenderList* renderlist);
   void DefferedShading(RenderList* renderlist);
   void Shading();
  private:
+  std::mutex create_shader_tasks_lock_;
   std::vector<std::function<void()>> create_shader_tasks_;
+  std::mutex create_mesh_tasks_lock_;
+  std::vector<std::function<void()>> create_mesh_tasks_;
 };
 
 extern RenderPipeline* renderpipeline;
