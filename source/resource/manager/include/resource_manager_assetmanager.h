@@ -1,19 +1,20 @@
 #ifndef RESOURCE_MANAGER_ASSETMANAGER_H_
 #define RESOURCE_MANAGER_ASSETMANAGER_H_
 
+#include <memory>
 #include <vector>
 
 #include "core_guid_manager.h"
+#include "resource_component.h"
 
 namespace resourcelayer {
 
 class Asset {
-  public:
-    Asset();
-    ~Asset();
-  private:
-    std::vector<corelayer::guid> meshlist_;
-    std::vector<corelayer::guid> texturelist_;
+ public:
+  void AppendComponent(Component component);
+  std::vector<Component>& GetComponentList();
+ private:
+  std::vector<Component> componentlist_;
 };
 
 class AssetManager {
@@ -22,7 +23,7 @@ class AssetManager {
     ~AssetManager();
     void LoadAsset();
   private:
-    std::vector<Asset*> assetlist_;
+    std::vector<std::shared_ptr<Asset>> assetlist_;
 };
 
 }

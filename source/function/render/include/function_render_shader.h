@@ -5,6 +5,7 @@
 #include <functional>
 
 #include "platform_rhi_rhi.h"
+#include "function_render_pipeline.h"
 #include "resource_manager_resourcemanager.h"
 
 namespace functionlayer {

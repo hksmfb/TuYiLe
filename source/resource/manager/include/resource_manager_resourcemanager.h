@@ -17,14 +17,15 @@ class ResourceManager {
   public:
     ResourceManager();
     ~ResourceManager();
-    void SetShaderProgram(std::shared_ptr<platformlayer::RHI::Shader> shaderprogram);
+    void SetShaderProgram(std::shared_ptr<platformlayer::RHI::Shader> shader_program);
+    void SetLoadedMesh(std::shared_ptr<platformlayer::RHI::Mesh> loaded_mesh);
   private:
     std::unordered_map<corelayer::guid, std::string> resource_handler_;
     std::unordered_map<corelayer::guid, platformlayer::datatype::Mesh*> meshlist_;
     std::unordered_map<corelayer::guid, platformlayer::datatype::Texture*> texturelist_;
 
     std::unordered_map<corelayer::guid, std::shared_ptr<platformlayer::RHI::Shader>> shader_program_list_;
-    std::unordered_map<corelayer::guid, platformlayer::RHI::Mesh*> loaded_mesh_list_;
+    std::unordered_map<corelayer::guid, std::shared_ptr<platformlayer::RHI::Mesh>> loaded_mesh_list_;
 };
 
 extern ResourceManager* resourcemanager;

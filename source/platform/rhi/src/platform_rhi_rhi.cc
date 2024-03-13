@@ -24,7 +24,7 @@ Mesh* CreateMesh(datatype::Mesh& mesh) {
   }
 }
 
-std::shared_ptr<Shader> CreateShader(std::string& vertex, std::string& fragment) {
+std::shared_ptr<Shader> CreateShader(std::string vertex, std::string fragment) {
   if (interface->GetInterfaceName() == std::string("OpenGL")) {
     return std::make_shared<graphicinterface::opengl::OpenGLShader>(vertex, fragment);
   } else {
