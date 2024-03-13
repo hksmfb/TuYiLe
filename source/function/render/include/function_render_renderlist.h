@@ -4,6 +4,7 @@
 #include <list>
 
 #include "function_render_renderbase.h"
+#include "function_render_meshrender.h"
 
 namespace functionlayer {
 namespace render{
@@ -13,8 +14,11 @@ public:
   RenderList();
   ~RenderList();
   void AppendRender(RenderBase* render);
+  std::list<RenderBase*>& GetRenderList();
+  std::list<MeshRender*>& GetMeshRenderList();
 private:
   std::list<RenderBase*> renderlist_;
+  std::list<MeshRender*> meshrenderlist_;
 };
 
 }
