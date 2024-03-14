@@ -13,7 +13,7 @@ class Shader {
  public:
   // Shader();
   // ~Shader();
-  void Use();
+  virtual void Use() = 0;
   void SetFloat();
   void SetInt();
   void SetVec3();

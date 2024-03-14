@@ -3,9 +3,5 @@
 namespace platformlayer {
 namespace RHI {
 
-void Shader::Use() {
-
-}
-
 }
 }

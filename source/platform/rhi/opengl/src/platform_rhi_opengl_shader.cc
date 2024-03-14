@@ -8,13 +8,10 @@ OpenGLShader::OpenGLShader(
   std::string& vertex_shader_source,
   std::string& fragment_shader_source
 ) {
-  unsigned int vertex;
-  vertex = glCreateShader(GL_VERTEX_SHADER);
-  size_t size = vertex_shader_source.size();
+  unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
   char* vertexcode = (char*)vertex_shader_source.c_str();
   glShaderSource(vertex, 1, &vertexcode, NULL);
-  unsigned int fragment;
-  fragment = glCreateShader(GL_FRAGMENT_SHADER);
+  unsigned int fragment = glCreateShader(GL_FRAGMENT_SHADER);
   char* fragmentcode = (char*)fragment_shader_source.c_str();
   glShaderSource(fragment, 1, &fragmentcode, NULL);
   int success;

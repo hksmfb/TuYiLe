@@ -14,22 +14,18 @@ void ClearColor(int R, int G, int B, float Alpha) {
 }
 
 std::shared_ptr<Mesh> CreateMesh(datatype::Mesh mesh) {
-  if (interface->GetInterfaceName() == std::string("OpenGL")) {
-    auto ret = std::make_shared<graphicinterface::opengl::OpenGLMesh>();
-    ret->SetIndex(mesh.GetIndex());
-    ret->SetVertex(mesh.GetVertex());
-    return ret;
-  } else {
-    return nullptr;
-  }
+  printf("todo\n");
+  return nullptr;
 }
 
 std::shared_ptr<Shader> CreateShader(std::string vertex, std::string fragment) {
-  if (interface->GetInterfaceName() == std::string("OpenGL")) {
-    return std::make_shared<graphicinterface::opengl::OpenGLShader>(vertex, fragment);
-  } else {
-    return nullptr;
-  }
+  printf("todo\n");
+  // if (interface->GetInterfaceName() == std::string("OpenGL")) {
+  //   return std::make_shared<graphicinterface::opengl::OpenGLShader>(vertex, fragment);
+  // } else {
+  //   return nullptr;
+  // }
+  return nullptr;
 }
 
 void AppendMeshBatch(datatype::Mesh mesh) {

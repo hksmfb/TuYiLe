@@ -21,14 +21,13 @@ void RenderPipeline::InitMesh() {
 }
 
 void RenderPipeline::ForwardRendering(RenderList* renderlist) {
-  printf("runing fowardrendering\n");
   std::shared_ptr<platformlayer::RHI::Shader> shader = resourcelayer::resourcemanager->getshader();
   std::shared_ptr<platformlayer::RHI::Mesh> mesh = resourcelayer::resourcemanager->getmesh();
   if (shader != nullptr && mesh != nullptr) {
-    printf("draw\n");
     shader->Use();
     mesh->Draw();
   }
+  // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 void RenderPipeline::DefferedShading(RenderList* renderlist) {

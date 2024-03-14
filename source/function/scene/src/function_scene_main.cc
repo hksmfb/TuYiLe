@@ -7,29 +7,29 @@ MainScene::MainScene() {
 platformlayer::datatype::shadercode shadercode;
 shadercode.vertex_shader_code = R"(
 #version 330 core
-layout (location = 0) in vec3 aPos; // 位置变量的属性位置值为0
-
-out vec4 vertexColor; // 为片段着色器指定一个颜色输出
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 normal;
+layout (location = 2) in vec2 coord;
+out vec3 color;
 
 void main()
 {
-    gl_Position = vec4(aPos, 1.0); // 注意我们如何把一个vec3作为vec4的构造器的参数
-    vertexColor = vec4(1.0f, 0.5f, 0.2f, 1.0f); // 把输出变量设置为暗红色
-}
+  gl_Position = vec4(aPos, 1.0f);
+  color = normal;
+}  
 )";
 shadercode.fragment_shader_code = R"(
 #version 330 core
+in vec3 color;
 out vec4 FragColor;
-
-in vec4 vertexColor; // 从顶点着色器传来的输入变量（名称相同、类型相同）
-
 void main()
 {
-  FragColor = vertexColor;
-}
+  FragColor = vec4(0.5f, 0.5f, 0.5f, 1.0f);
+}  
 )";
 
 render::resourceloader::CreateShader(shadercode);
+
 std::vector<float> vec({
   0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
   0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right

@@ -81,8 +81,8 @@ void WindowManager::windowEvent() {
 
 void WindowManager::Update() {
   // CaptureMouse(functionlayer::controller->GetMouseCaputreStatus());
-  glfwPollEvents();
   glfwSwapBuffers(window_);
+  glfwPollEvents();
 }
 
 void WindowManager::InitCurrentThreadContext() {
