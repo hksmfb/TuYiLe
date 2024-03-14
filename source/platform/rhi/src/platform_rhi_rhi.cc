@@ -40,7 +40,7 @@ std::list<std::shared_ptr<Mesh>> CreateMeshBatch() {
   std::list<std::shared_ptr<Mesh>> ret;
   auto meshlist = interface->GetTempMeshList();
   for (auto& mesh : meshlist) {
-    
+    ret.push_back(interface->CreateMesh(mesh));
   }
   return ret;
 }

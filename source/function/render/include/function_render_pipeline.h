@@ -16,9 +16,7 @@ class RenderPipeline {
  public:
   RenderPipeline();
   ~RenderPipeline();
-  void CreateShaderTask(std::function<void()> task);
   void InitShader();
-  void CreateMeshTask(std::function<void()> task);
   void InitMesh();
   void ForwardRendering(RenderList* renderlist);
   void DefferedShading(RenderList* renderlist);

@@ -20,6 +20,8 @@ class ResourceManager {
     ~ResourceManager();
     void SetShaderProgram(std::shared_ptr<platformlayer::RHI::Shader> shader_program);
     void SetLoadedMesh(std::shared_ptr<platformlayer::RHI::Mesh> loaded_mesh);
+    std::shared_ptr<platformlayer::RHI::Shader> getshader();
+    std::shared_ptr<platformlayer::RHI::Mesh> getmesh();
   private:
 
     std::unordered_map<corelayer::guid, std::string> resource_handler_;

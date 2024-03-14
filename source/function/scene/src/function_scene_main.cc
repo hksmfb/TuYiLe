@@ -14,7 +14,7 @@ out vec4 vertexColor; // 为片段着色器指定一个颜色输出
 void main()
 {
     gl_Position = vec4(aPos, 1.0); // 注意我们如何把一个vec3作为vec4的构造器的参数
-    vertexColor = vec4(0.5, 0.0, 0.0, 1.0); // 把输出变量设置为暗红色
+    vertexColor = vec4(1.0f, 0.5f, 0.2f, 1.0f); // 把输出变量设置为暗红色
 }
 )";
 shadercode.fragment_shader_code = R"(
@@ -25,16 +25,16 @@ in vec4 vertexColor; // 从顶点着色器传来的输入变量（名称相同�
 
 void main()
 {
-    FragColor = vertexColor;
+  FragColor = vertexColor;
 }
 )";
 
 render::resourceloader::CreateShader(shadercode);
-printf("Create Shader\n");
 std::vector<float> vec({
-  0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-  -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-  0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f ,0.0f, 0.0f
+  0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+  0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+  -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+  -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  
 });
 std::vector<unsigned int> ind({
   0, 1, 3,
@@ -44,7 +44,7 @@ platformlayer::datatype::Mesh mesh;
 mesh.SetVertex(vec);
 mesh.SetIndex(ind);
 render::resourceloader::CreateMesh(mesh);
-printf("Create Mesh\n");
+
 }
 
 MainScene::~MainScene() {

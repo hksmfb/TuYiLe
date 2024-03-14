@@ -24,6 +24,19 @@ void ResourceManager::SetLoadedMesh(std::shared_ptr<platformlayer::RHI::Mesh> lo
   loaded_mesh_list_lock_.unlock();
 }
 
+std::shared_ptr<platformlayer::RHI::Shader> ResourceManager::getshader() {
+  for (auto shader : shader_program_list_) {
+    return shader.second;
+  }
+  return nullptr;
+}
+std::shared_ptr<platformlayer::RHI::Mesh> ResourceManager::getmesh() {
+  for (auto mesh : loaded_mesh_list_) {
+    return mesh.second;
+  }
+  return nullptr;
+}
+
 ResourceManager* resourcemanager = nullptr;
 
 }
