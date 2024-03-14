@@ -4,6 +4,7 @@
 #include "glad/glad.h"
 
 #include "platform_rhi_mesh.h"
+#include "platform_data_mesh.h"
 
 namespace platformlayer {
 namespace graphicinterface {
@@ -12,6 +13,7 @@ namespace opengl {
 class OpenGLMesh : public RHI::Mesh {
  public:
   OpenGLMesh();
+  OpenGLMesh(datatype::Mesh mesh);
   ~OpenGLMesh();
   void SetVertex(std::vector<float>& vertex);
   void SetIndex(std::vector<unsigned int>& index);

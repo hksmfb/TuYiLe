@@ -6,6 +6,7 @@
 
 #include "core_thread_manager.h"
 #include "function_render_renderlist.h"
+#include "function_render_resourceloader.h"
 
 namespace functionlayer {
 namespace render {

@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <array>
+#include <list>
 #include <string>
 #include <vector>
 #include <map>
@@ -22,6 +23,10 @@ void SetViewport(int posx, int posy, int width, int height);
 void ClearColor(int R, int G, int B, float Alpha);
 std::shared_ptr<Mesh> CreateMesh(datatype::Mesh mesh);
 std::shared_ptr<Shader> CreateShader(std::string vertex, std::string fragment);
+void AppendMeshBatch(datatype::Mesh mesh);
+std::list<std::shared_ptr<Mesh>> CreateMeshBatch();
+void AppendShaderBatch(datatype::shadercode shadercode);
+std::list<std::shared_ptr<Shader>> CreateShaderBatch();
 
 void DepthTest(bool b);
 void WireframeMode(bool b);

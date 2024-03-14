@@ -4,7 +4,8 @@ namespace functionlayer {
 namespace scene {
 
 MainScene::MainScene() {
-std::string vert = R"(
+platformlayer::datatype::shadercode shadercode;
+shadercode.vertex_shader_code = R"(
 #version 330 core
 layout (location = 0) in vec3 aPos; // 位置变量的属性位置值为0
 
@@ -16,7 +17,7 @@ void main()
     vertexColor = vec4(0.5, 0.0, 0.0, 1.0); // 把输出变量设置为暗红色
 }
 )";
-std::string frag = R"(
+shadercode.fragment_shader_code = R"(
 #version 330 core
 out vec4 FragColor;
 
@@ -28,7 +29,7 @@ void main()
 }
 )";
 
-render::CreateShader(vert, frag);
+render::resourceloader::CreateShader(shadercode);
 printf("Create Shader\n");
 std::vector<float> vec({
   0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
@@ -42,7 +43,7 @@ std::vector<unsigned int> ind({
 platformlayer::datatype::Mesh mesh;
 mesh.SetVertex(vec);
 mesh.SetIndex(ind);
-render::CreateMesh(mesh);
+render::resourceloader::CreateMesh(mesh);
 printf("Create Mesh\n");
 }
 

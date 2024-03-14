@@ -27,6 +27,16 @@ void OpenGLInterface::SetViewport(int posx, int posy, int width, int height) {
   glViewport(posx, posy, width, height);
 }
 
+std::shared_ptr<RHI::Mesh> OpenGLInterface::CreateMesh(datatype::Mesh mesh) {
+  return std::make_shared<graphicinterface::opengl::OpenGLMesh>(mesh);
+}
+
+std::shared_ptr<RHI::Shader> OpenGLInterface::CreateShader(datatype::shadercode shadercode) {
+  return std::make_shared<graphicinterface::opengl::OpenGLShader>(
+    shadercode.vertex_shader_code, shadercode.fragment_shader_code
+  );
+}
+
 }
 }
 }

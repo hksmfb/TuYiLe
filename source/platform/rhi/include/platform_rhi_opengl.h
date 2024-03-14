@@ -4,7 +4,8 @@
 #include <iostream>
 
 #include "platform_rhi_glinterface.h"
-#include "platform_rhi_shader.h"
+#include "platform_rhi_opengl_mesh.h"
+#include "platform_rhi_opengl_shader.h"
 
 namespace platformlayer {
 namespace graphicinterface {
@@ -17,6 +18,8 @@ class OpenGLInterface : public GLInterface {
   void WindowInit();
   void ClearColor(int R, int G, int B, float Alpha);
   void SetViewport(int posx, int posy, int width, int height);
+  std::shared_ptr<RHI::Mesh> CreateMesh(datatype::Mesh);
+  std::shared_ptr<RHI::Shader> CreateShader(datatype::shadercode shadercode);
  private:
 };
 

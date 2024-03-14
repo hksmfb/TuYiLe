@@ -23,14 +23,9 @@ void RenderPipeline::CreateShaderTask(std::function<void()> task) {
 }
 
 void RenderPipeline::InitShader() {
-  printf("try init\n");
-  create_shader_tasks_lock_.lock();
-  printf("init\n");
-  for (auto& task : create_shader_tasks_) {
-    task();
-  }
-  create_shader_tasks_.clear();
-  create_shader_tasks_lock_.unlock();
+  printf("init shader\n");
+  resourceloader::InitShader();
+  printf("init shader complete\n");
 }
 
 void RenderPipeline::CreateMeshTask(std::function<void()> task) {

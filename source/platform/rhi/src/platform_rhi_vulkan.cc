@@ -42,6 +42,14 @@ void VulkanInterface::SetViewport(int posx, int posy, int width, int height) {
   
 }
 
+std::shared_ptr<RHI::Mesh> VulkanInterface::CreateMesh(datatype::Mesh) {
+  return nullptr;
+}
+
+std::shared_ptr<RHI::Shader> VulkanInterface::CreateShader(datatype::shadercode shadercode) {
+  return nullptr;
+}
+
 void VulkanInterface::CreateInstance() {
   VkApplicationInfo appInfo{};
   appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
