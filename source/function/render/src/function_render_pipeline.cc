@@ -13,14 +13,19 @@ RenderPipeline::~RenderPipeline() {
 }
 
 void RenderPipeline::CreateShaderTask(std::function<void()> task) {
+  printf("try create shader\n");
   create_shader_tasks_lock_.lock();
+  printf("create shader\n");
   create_shader_tasks_.push_back(task);
-  std::cout << create_shader_tasks_.size() << std::endl;
+  // std::cout << create_shader_tasks_.size() << std::endl;
   create_shader_tasks_lock_.unlock();
+  printf("create shader complete\n");
 }
 
 void RenderPipeline::InitShader() {
+  printf("try init\n");
   create_shader_tasks_lock_.lock();
+  printf("init\n");
   for (auto& task : create_shader_tasks_) {
     task();
   }
@@ -31,8 +36,10 @@ void RenderPipeline::InitShader() {
 void RenderPipeline::CreateMeshTask(std::function<void()> task) {
   create_mesh_tasks_lock_.lock();
   create_mesh_tasks_.push_back(task);
-  std::cout << create_mesh_tasks_.size() << std::endl;
+  // printf("mesh task created\n");
+  // std::cout << create_mesh_tasks_.size() << std::endl;
   create_mesh_tasks_lock_.unlock();
+  // printf("create mesh out\n");
 }
 
 void RenderPipeline::InitMesh() {

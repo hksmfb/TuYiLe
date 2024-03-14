@@ -10,6 +10,7 @@ void CreateShader(std::string& vertexshader, std::string& fragmentshader) {
     auto shaderprogram = platformlayer::RHI::CreateShader(vert, frag);
     resourcelayer::resourcemanager->SetShaderProgram(shaderprogram);
   });
+  // printf("CreateShader\n");
 }
 
 void CreateMesh(platformlayer::datatype::Mesh& mesh) {
@@ -18,6 +19,7 @@ void CreateMesh(platformlayer::datatype::Mesh& mesh) {
     auto loadedmesh = platformlayer::RHI::CreateMesh(m);
     resourcelayer::resourcemanager->SetLoadedMesh(loadedmesh);
   });
+  // printf("CreateMesh\n");
 }
 
 }

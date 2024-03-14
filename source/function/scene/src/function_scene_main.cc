@@ -29,7 +29,7 @@ void main()
 )";
 
 render::CreateShader(vert, frag);
-
+printf("Create Shader\n");
 std::vector<float> vec({
   0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
   -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
@@ -43,6 +43,7 @@ platformlayer::datatype::Mesh mesh;
 mesh.SetVertex(vec);
 mesh.SetIndex(ind);
 render::CreateMesh(mesh);
+printf("Create Mesh\n");
 }
 
 MainScene::~MainScene() {
