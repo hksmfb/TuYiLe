@@ -12,7 +12,7 @@
 #include "platform_data_datatype.h"
 
 namespace platformlayer {
-
+namespace file{
 struct image {
   unsigned char* data {nullptr};
   int width {0};
@@ -30,6 +30,7 @@ std::vector<char> BinaryReader(const std::string& path);
 datatype::Texture* ImgReader(std::string path);
 datatype::Mesh* MeshReader(std::string path);
 
+}
 }
 
 

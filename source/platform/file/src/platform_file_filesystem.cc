@@ -1,7 +1,7 @@
 #include "platform_file_filesystem.h"
 
 namespace platformlayer {
-
+namespace file{
 std::string TxtReader(std::string path) {
   std::ifstream infile;
   infile.open(path, std::ios::in);
@@ -35,5 +35,5 @@ datatype::Texture* ImgReader(std::string path) {
   return ret;
 }
 
-
+}
 }

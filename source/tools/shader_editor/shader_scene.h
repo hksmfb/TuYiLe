@@ -4,6 +4,7 @@
 #include "function_scene_scenebase.h"
 #include "function_render_resourceloader.h"
 #include "platform_rhi_rhi.h"
+#include "platform_file_filesystem.h"
 
 class ShaderScene : public functionlayer::scene::SceneBase {
  public:
@@ -11,6 +12,7 @@ class ShaderScene : public functionlayer::scene::SceneBase {
   ~ShaderScene();
   void CreateShader();
  private:
+  std::shared_ptr<platformlayer::RHI::Shader> defaultshader_;
   std::shared_ptr<platformlayer::RHI::Shader> tempshader_;
   std::shared_ptr<platformlayer::RHI::Mesh> currentmesh_;
 };
