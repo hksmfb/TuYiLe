@@ -18,10 +18,11 @@ datatype::keystatus KeyBoard::GetKeyStatus(unsigned short scancode) {
 }
 
 void KeyBoard::SetKey(
-    unsigned short key,
-    unsigned short scancode,
-    unsigned char action,
-    unsigned char mods) {
+  unsigned short key,
+  unsigned short scancode,
+  unsigned char action,
+  unsigned char mods
+) {
   keystatus_[scancode].key = key;
   keystatus_[scancode].scancode = scancode;
   keystatus_[scancode].action = action;

@@ -18,10 +18,11 @@ datatype::keystatus Mouse::GetButtonStatus(unsigned short scancode) {
 }
 
 void Mouse::SetButton(
-    unsigned short key,
-    unsigned short scancode,
-    unsigned char action,
-    unsigned char mods) {
+  unsigned short key,
+  unsigned short scancode,
+  unsigned char action,
+  unsigned char mods
+) {
   buttonstatus_[scancode].key = key;
   buttonstatus_[scancode].scancode = scancode;
   buttonstatus_[scancode].action = action;

@@ -14,12 +14,14 @@ class InputManager {
     unsigned short key,
     unsigned short scancode,
     unsigned char action,
-    unsigned char mods);
+    unsigned char mods
+  );
   void SetMouseButton(
     unsigned short key,
     unsigned short scancode,
     unsigned char action,
-    unsigned char mods);
+    unsigned char mods
+  );
   void SetMousePos(int x, int y);
  private:
   input::Mouse mousestatus_;

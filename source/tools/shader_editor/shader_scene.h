@@ -9,6 +9,7 @@ class ShaderScene : public functionlayer::scene::SceneBase {
  public:
   ShaderScene();
   ~ShaderScene();
+  void CreateShader();
  private:
   std::shared_ptr<platformlayer::RHI::Shader> tempshader_;
   std::shared_ptr<platformlayer::RHI::Mesh> currentmesh_;

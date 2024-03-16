@@ -17,7 +17,8 @@ class Mouse {
     unsigned short key,
     unsigned short scancode,
     unsigned char action,
-    unsigned char mods);
+    unsigned char mods
+  );
   void SetPos(int x, int y);
  private:
   int posx_;
