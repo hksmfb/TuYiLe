@@ -23,7 +23,6 @@ class ResourceManager {
     std::shared_ptr<platformlayer::RHI::Shader> getshader();
     std::shared_ptr<platformlayer::RHI::Mesh> getmesh();
   private:
-
     std::unordered_map<corelayer::guid, std::string> resource_handler_;
     std::unordered_map<corelayer::guid, platformlayer::datatype::Mesh*> meshlist_;
     std::unordered_map<corelayer::guid, platformlayer::datatype::Texture*> texturelist_;

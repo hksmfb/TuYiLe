@@ -27,12 +27,37 @@ target_include_directories(
     ${PROJECT_SOURCE_DIR}/source/tools/main
     ${PROJECT_SOURCE_DIR}/source/3rdparty
     ${PROJECT_SOURCE_DIR}/source/platform
-    ${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/source/core
-    ${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/source/resource
-    ${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/source/function
+    ${PROJECT_SOURCE_DIR}/source/core
+    ${PROJECT_SOURCE_DIR}/source/resource
+    ${PROJECT_SOURCE_DIR}/source/function
 )
 target_link_libraries(
     ${PROJECT_NAME} PRIVATE
+    3rdpartyLib
+    platformLib
+    coreLib
+    resourceLib
+    functionLib
+)
+
+# ShaderEditor
+set(
+    ShaderEditorsource
+    ${PROJECT_SOURCE_DIR}/source/tools/shader_editor/shader_editor.cc
+)
+
+add_executable(ShaderEditor ${ShaderEditorsource})
+target_include_directories(
+    ShaderEditor PUBLIC 
+    ${PROJECT_SOURCE_DIR}/source/tools/shader_editor
+    ${PROJECT_SOURCE_DIR}/source/3rdparty
+    ${PROJECT_SOURCE_DIR}/source/platform
+    ${PROJECT_SOURCE_DIR}/source/core
+    ${PROJECT_SOURCE_DIR}/source/resource
+    ${PROJECT_SOURCE_DIR}/source/function
+)
+target_link_libraries(
+    ShaderEditor PRIVATE
     3rdpartyLib
     platformLib
     coreLib

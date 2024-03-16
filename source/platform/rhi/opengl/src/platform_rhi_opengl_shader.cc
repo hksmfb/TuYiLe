@@ -42,7 +42,7 @@ OpenGLShader::OpenGLShader(
 }
 
 OpenGLShader::~OpenGLShader() {
-
+  glDeleteProgram(id_);
 }
 
 void OpenGLShader::Use() {
