@@ -15,13 +15,17 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/source/core)
 add_subdirectory(${PROJECT_SOURCE_DIR}/source/resource)
 add_subdirectory(${PROJECT_SOURCE_DIR}/source/function)
 
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/TuYiLe/binaryfiles)
+
 # TuYiLe
 set(
     mainsource
     ${PROJECT_SOURCE_DIR}/source/tools/main/main.cc
 )
-
 add_executable(${PROJECT_NAME} ${mainsource})
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/TuYiLe
+)
 target_include_directories(
     ${PROJECT_NAME} PUBLIC 
     ${PROJECT_SOURCE_DIR}/source/tools/main
@@ -47,6 +51,9 @@ set(
 )
 
 add_executable(ShaderEditor ${ShaderEditorsource})
+set_target_properties(ShaderEditor PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/TuYiLe
+)
 target_include_directories(
     ShaderEditor PUBLIC 
     ${PROJECT_SOURCE_DIR}/source/tools/shader_editor

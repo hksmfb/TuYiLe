@@ -1,3 +1,5 @@
+file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/shaders/shadercode)
+
 file(
     GLOB_RECURSE
     platform
@@ -16,7 +18,7 @@ add_library(
 )
 target_include_directories(
     platformLib INTERFACE PUBLIC
-    ${CMAKE_SOURCE_DIR}/source/3rdparty
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/3rdparty
     ${CMAKE_CURRENT_SOURCE_DIR}/rhi/include
     ${CMAKE_CURRENT_SOURCE_DIR}/rhi/vulkan/include
     ${CMAKE_CURRENT_SOURCE_DIR}/rhi/opengl/include
