@@ -15,8 +15,8 @@ class Mesh {
     Mesh& operator=(const Mesh& m);
     void reserve(size_t num_vertices);
     void SetVertex(std::vector<vertex>& vertices);
-    void SetVertex(std::vector<float>& vertices);
-    void SetIndex(std::vector<unsigned int>& indices);
+    void SetVertex(std::vector<float> vertices);
+    void SetIndex(std::vector<unsigned int> indices);
     std::vector<float>& GetVertex();
     std::vector<unsigned int>& GetIndex();
   private:

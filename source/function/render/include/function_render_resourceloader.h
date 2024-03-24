@@ -14,9 +14,11 @@ namespace functionlayer {
 namespace render {
 namespace resourceloader{
 
-void CreateShader(platformlayer::datatype::shadercode& shadercode);
+corelayer::guid CreateShader(platformlayer::datatype::shadercode& shadercode);
+std::shared_ptr<platformlayer::RHI::Shader> GetShader(corelayer::guid guid);
 void InitShader();
 void CreateMesh(platformlayer::datatype::Mesh& mesh);
+std::shared_ptr<platformlayer::RHI::Mesh> GetMesh(corelayer::guid guid);
 void InitMesh();
 
 }

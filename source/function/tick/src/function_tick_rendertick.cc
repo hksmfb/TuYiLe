@@ -15,7 +15,7 @@ void RenderTick::Update() {
   platformlayer::RHI::ClearColor(100,100,100,1);
   render::pipeline::renderpipeline->InitShader();
   render::pipeline::renderpipeline->InitMesh();
-  render::pipeline::renderpipeline->ForwardRendering(&drawbuffer_[current_status_index_]);
+  render::pipeline::renderpipeline->ForwardRendering(drawbuffer_[current_status_index_]);
   platformlayer::windowmanager->Update();
 }
 

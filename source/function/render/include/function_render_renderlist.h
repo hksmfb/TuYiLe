@@ -5,6 +5,7 @@
 
 #include "function_render_renderbase.h"
 #include "function_render_meshrender.h"
+#include "core_guid_manager.h"
 
 namespace functionlayer {
 namespace render{
@@ -14,11 +15,16 @@ public:
   RenderList();
   ~RenderList();
   void AppendRender(RenderBase* render);
-  std::list<RenderBase*>& GetRenderList();
+  std::vector<corelayer::guid> GetShaderList();
+  std::vector<RenderBase*> GetRenderList();
   std::list<MeshRender*>& GetMeshRenderList();
+  std::vector<corelayer::guid> GetShaderList();
+  std::vector<corelayer::guid> GetMeshList();
 private:
-  std::list<RenderBase*> renderlist_;
+  std::vector<RenderBase*> renderlist_;
   std::list<MeshRender*> meshrenderlist_;
+  std::vector<corelayer::guid> shaderlist_;
+  std::vector<corelayer::guid> meshlist_;
 };
 
 }

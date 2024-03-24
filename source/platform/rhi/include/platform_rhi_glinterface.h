@@ -26,17 +26,26 @@ class GLInterface {
   virtual std::shared_ptr<RHI::Mesh> CreateMesh(datatype::Mesh mesh) = 0;
   virtual std::shared_ptr<RHI::Shader> CreateShader(datatype::shadercode shadercode) = 0;
   std::string GetInterfaceName();
-  void AppendShader(datatype::shadercode shadercode);
-  std::list<datatype::shadercode> GetTempShaderSourceList();
-  void AppendMesh(datatype::Mesh mesh);
-  std::list<datatype::Mesh> GetTempMeshList();
+  void AppendShader(datatype::shadercode shadercode, std::shared_ptr<RHI::Shader>* dest);
+  void CreateShaderBatch();
+  void AppendMesh(datatype::Mesh mesh, std::shared_ptr<RHI::Mesh>* dest);
+  void CreateMeshBatch();
  protected:
   std::string interfacename_ {"Vulkan"};
   std::mutex temp_shader_source_lock_;
-  std::list<datatype::shadercode> temp_shader_source_list_;
+  struct shaderinfo {
+    datatype::shadercode code;
+    std::shared_ptr<RHI::Shader>* dest;
+  };
+  std::list<shaderinfo> temp_shader_source_list_;
   std::mutex temp_mesh_list_lock_;
-  std::list<datatype::Mesh> temp_mesh_list_;
+  struct meshinfo {
+    datatype::Mesh mesh;
+    std::shared_ptr<RHI::Mesh>* dest;
+  };
+  std::list<meshinfo> temp_mesh_list_;
  private:
+  
 };
 
 }

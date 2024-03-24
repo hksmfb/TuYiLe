@@ -4,27 +4,26 @@ namespace functionlayer {
 namespace render {
 namespace resourceloader{
 
-void CreateShader(platformlayer::datatype::shadercode& shadercode) {
-  platformlayer::RHI::AppendShaderBatch(shadercode);
+corelayer::guid CreateShader(platformlayer::datatype::shadercode& shadercode) {
+  auto guid = corelayer::guidmanager->RequestGUID();
+  resourcelayer::resourcemanager->SetShader(guid, nullptr);
+  platformlayer::RHI::AppendShaderBatch(shadercode, resourcelayer::resourcemanager->GetShaderAddress(guid));
+  return guid;
 }
 
 void InitShader() {
-  auto shaderlist = platformlayer::RHI::CreateShaderBatch();
-  for (auto& shader : shaderlist) {
-    resourcelayer::resourcemanager->SetShaderProgram(shader);
-  }
+  platformlayer::RHI::CreateShaderBatch();
 }
 
 void CreateMesh(platformlayer::datatype::Mesh& mesh) {
-  platformlayer::RHI::AppendMeshBatch(mesh);
+  auto guid = corelayer::guidmanager->RequestGUID();
+  resourcelayer::resourcemanager->SetMesh(guid, nullptr);
+  platformlayer::RHI::AppendMeshBatch(mesh, resourcelayer::resourcemanager->GetMeshAddress(guid));
   // printf("CreateMesh\n");
 }
 
 void InitMesh() {
-  auto meshlist = platformlayer::RHI::CreateMeshBatch();
-  for (auto& mesh : meshlist) {
-    resourcelayer::resourcemanager->SetLoadedMesh(mesh);
-  }
+  platformlayer::RHI::CreateMeshBatch();
 }
 
 }

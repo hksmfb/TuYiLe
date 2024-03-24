@@ -18,8 +18,8 @@ class RenderPipeline {
   ~RenderPipeline();
   void InitShader();
   void InitMesh();
-  void ForwardRendering(RenderList* renderlist);
-  void DefferedShading(RenderList* renderlist);
+  void ForwardRendering(RenderList& renderlist);
+  void DefferedShading(RenderList& renderlist);
   void Shading();
  private:
   std::mutex create_shader_tasks_lock_;

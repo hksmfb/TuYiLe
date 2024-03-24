@@ -28,30 +28,20 @@ std::shared_ptr<Shader> CreateShader(std::string vertex, std::string fragment) {
   return nullptr;
 }
 
-void AppendMeshBatch(datatype::Mesh mesh) {
-  interface->AppendMesh(mesh);
+void AppendMeshBatch(datatype::Mesh mesh, std::shared_ptr<RHI::Mesh>* dest) {
+  interface->AppendMesh(mesh, dest);
 }
 
-std::list<std::shared_ptr<Mesh>> CreateMeshBatch() {
-  std::list<std::shared_ptr<Mesh>> ret;
-  auto meshlist = interface->GetTempMeshList();
-  for (auto& mesh : meshlist) {
-    ret.push_back(interface->CreateMesh(mesh));
-  }
-  return ret;
+void CreateMeshBatch() {
+  interface->CreateMeshBatch();
 }
 
-void AppendShaderBatch(datatype::shadercode shadercode) {
-  interface->AppendShader(shadercode);
+void AppendShaderBatch(datatype::shadercode shadercode, std::shared_ptr<Shader>* dest) {
+  interface->AppendShader(shadercode, dest);
 }
 
-std::list<std::shared_ptr<Shader>> CreateShaderBatch() {
-  std::list<std::shared_ptr<Shader>> ret;
-  auto shaderlist = interface->GetTempShaderSourceList();
-  for (auto& shader : shaderlist) {
-    ret.push_back(interface->CreateShader(shader));
-  }
-  return ret;
+void CreateShaderBatch() {
+  interface->CreateShaderBatch();
 }
 
 }

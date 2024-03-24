@@ -42,14 +42,14 @@ void Mesh::SetVertex(std::vector<vertex>& vertices) {
   }
 }
 
-void Mesh::SetVertex(std::vector<float>& vertices) {
+void Mesh::SetVertex(std::vector<float> vertices) {
   size_t size = vertices.size();
   vertices_.clear();
   vertices_.reserve(size);
   vertices_ = vertices;
 }
 
-void Mesh::SetIndex(std::vector<unsigned int>& indices) {
+void Mesh::SetIndex(std::vector<unsigned int> indices) {
   size_t size = indices.size();
   indices_.clear();
   indices_.reserve(size);
