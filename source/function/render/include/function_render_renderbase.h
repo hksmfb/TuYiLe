@@ -6,19 +6,28 @@
 
 #include "core_guid_manager.h"
 #include "core_math_vectransform.h"
+#include "resource_manager_resourcemanager.h"
 
 namespace functionlayer {
 namespace render {
 class RenderBase {
  public:
-  void Draw();
-  corelayer::guid GetShader();
-  corelayer::guid GetMesh();
+  virtual void Draw() = 0;
+  void SetShader(corelayer::guid id);
+  void SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader);
+  corelayer::guid GetShaderId();
+  std::shared_ptr<platformlayer::RHI::Shader> GetShader();
+  void SetMesh(corelayer::guid id);
+  void SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh);
+  corelayer::guid GetMeshId();
+  std::shared_ptr<platformlayer::RHI::Mesh> GetMesh();
   corelayer::guid GetTexture();
   corelayer::guid GetNormal();
- private:
-  corelayer::guid shader_ {0};
-  corelayer::guid mesh_ {0};
+ protected:
+  corelayer::guid shaderid_ {0};
+  std::shared_ptr<platformlayer::RHI::Shader> shader_ {nullptr};
+  corelayer::guid meshid_ {0};
+  std::shared_ptr<platformlayer::RHI::Mesh> mesh_ {nullptr};
   corelayer::VecTransform transform_;
   std::unordered_map<std::string, float> floatlist_;
   std::unordered_map<std::string, bool> boollist_;

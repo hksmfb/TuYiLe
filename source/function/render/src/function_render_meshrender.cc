@@ -11,12 +11,8 @@ MeshRender::~MeshRender() {
   
 }
 
-void MeshRender::SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh) {
-  mesh_ = mesh;
-}
-
-void MeshRender::SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader) {
-  shader_ = shader;
+void MeshRender::Draw() {
+  mesh_->Draw();
 }
 
 }

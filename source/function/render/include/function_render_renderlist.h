@@ -15,7 +15,6 @@ public:
   RenderList();
   ~RenderList();
   void AppendRender(RenderBase* render);
-  std::vector<corelayer::guid> GetShaderList();
   std::vector<RenderBase*> GetRenderList();
   std::list<MeshRender*>& GetMeshRenderList();
   std::vector<corelayer::guid> GetShaderList();

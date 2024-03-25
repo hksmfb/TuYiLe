@@ -3,11 +3,39 @@
 namespace functionlayer {
 namespace render {
 
-corelayer::guid RenderBase::GetShader() {
+void RenderBase::SetShader(corelayer::guid id) {
+  shaderid_ = id;
+  shader_ = resourcelayer::resourcemanager->GetShader(id);
+}
+
+void RenderBase::SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader) {
+  shaderid_ = 0;
+  shader_ = shader;
+}
+
+corelayer::guid RenderBase::GetShaderId() {
+  return shaderid_;
+}
+
+std::shared_ptr<platformlayer::RHI::Shader> RenderBase::GetShader() {
   return shader_;
 }
 
-corelayer::guid RenderBase::GetMesh() {
+void RenderBase::SetMesh(corelayer::guid id) {
+  meshid_ = id;
+  mesh_ = resourcelayer::resourcemanager->GetMesh(id);
+}
+
+void RenderBase::SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh) {
+  meshid_ = 0;
+  mesh_ = mesh;
+}
+
+corelayer::guid RenderBase::GetMeshId() {
+  return meshid_;
+}
+
+std::shared_ptr<platformlayer::RHI::Mesh> RenderBase::GetMesh() {
   return mesh_;
 }
 

@@ -3,6 +3,7 @@
 
 #include <functional>
 #include <vector>
+#include <map>
 
 #include "core_thread_manager.h"
 #include "function_render_renderlist.h"
