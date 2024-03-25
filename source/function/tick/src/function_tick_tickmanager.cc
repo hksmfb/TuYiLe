@@ -6,11 +6,8 @@ namespace tick {
 TickManager::TickManager() {
   rendertick_.SetTick(60);
   logictick_.SetTick(60);
-  printf("init logic tick\n");
-  corelayer::threadmanager->SetLogicUpdate([this](){printf("aa\n");this->logictick_.Run();});
-  printf("init render tick\n");
-  corelayer::threadmanager->SetRenderUpdate([this](){printf("bb\n");this->rendertick_.Run();});
-  printf("tick init finish\n");
+  corelayer::threadmanager->SetLogicUpdate([this](){this->logictick_.Run();});
+  corelayer::threadmanager->SetRenderUpdate([this](){this->rendertick_.Run();});
 }
 
 TickManager::~TickManager() {

@@ -22,8 +22,10 @@ void ThreadBase::Run(Function&& func, Args&& ... args) {
 }
 
 void ThreadBase::RunTask(std::function<void()> task) {
+  task_lock_.lock();
   task_ = task;
   occupied_ = true;
+  task_lock_.unlock();
 }
 
 bool ThreadBase::IsOccupied() {
@@ -37,9 +39,11 @@ void ThreadBase::Close() {
 void ThreadBase::loop() {
   while (!shouldclose_) {
     if (occupied_) {
+      task_lock_.lock();
       task_();
       task_ = [](){};
       occupied_ = false;
+      task_lock_.unlock();
     }
   }
 }

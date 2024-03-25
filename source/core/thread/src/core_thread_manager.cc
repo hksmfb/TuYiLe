@@ -20,7 +20,6 @@ void ThreadManager::AppendTask(std::function<void()> task) {
 }
 
 void ThreadManager::SetRenderUpdate(std::function<void()> Run) {
-  printf("set render update start\n");
   renderthread_.RunTask([](){
     platformlayer::windowmanager->InitCurrentThreadContext();
     platformlayer::windowmanager->SetCurrentThreadContext();
@@ -28,20 +27,12 @@ void ThreadManager::SetRenderUpdate(std::function<void()> Run) {
     int height = platformlayer::windowmanager->GetHeight();
     platformlayer::RHI::SetViewport(0, 0, width, height);
   });
-  printf("render init finish\n");
   while (renderthread_.IsOccupied()) {}
-  printf("render run task\n");
   renderthread_.RunTask(Run);
-  printf("set render update finish\n");
 }
 
 void ThreadManager::SetLogicUpdate(std::function<void()> Run) {
-  logicthread_.RunTask([](){
-    
-  });
-  while (logicthread_.IsOccupied()) {}
-  renderthread_.RunTask(Run);
-  printf("set logic update finish\n");
+  logicthread_.RunTask(Run);
 }
 
 void ThreadManager::UpdateThreadPool() {

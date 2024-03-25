@@ -8,7 +8,7 @@ void SceneBase::Draw() {
 }
 
 void SceneBase::Update() {
-  printf("scene update\n");
+  
 }
 
 functionlayer::render::RenderList SceneBase::GetRenderList() {

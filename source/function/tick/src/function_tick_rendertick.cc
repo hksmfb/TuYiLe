@@ -12,7 +12,6 @@ RenderTick::~RenderTick() {
 }
 
 void RenderTick::Update() {
-  printf("render update\n");
   platformlayer::RHI::ClearColor(100,100,100,1);
   render::pipeline::renderpipeline->InitShader();
   render::pipeline::renderpipeline->InitMesh();

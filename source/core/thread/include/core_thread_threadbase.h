@@ -3,6 +3,7 @@
 
 #include <thread>
 #include <functional>
+#include <mutex>
 
 #include "platform_window_manager.h"
 
@@ -20,6 +21,7 @@ class ThreadBase {
   void Close();
  private:
   void loop();
+  std::mutex task_lock_;
   std::function<void()> task_;
   bool shouldclose_ {false};
   bool occupied_ {false};

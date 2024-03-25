@@ -19,7 +19,6 @@ void CreateMesh(platformlayer::datatype::Mesh& mesh) {
   auto guid = corelayer::guidmanager->RequestGUID();
   resourcelayer::resourcemanager->SetMesh(guid, nullptr);
   platformlayer::RHI::AppendMeshBatch(mesh, resourcelayer::resourcemanager->GetMeshAddress(guid));
-  // printf("CreateMesh\n");
 }
 
 void InitMesh() {
