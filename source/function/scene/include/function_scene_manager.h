@@ -9,10 +9,11 @@ namespace scene {
 class SceneManager {
  public:
   SceneManager();
+  SceneManager(SceneBase* scene);
   ~SceneManager();
   SceneBase* GetScene();
  private:
-  SceneBase* scene_;
+  SceneBase* scene_ {nullptr};
 };
 
 extern SceneManager* scenemanager;

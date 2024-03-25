@@ -12,7 +12,6 @@ class MainScene : public SceneBase {
  public:
   MainScene();
   ~MainScene();
-  void Update();
   void Draw();
  private:
   platformlayer::RHI::Mesh* mesh_;

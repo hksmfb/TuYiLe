@@ -47,6 +47,7 @@ target_link_libraries(
 # ShaderEditor
 set(
     ShaderEditorsource
+    ${PROJECT_SOURCE_DIR}/source/tools/shader_editor/shader_scene.cc
     ${PROJECT_SOURCE_DIR}/source/tools/shader_editor/shader_editor.cc
 )
 
@@ -56,12 +57,12 @@ set_target_properties(ShaderEditor PROPERTIES
 )
 target_include_directories(
     ShaderEditor PUBLIC 
-    ${PROJECT_SOURCE_DIR}/source/tools/shader_editor
     ${PROJECT_SOURCE_DIR}/source/3rdparty
     ${PROJECT_SOURCE_DIR}/source/platform
     ${PROJECT_SOURCE_DIR}/source/core
     ${PROJECT_SOURCE_DIR}/source/resource
     ${PROJECT_SOURCE_DIR}/source/function
+    ${PROJECT_SOURCE_DIR}/source/tools/shader_editor
 )
 target_link_libraries(
     ShaderEditor PRIVATE

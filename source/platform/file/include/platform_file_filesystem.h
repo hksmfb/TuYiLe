@@ -7,6 +7,7 @@
 #include <vector>
 
 #define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_STATIC
 #include "stb_image.h"
 
 #include "platform_data_datatype.h"

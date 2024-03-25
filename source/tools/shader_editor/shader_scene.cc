@@ -21,6 +21,7 @@ ShaderScene::ShaderScene() {
     1, 2, 3
   }));
   meshrender_.SetShader(defaultshader_);
+  
 }
 
 ShaderScene::~ShaderScene() {

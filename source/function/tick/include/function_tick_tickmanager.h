@@ -13,8 +13,10 @@ class TickManager {
   TickManager();
   ~TickManager();
   void Run();
+  void LogicUpdate();
   void SetMaxFps(int max_fps);
   void SetMaxTick(int max_tick);
+
  private:
   RenderTick rendertick_;
   LogicTick logictick_;

@@ -4,8 +4,13 @@ namespace functionlayer {
 namespace tick {
 
 TickManager::TickManager() {
-  rendertick_.SetTick(30);
-  corelayer::threadmanager->SetRenderUpdate([this](){this->rendertick_.Run();});
+  rendertick_.SetTick(60);
+  logictick_.SetTick(60);
+  printf("init logic tick\n");
+  corelayer::threadmanager->SetLogicUpdate([this](){printf("aa\n");this->logictick_.Run();});
+  printf("init render tick\n");
+  corelayer::threadmanager->SetRenderUpdate([this](){printf("bb\n");this->rendertick_.Run();});
+  printf("tick init finish\n");
 }
 
 TickManager::~TickManager() {
@@ -13,6 +18,10 @@ TickManager::~TickManager() {
 }
 
 void TickManager::Run() {
+
+}
+
+void TickManager::LogicUpdate() {
   
 }
 

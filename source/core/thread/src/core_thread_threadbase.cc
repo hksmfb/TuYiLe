@@ -6,13 +6,13 @@ namespace threadpool {
 ThreadBase::ThreadBase() {
   task_ = [](){};
   thread_ = std::thread(&ThreadBase::loop, this);
+  thread_.detach();
 }
 
 ThreadBase::~ThreadBase() {
   occupied_ = false;
   shouldclose_ = true;
   task_ = [](){};
-  thread_.join();
 }
 
 template<typename Function, typename ... Args>

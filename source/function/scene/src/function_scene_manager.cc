@@ -7,8 +7,12 @@ SceneManager::SceneManager() {
   scene_ = new MainScene();
 }
 
-SceneManager::~SceneManager() {
+SceneManager::SceneManager(SceneBase* scene) {
+  scene_ = scene;
+}
 
+SceneManager::~SceneManager() {
+  delete scene_;
 }
 
 SceneBase* SceneManager::GetScene() {

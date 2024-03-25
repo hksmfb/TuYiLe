@@ -9,6 +9,7 @@
 #include "resource_manager_resourcemanager.h"
 #include "function_tick_tickmanager.h"
 #include "function_scene_manager.h"
+#include "function_scene_main.h"
 
 void GlobalVarInit() {
   platformlayer::windowmanager = new platformlayer::WindowManager(800, 800, "TuYiLe");
@@ -17,9 +18,9 @@ void GlobalVarInit() {
   corelayer::guidmanager = new corelayer::GUIDManager();
   corelayer::threadmanager = new corelayer::ThreadManager();
   resourcelayer::resourcemanager = new resourcelayer::ResourceManager();
-  functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
   functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();
   functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager();
+  functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
 }
 
 #endif
