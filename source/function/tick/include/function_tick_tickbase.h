@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <vector>
 #include <list>
+#include <chrono>
 
 #include "platform_time_timer.h"
 #include "function_scene_manager.h"

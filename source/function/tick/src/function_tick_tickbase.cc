@@ -6,6 +6,8 @@ namespace tick {
 void TickBase::Run() {
   while (!shouldstop_) {
     if (platformlayer::GetTime()-time_ <dt_) {
+      auto time_point = std::chrono::steady_clock::now()+std::chrono::milliseconds(int(dt_*1000));
+      std::this_thread::sleep_until(time_point);
       continue;
     }
     time_ = platformlayer::GetTime();
