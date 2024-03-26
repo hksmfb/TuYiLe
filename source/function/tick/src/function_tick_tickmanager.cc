@@ -4,8 +4,8 @@ namespace functionlayer {
 namespace tick {
 
 TickManager::TickManager() {
-  rendertick_.SetTick(60);
-  logictick_.SetTick(60);
+  rendertick_.SetTick(30);
+  logictick_.SetTick(30);
   corelayer::threadmanager->SetLogicUpdate([this](){this->logictick_.Run();});
   corelayer::threadmanager->SetRenderUpdate([this](){this->rendertick_.Run();});
 }

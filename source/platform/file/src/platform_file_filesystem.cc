@@ -18,20 +18,24 @@ std::vector<std::vector<std::string>> CsvReader(std::string path) {
   std::vector<std::vector<std::string>> ret;
   std::ifstream infile;
   infile.open(path, std::ios::in);
-  std::string str;
+  std::string line;
+  std::vector<std::string> templine;
   while (!infile.eof()) {
-    str.clear();
-    std::getline(infile, str);
+    line.clear();
+    std::getline(infile, line);
     std::size_t previous = 0;
-    std::size_t current = str.find(',');
+    std::size_t current = line.find(',');
     int id = 0;
+    templine.clear();
     while (current != std::string::npos) {
       if (current > previous) {
-        ret[id++].push_back(str.substr(previous, current - previous));
+        templine.push_back(line.substr(previous, current - previous));
       }
       previous = current + 1;
-      current = str.find(',', previous);
+      current = line.find(',', previous);
     }
+    templine.push_back(line.substr(previous, std::string::npos));
+    ret.push_back(std::move(templine));
   }
   return ret;
 }
