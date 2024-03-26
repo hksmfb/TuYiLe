@@ -2,6 +2,7 @@
 
 namespace platformlayer {
 namespace file{
+
 std::string TxtReader(std::string path) {
   std::ifstream infile;
   infile.open(path, std::ios::in);
@@ -10,6 +11,28 @@ std::string TxtReader(std::string path) {
   std::string ret;
   ret = str.str();
   infile.close();
+  return ret;
+}
+
+std::vector<std::vector<std::string>> CsvReader(std::string path) {
+  std::vector<std::vector<std::string>> ret;
+  std::ifstream infile;
+  infile.open(path, std::ios::in);
+  std::string str;
+  while (!infile.eof()) {
+    str.clear();
+    std::getline(infile, str);
+    std::size_t previous = 0;
+    std::size_t current = str.find(',');
+    int id = 0;
+    while (current != std::string::npos) {
+      if (current > previous) {
+        ret[id++].push_back(str.substr(previous, current - previous));
+      }
+      previous = current + 1;
+      current = str.find(',', previous);
+    }
+  }
   return ret;
 }
 

@@ -27,6 +27,7 @@ struct image {
 };
 
 std::string TxtReader(std::string path);
+std::vector<std::vector<std::string>> CsvReader(std::string path);
 std::vector<char> BinaryReader(const std::string& path);
 datatype::Texture* ImgReader(std::string path);
 datatype::Mesh* MeshReader(std::string path);
