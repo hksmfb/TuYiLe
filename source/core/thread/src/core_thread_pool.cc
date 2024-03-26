@@ -5,9 +5,9 @@ namespace threadpool{
 
 ThreadPool::ThreadPool() {
   max_thread_num_ = std::thread::hardware_concurrency();
-  for (int i = 0; i < 2; ++i) {
-    threadlist_.push_back(new ThreadBase());
-  }
+  // for (int i = 0; i < 2; ++i) {
+  //   threadlist_.push_back(new ThreadBase());
+  // }
 }
 
 ThreadPool::~ThreadPool() {
