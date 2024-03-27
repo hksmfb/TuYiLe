@@ -5,7 +5,11 @@ namespace corelayer {
 GUIDManager::GUIDManager() {
   resource_handler_ = new std::unordered_map<corelayer::guid, std::string>();
   std::vector<std::vector<std::string>> reserved = platformlayer::file::CsvReader("guid/reserved_value.csv");
-  platformlayer::file::MeshReader("mesh/rect");
+  resource_handler_->reserve(reserved.size());
+  for (auto& line : reserved) {
+    corelayer::guid id = std::stoull(line[0]);
+    (*resource_handler_)[id] = line[1];
+  }
 }
 
 GUIDManager::~GUIDManager() {
