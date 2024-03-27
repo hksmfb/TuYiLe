@@ -9,6 +9,7 @@
 #include "platform_data_texture.h"
 #include "platform_data_mesh.h"
 #include "platform_data_shadercode.h"
+#include "platform_data_path.h"
 
 namespace platformlayer{
 namespace datatype{
