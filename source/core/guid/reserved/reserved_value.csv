@@ -1,3 +1,4 @@
 0, NULL
+1001,mesh/rect
 3000,shaders/shadercode/default/default.vs
 3001,shaders/shadercode/default/default.fs
