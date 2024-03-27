@@ -61,5 +61,28 @@ datatype::Texture* ImgReader(platformlayer::datatype::Path path) {
   return ret;
 }
 
+datatype::Mesh MeshReader(platformlayer::datatype::Path path) {
+  std::vector<unsigned int> index;
+  std::vector<float> vertex;
+  std::ifstream infile;
+  infile.open(path.data(), std::ios::in);
+  unsigned int size;
+  infile >> size;
+  index.reserve(size);
+  unsigned int ui;
+  for (auto i = 0; i < size; ++i) {
+    infile >> ui;
+    index.push_back(ui);
+  }
+  float f;
+  while (infile >> f) {
+    vertex.push_back(f);
+  }
+  datatype::Mesh ret;
+  ret.SetIndex(index);
+  ret.SetVertex(vertex);
+  return ret;
+}
+
 }
 }
