@@ -1,1 +1,3 @@
 0, NULL
+3000,shaders/shadercode/default/default.vs
+3001,shaders/shadercode/default/default.fs
