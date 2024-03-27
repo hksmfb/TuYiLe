@@ -25,7 +25,6 @@ std::vector<std::vector<std::string>> CsvReader(std::string path) {
     std::getline(infile, line);
     std::size_t previous = 0;
     std::size_t current = line.find(',');
-    int id = 0;
     templine.clear();
     while (current != std::string::npos) {
       if (current > previous) {
