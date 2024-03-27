@@ -1,8 +1,3 @@
-file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/shaders/shadercode)
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/rhi/shaders/
-     DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/shaders/shadercode
-     FILES_MATCHING PATTERN "*")
-
 file(
     GLOB_RECURSE
     platform
