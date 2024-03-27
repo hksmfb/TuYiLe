@@ -11,7 +11,9 @@ class Path {
  public:
   Path();
   Path(std::string path);
+  Path(const char* path);
   ~Path();
+  Path operator=(const char* path);
   std::string data();
   std::vector<std::string> GetPath();
  private:

@@ -14,10 +14,10 @@ std::string TxtReader(std::string path) {
   return ret;
 }
 
-std::vector<std::vector<std::string>> CsvReader(std::string path) {
+std::vector<std::vector<std::string>> CsvReader(platformlayer::datatype::Path path) {
   std::vector<std::vector<std::string>> ret;
   std::ifstream infile;
-  infile.open(path, std::ios::in);
+  infile.open(path.data(), std::ios::in);
   std::string line;
   std::vector<std::string> templine;
   while (!infile.eof()) {

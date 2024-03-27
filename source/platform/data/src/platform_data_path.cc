@@ -1,5 +1,5 @@
 #include "platform_data_path.h"
-
+#include <iostream>
 namespace platformlayer {
 namespace datatype {
 
@@ -17,6 +17,25 @@ Path::Path(std::string path) {
   }
 }
 
+Path::Path(const char* path) {
+  auto str = std::string(path);
+  if (str.find('/') != std::string::npos) {
+    file_path_ = split(path, '/');
+  } else if (str.find('\\') != std::string::npos) {
+    file_path_ = split(path, '\\');
+  } else {
+
+  }
+}
+
+Path::~Path() {
+
+}
+
+Path Path::operator=(const char* path) {
+  return Path(path);
+}
+
 std::vector<std::string> Path::split(std::string str,char delim) {
   std::vector<std::string> ret;
   std::size_t previous = 0;
@@ -31,10 +50,6 @@ std::vector<std::string> Path::split(std::string str,char delim) {
   }
   ret.push_back(str.substr(previous, std::string::npos));
   return ret;
-}
-
-Path::~Path() {
-
 }
 
 std::string Path::data() {
