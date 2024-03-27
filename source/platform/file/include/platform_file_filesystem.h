@@ -26,11 +26,11 @@ struct image {
   }
 };
 
-std::string TxtReader(std::string path);
+std::string TxtReader(platformlayer::datatype::Path path);
 std::vector<std::vector<std::string>> CsvReader(platformlayer::datatype::Path path);
-std::vector<char> BinaryReader(const std::string& path);
-datatype::Texture* ImgReader(std::string path);
-datatype::Mesh* MeshReader(std::string path);
+std::vector<char> BinaryReader(platformlayer::datatype::Path path);
+datatype::Texture* ImgReader(platformlayer::datatype::Path path);
+datatype::Mesh* MeshReader(platformlayer::datatype::Path path);
 
 }
 }
