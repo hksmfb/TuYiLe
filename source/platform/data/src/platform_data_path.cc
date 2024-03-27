@@ -8,9 +8,9 @@ Path::Path() {
 }
 
 Path::Path(std::string path) {
-  if (path.contains('/')) {
+  if (path.find('/') != std::string::npos) {
     file_path_ = split(path, '/');
-  } else if (path.contains('\\')) {
+  } else if (path.find('\\') != std::string::npos) {
     file_path_ = split(path, '\\');
   } else {
 
@@ -30,6 +30,7 @@ std::vector<std::string> Path::split(std::string str,char delim) {
     current = str.find(delim, previous);
   }
   ret.push_back(str.substr(previous, std::string::npos));
+  return ret;
 }
 
 Path::~Path() {

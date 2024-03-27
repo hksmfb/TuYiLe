@@ -6,6 +6,7 @@
 
 #include "core_thread_manager.h"
 #include "platform_file_filesystem.h"
+#include "platform_data_path.h"
 
 namespace corelayer {
 

@@ -15,6 +15,7 @@ class Path {
   std::string data();
   std::vector<std::string> GetPath();
  private:
+  std::vector<std::string> split(std::string str,char delim);
   std::vector<std::string> file_path_;
 };
 
