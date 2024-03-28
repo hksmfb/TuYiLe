@@ -3,6 +3,7 @@
 
 #include "function_render_renderlist.h"
 #include "platform_file_filesystem.h"
+#include "function_gameobject_manager.h"
 
 namespace functionlayer {
 namespace scene{
@@ -11,10 +12,14 @@ class SceneBase {
  public:
   void Draw();
   void Update();
-  functionlayer::render::RenderList GetRenderList();
+  gameobject::gouid AppendGameObject(std::shared_ptr<gameobject::GameObjectBase> object);
+  void SetGameObject(gameobject::gouid id, std::shared_ptr<gameobject::GameObjectBase> object);
+  std::shared_ptr<gameobject::GameObjectBase> GetGameObject(gameobject::gouid id);
+  render::RenderList GetRenderList();
  protected:
-  functionlayer::render::RenderList renderlist_;
+  render::RenderList renderlist_;
  private:
+  gameobject::GameObjectManager GOmanager_;
 };
 
 }
