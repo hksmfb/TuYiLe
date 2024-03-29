@@ -7,7 +7,7 @@ int main() {
   while (platformlayer::windowmanager->isRunning()) {
     auto time_point = std::chrono::steady_clock::now()+std::chrono::milliseconds(1000);
     std::this_thread::sleep_until(time_point);
-    corelayer::threadmanager->UpdateThreadPool();
+    corelayer::thread::threadmanager->UpdateThreadPool();
   }
   return 0;
 }

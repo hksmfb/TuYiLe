@@ -8,6 +8,7 @@
 #include "platform_window_manager.h"
 
 namespace corelayer {
+namespace thread{
 namespace threadpool {
 
 class ThreadBase {
@@ -28,6 +29,7 @@ class ThreadBase {
   std::thread thread_;
 };
 
+}
 }
 }
 

@@ -17,7 +17,7 @@ class MeshRender : public RenderBase{
   MeshRender();
   ~MeshRender();
   void SetTexture(platformlayer::datatype::Texture* texture);
-  void SetTransform(const corelayer::VecTransform& trans);
+  void SetTransform(const corelayer::math::VecTransform& trans);
   void Draw();
   void DrawInstance();
   void SetBool(const std::string &name, bool value);
@@ -27,7 +27,7 @@ class MeshRender : public RenderBase{
   void SetVec3(const std::string &name, const glm::vec3& vec);
  private:
   platformlayer::datatype::Texture* texture_;
-  corelayer::VecTransform transform_;
+  corelayer::math::VecTransform transform_;
   std::unordered_map<std::string, float> floatlist_;
   std::unordered_map<std::string, bool> boollist_;
   std::unordered_map<std::string, int> intlist_;

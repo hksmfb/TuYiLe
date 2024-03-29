@@ -3,6 +3,7 @@
 #include <iostream>
 
 namespace corelayer {
+namespace math{
 
 VecTransform::VecTransform() {
 
@@ -199,6 +200,7 @@ void VecTransform::Perspective() {
   projection_ = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
 }
 
+}
 }
 
 

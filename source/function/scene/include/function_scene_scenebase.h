@@ -10,9 +10,10 @@ namespace scene{
 
 class SceneBase {
  public:
-  void Draw();
+  void Init();
   void Update();
-  gameobject::gouid AppendGameObject(std::shared_ptr<gameobject::GameObjectBase> object);
+  void Draw();
+  gameobject::gouid CreateGameObject(std::shared_ptr<gameobject::GameObjectBase> object);
   void SetGameObject(gameobject::gouid id, std::shared_ptr<gameobject::GameObjectBase> object);
   std::shared_ptr<gameobject::GameObjectBase> GetGameObject(gameobject::gouid id);
   render::RenderList GetRenderList();

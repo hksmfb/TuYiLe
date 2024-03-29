@@ -28,7 +28,7 @@ class RenderBase {
   std::shared_ptr<platformlayer::RHI::Shader> shader_ {nullptr};
   corelayer::guid meshid_ {0};
   std::shared_ptr<platformlayer::RHI::Mesh> mesh_ {nullptr};
-  corelayer::VecTransform transform_;
+  corelayer::math::VecTransform transform_;
   std::unordered_map<std::string, float> floatlist_;
   std::unordered_map<std::string, bool> boollist_;
   std::unordered_map<std::string, int> intlist_;

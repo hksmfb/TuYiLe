@@ -16,6 +16,7 @@
 #include "platform_rhi_rhi.h"
 
 namespace corelayer {
+namespace thread {
 
 class ThreadManager {
  public:
@@ -41,6 +42,7 @@ class ThreadManager {
 
 extern ThreadManager* threadmanager;
 
+}
 }
 
 #endif

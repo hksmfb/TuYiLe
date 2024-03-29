@@ -8,6 +8,7 @@
 #include "core_thread_threadbase.h"
 
 namespace corelayer {
+namespace thread{
 namespace threadpool{
 
 class ThreadPool {
@@ -30,6 +31,7 @@ class ThreadPool {
   // std::thread updatethread_;
 };
 
+}
 }
 }
 

@@ -1,6 +1,7 @@
 #include "core_thread_pool.h"
 
 namespace corelayer {
+namespace thread{
 namespace threadpool{
 
 ThreadPool::ThreadPool() {
@@ -86,5 +87,6 @@ void ThreadPool::Run(Function&& func, Args&& ... args) {
   tasklist_.push_back(task);
 }
 
+}
 }
 }

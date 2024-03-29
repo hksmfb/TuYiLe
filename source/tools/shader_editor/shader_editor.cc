@@ -3,7 +3,7 @@
 int main() {
   GlobalVarInit();
   while (platformlayer::windowmanager->isRunning()) {
-    corelayer::threadmanager->UpdateThreadPool();
+    corelayer::thread::threadmanager->UpdateThreadPool();
   }
   return 0;
 }

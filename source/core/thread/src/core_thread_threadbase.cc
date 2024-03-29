@@ -1,6 +1,7 @@
 #include "core_thread_threadbase.h"
 
 namespace corelayer {
+namespace thread{
 namespace threadpool {
 
 ThreadBase::ThreadBase() {
@@ -48,5 +49,6 @@ void ThreadBase::loop() {
   }
 }
 
+}
 }
 }

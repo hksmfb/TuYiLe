@@ -3,7 +3,7 @@
 namespace functionlayer {
 namespace scene {
 
-void SceneBase::Draw() {
+void SceneBase::Init() {
 
 }
 
@@ -11,7 +11,12 @@ void SceneBase::Update() {
   
 }
 
-gameobject::gouid SceneBase::AppendGameObject(std::shared_ptr<gameobject::GameObjectBase> object) {
+
+void SceneBase::Draw() {
+
+}
+
+gameobject::gouid SceneBase::CreateGameObject(std::shared_ptr<gameobject::GameObjectBase> object) {
   return GOmanager_.AppendGameObject(object);
 }
 

@@ -9,6 +9,7 @@ namespace gameobject {
 
 class GameObjectBase {
  public:
+  void SetAsset(corelayer::guid id);
  private:
   corelayer::guid asset_id_;
   resourcelayer::Asset* asset_ {nullptr};

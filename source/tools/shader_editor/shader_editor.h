@@ -16,7 +16,7 @@ void GlobalVarInit() {
   platformlayer::graphicinterface::RhiInitializer("OpenGL");
   platformlayer::inputmanager = new platformlayer::InputManager();
   corelayer::guidmanager = new corelayer::GUIDManager();
-  corelayer::threadmanager = new corelayer::ThreadManager();
+  corelayer::thread::threadmanager = new corelayer::thread::ThreadManager();
   resourcelayer::resourcemanager = new resourcelayer::ResourceManager();
   functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
   functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();

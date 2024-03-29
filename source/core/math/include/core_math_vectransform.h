@@ -7,6 +7,7 @@
 #include "glm/gtc/type_ptr.hpp"
 
 namespace corelayer {
+namespace math{
 
 struct floatvec2 {
   float x{0};
@@ -122,6 +123,7 @@ class VecTransform {
     glm::mat4 model_ {glm::mat4(1.0f)};
 };
 
+}
 }
 
 

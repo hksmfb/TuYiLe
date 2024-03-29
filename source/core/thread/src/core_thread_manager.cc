@@ -1,6 +1,7 @@
 #include "core_thread_manager.h"
 
 namespace corelayer {
+namespace thread {
 
 ThreadManager::ThreadManager() {
   current_time_ = platformlayer::GetTime();
@@ -44,4 +45,5 @@ void ThreadManager::UpdateThreadPool() {
 
 ThreadManager* threadmanager = NULL;
 
+}
 }
