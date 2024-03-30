@@ -5,6 +5,8 @@ namespace scene {
 
 SceneManager::SceneManager() {
   scene_ = new MainScene();
+  //init console
+  //regist func;
 }
 
 SceneManager::SceneManager(SceneBase* scene) {
@@ -17,6 +19,13 @@ SceneManager::~SceneManager() {
 
 SceneBase* SceneManager::GetScene() {
   return scene_;
+}
+
+void SceneManager::RunCommand(std::string command) {
+  //todo
+  #ifdef DEVMOD
+    std::cout << "SceneManager::RunCommand(" << command << ")\n";
+  #endif
 }
 
 SceneManager* scenemanager = nullptr;
