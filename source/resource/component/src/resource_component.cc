@@ -1,28 +1,28 @@
-#include "resource_component.h"
+#include "resource_component_componentbase.h"
 
 namespace resourcelayer {
 
-Component::Component() {
+ComponentBase::ComponentBase() {
 
 }
 
-Component::~Component() {
+ComponentBase::~ComponentBase() {
 
 }
 
-void Component::SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh) {
+void ComponentBase::SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh) {
   mesh_ = mesh;
 }
 
-std::shared_ptr<platformlayer::RHI::Mesh> Component::GetMesh() {
+std::shared_ptr<platformlayer::RHI::Mesh> ComponentBase::GetMesh() {
   return mesh_;
 }
 
-void Component::SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader) {
+void ComponentBase::SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader) {
   shader_ = shader;
 }
 
-std::shared_ptr<platformlayer::RHI::Shader> Component::Getshader() {
+std::shared_ptr<platformlayer::RHI::Shader> ComponentBase::Getshader() {
   return shader_;
 }
 

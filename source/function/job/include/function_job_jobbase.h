@@ -1,5 +1,5 @@
-#ifndef CORE_JOB_H_
-#define CORE_JOB_H_
+#ifndef FUNCTION_JOB_JOBBASE_H_
+#define FUNCTION_JOB_JOBBASE_H_
 
 // #include "core_pool.h"
 

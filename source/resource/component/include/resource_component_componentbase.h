@@ -8,10 +8,10 @@
 
 namespace resourcelayer {
 
-class Component {
+class ComponentBase {
  public:
-  Component();
-  ~Component();
+  ComponentBase();
+  ~ComponentBase();
   void SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh);
   std::shared_ptr<platformlayer::RHI::Mesh> GetMesh();
   void SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader);
