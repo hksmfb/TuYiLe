@@ -12,6 +12,7 @@
 #include "core_thread_header.h"
 
 #include "resource_manager_header.h"
+#include "resource_asset_header.h"
 #include "resource_component_header.h"
 
 #include "function_render_header.h"
