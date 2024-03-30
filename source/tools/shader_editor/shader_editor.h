@@ -17,7 +17,7 @@ void GlobalVarInit() {
   platformlayer::inputmanager = new platformlayer::InputManager();
   corelayer::guidmanager = new corelayer::GUIDManager();
   corelayer::thread::threadmanager = new corelayer::thread::ThreadManager();
-  resourcelayer::resourcemanager = new resourcelayer::ResourceManager();
+  resourcelayer::manager::resourcemanager = new resourcelayer::manager::ResourceManager();
   functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
   functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();
   functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager(new ShaderScene());

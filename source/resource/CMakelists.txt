@@ -17,6 +17,7 @@ file(
     GLOB_RECURSE
     resource
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/asset/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/component/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/texture/src/*.cc
 )
@@ -27,6 +28,7 @@ add_library(
 target_include_directories(
     resourceLib INTERFACE PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/asset/include
     ${CMAKE_CURRENT_SOURCE_DIR}/component/include
     ${CMAKE_CURRENT_SOURCE_DIR}/texture/include
 )

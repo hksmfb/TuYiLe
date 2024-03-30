@@ -6,8 +6,8 @@ namespace resourceloader{
 
 corelayer::guid CreateShader(platformlayer::datatype::shadercode& shadercode) {
   auto guid = corelayer::guidmanager->RequestGUID();
-  resourcelayer::resourcemanager->SetShader(guid, nullptr);
-  platformlayer::RHI::AppendShaderBatch(shadercode, resourcelayer::resourcemanager->GetShaderAddress(guid));
+  resourcelayer::manager::resourcemanager->SetShader(guid, nullptr);
+  platformlayer::RHI::AppendShaderBatch(shadercode, resourcelayer::manager::resourcemanager->GetShaderAddress(guid));
   return guid;
 }
 
@@ -17,8 +17,8 @@ void InitShader() {
 
 void CreateMesh(platformlayer::datatype::Mesh& mesh) {
   auto guid = corelayer::guidmanager->RequestGUID();
-  resourcelayer::resourcemanager->SetMesh(guid, nullptr);
-  platformlayer::RHI::AppendMeshBatch(mesh, resourcelayer::resourcemanager->GetMeshAddress(guid));
+  resourcelayer::manager::resourcemanager->SetMesh(guid, nullptr);
+  platformlayer::RHI::AppendMeshBatch(mesh, resourcelayer::manager::resourcemanager->GetMeshAddress(guid));
 }
 
 void InitMesh() {

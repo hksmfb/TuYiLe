@@ -1,6 +1,7 @@
 #include "resource_manager_resourcemanager.h"
 
 namespace resourcelayer {
+namespace manager {
 
 ResourceManager::ResourceManager() {
 
@@ -50,4 +51,5 @@ std::shared_ptr<platformlayer::RHI::Mesh> ResourceManager::GetMesh(corelayer::gu
 
 ResourceManager* resourcemanager = nullptr;
 
+}
 }

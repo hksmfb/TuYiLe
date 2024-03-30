@@ -38,8 +38,6 @@ class ThreadManager {
   threadpool::ThreadPool threadpool_;
 };
 
-
-
 extern ThreadManager* threadmanager;
 
 }

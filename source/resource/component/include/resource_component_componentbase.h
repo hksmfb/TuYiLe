@@ -7,6 +7,7 @@
 #include "platform_rhi_shader.h"
 
 namespace resourcelayer {
+namespace component {
 
 class ComponentBase {
  public:
@@ -22,6 +23,6 @@ class ComponentBase {
 };
 
 }
-
+}
 
 #endif

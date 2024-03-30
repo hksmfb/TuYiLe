@@ -12,7 +12,7 @@ class GameObjectBase {
   void SetAsset(corelayer::guid id);
  private:
   corelayer::guid asset_id_;
-  resourcelayer::Asset* asset_ {nullptr};
+  resourcelayer::asset::AssetBase* asset_ {nullptr};
 };
 
 }

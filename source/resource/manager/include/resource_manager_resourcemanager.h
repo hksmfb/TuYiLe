@@ -13,6 +13,7 @@
 #include "platform_rhi_mesh.h"
 
 namespace resourcelayer {
+namespace manager {
 
 class ResourceManager {
  public:
@@ -39,6 +40,7 @@ class ResourceManager {
 
 extern ResourceManager* resourcemanager;
 
+}
 }
 
 #endif

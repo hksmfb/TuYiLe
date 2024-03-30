@@ -1,6 +1,15 @@
-#ifndef RESOURCE_ASSET_HEADER_H_
-#define RESOURCE_ASSET_HEADER_H_
+#ifndef RESOURCE_ASSET_ASSETBASE_H_
+#define RESOURCE_ASSET_ASSETBASE_H_
 
-#include "resource_asset_header.h"
+namespace resourcelayer {
+namespace asset {
+
+class AssetBase {
+ public:
+ private:
+};
+
+}
+}
 
 #endif

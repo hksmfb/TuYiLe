@@ -5,7 +5,7 @@ namespace render {
 
 void RenderBase::SetShader(corelayer::guid id) {
   shaderid_ = id;
-  shader_ = resourcelayer::resourcemanager->GetShader(id);
+  shader_ = resourcelayer::manager::resourcemanager->GetShader(id);
 }
 
 void RenderBase::SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader) {
@@ -23,7 +23,7 @@ std::shared_ptr<platformlayer::RHI::Shader> RenderBase::GetShader() {
 
 void RenderBase::SetMesh(corelayer::guid id) {
   meshid_ = id;
-  mesh_ = resourcelayer::resourcemanager->GetMesh(id);
+  mesh_ = resourcelayer::manager::resourcemanager->GetMesh(id);
 }
 
 void RenderBase::SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh) {

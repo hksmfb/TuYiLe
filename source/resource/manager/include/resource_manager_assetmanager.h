@@ -5,17 +5,11 @@
 #include <vector>
 
 #include "core_guid_manager.h"
+#include "resource_asset_assetbase.h"
 #include "resource_component_componentbase.h"
 
 namespace resourcelayer {
-
-class Asset {
- public:
-  void AppendComponent(ComponentBase component);
-  std::vector<ComponentBase>& GetComponentList();
- private:
-  std::vector<ComponentBase> componentlist_;
-};
+namespace manager {
 
 class AssetManager {
   public:
@@ -23,9 +17,10 @@ class AssetManager {
     ~AssetManager();
     void LoadAsset();
   private:
-    std::vector<std::shared_ptr<Asset>> assetlist_;
+    std::vector<std::shared_ptr<asset::AssetBase>> assetlist_;
 };
 
+}
 }
 
 #endif
