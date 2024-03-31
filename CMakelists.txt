@@ -37,6 +37,11 @@ target_include_directories(
     ${PROJECT_SOURCE_DIR}/source/resource
     ${PROJECT_SOURCE_DIR}/source/function
 )
+file(
+    COPY ${PROJECT_SOURCE_DIR}/source/tools/main/
+    DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/include
+    FILES_MATCHING PATTERN "TuYiLe.h"
+)
 target_link_libraries(
     ${PROJECT_NAME} PRIVATE
     3rdpartyLib

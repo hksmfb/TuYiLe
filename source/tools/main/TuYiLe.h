@@ -23,4 +23,50 @@
 #include "function_camera_header.h"
 #include "function_console_header.h"
 
+namespace TuYiLe {
+
+struct setting {
+  std::string title {"TuYiLe"};
+  int width {800};
+  int height {800};
+  std::string GL {"OpenGL"};
+  int maxfps {60};
+  int tick {30};
+};
+
+void Init(setting init_setting) {
+  platformlayer::window::windowmanager = new platformlayer::window::WindowManager(init_setting.width, init_setting.height, init_setting.title);
+  platformlayer::window::windowmanager->SetSize(init_setting.width, init_setting.height);
+  platformlayer::graphicinterface::RhiInitializer(init_setting.GL);
+  platformlayer::input::inputmanager = new platformlayer::input::InputManager();
+  corelayer::guid::guidmanager = new corelayer::guid::GUIDManager();
+  corelayer::thread::threadmanager = new corelayer::thread::ThreadManager();
+  resourcelayer::manager::resourcemanager = new resourcelayer::manager::ResourceManager();
+  functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();
+  functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager();
+  functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
+  functionlayer::tick::tickmanager->SetMaxFps(init_setting.maxfps);
+  functionlayer::tick::tickmanager->SetMaxTick(init_setting.tick);
+}
+
+void SetInitialScene(functionlayer::scene::SceneBase* scene) {
+  
+}
+
+void Run(float engine_dt) {
+  float time = 0;
+  while (TuYiLe::platformlayer::window::windowmanager->isRunning()) {
+    float curr_time = platformlayer::time::GetTime();
+    if (curr_time-time < engine_dt) {
+      auto time_point = std::chrono::steady_clock::now()+std::chrono::milliseconds((int)(1000*(engine_dt-(curr_time-time))));
+      std::this_thread::sleep_until(time_point);
+      continue;
+    }
+    time = platformlayer::time::GetTime();
+    TuYiLe::corelayer::thread::threadmanager->UpdateThreadPool();
+  }
+}
+
+}
+
 #endif
