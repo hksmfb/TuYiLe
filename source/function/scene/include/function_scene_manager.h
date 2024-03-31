@@ -13,6 +13,7 @@ class SceneManager {
   SceneManager();
   SceneManager(SceneBase* scene);
   ~SceneManager();
+  void SetScene(SceneBase* scene);
   SceneBase* GetScene();
   void RunCommand(std::string command);
  private:
