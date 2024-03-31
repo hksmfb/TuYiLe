@@ -1,5 +1,7 @@
 #include "platform_data_path.h"
 #include <iostream>
+
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -66,5 +68,6 @@ std::vector<std::string> Path::GetPath() {
   return file_path_;
 }
 
+}
 }
 }

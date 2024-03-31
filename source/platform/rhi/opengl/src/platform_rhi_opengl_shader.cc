@@ -1,5 +1,6 @@
 #include "platform_rhi_opengl_shader.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace opengl {
@@ -49,6 +50,7 @@ void OpenGLShader::Use() {
   glUseProgram(id_);
 }
 
+}
 }
 }
 }

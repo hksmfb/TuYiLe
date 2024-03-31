@@ -1,12 +1,13 @@
 #include "platform_rhi_opengl.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace opengl {
 
 OpenGLInterface::OpenGLInterface() {
   interfacename_ = "OpenGL";
-  windowmanager->GlInterfaceInit("OpenGL");
+  window::windowmanager->GlInterfaceInit("OpenGL");
   WindowInit();
 }
 
@@ -37,6 +38,7 @@ std::shared_ptr<RHI::Shader> OpenGLInterface::CreateShader(datatype::shadercode 
   );
 }
 
+}
 }
 }
 }

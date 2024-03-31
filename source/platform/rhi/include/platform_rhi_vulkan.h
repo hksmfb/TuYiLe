@@ -11,6 +11,7 @@
 
 #include "platform_rhi_mesh.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace vulkan {
@@ -42,6 +43,7 @@ class VulkanInterface : public GLInterface {
   VkQueue graphics_queue_;
 };
 
+}
 }
 }
 }

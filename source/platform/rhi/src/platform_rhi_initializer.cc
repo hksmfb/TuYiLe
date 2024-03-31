@@ -1,5 +1,6 @@
 #include "platform_rhi_initializer.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 
@@ -15,6 +16,6 @@ RhiInitializer::~RhiInitializer() {
 
 }
 
-
+}
 }
 }

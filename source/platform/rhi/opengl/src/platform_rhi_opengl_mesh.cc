@@ -1,5 +1,7 @@
 #include "platform_rhi_opengl_mesh.h"
 #include <iostream>
+
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace opengl {
@@ -49,6 +51,7 @@ void OpenGLMesh::Draw() {
   glBindVertexArray(0);
 }
 
+}
 }
 }
 }

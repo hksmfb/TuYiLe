@@ -3,6 +3,7 @@
 
 #include <vector>
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -27,6 +28,7 @@ class Texture {
   int nrChannels_ {3};
 };
 
+}
 }
 }
 

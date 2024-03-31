@@ -1,5 +1,6 @@
 #include "resource_component_componentbase.h"
 
+namespace TuYiLe {
 namespace resourcelayer {
 namespace component {
 ComponentBase::ComponentBase() {
@@ -26,5 +27,6 @@ std::shared_ptr<platformlayer::RHI::Shader> ComponentBase::Getshader() {
   return shader_;
 }
 
+}
 }
 }

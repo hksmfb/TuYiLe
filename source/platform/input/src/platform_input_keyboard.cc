@@ -1,5 +1,6 @@
 #include "platform_input_keyboard.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace input {
 
@@ -29,5 +30,6 @@ void KeyBoard::SetKey(
   keystatus_[scancode].mods = mods;
 }
 
+}
 }
 }

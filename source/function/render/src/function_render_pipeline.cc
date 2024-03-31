@@ -1,5 +1,6 @@
 #include "function_render_pipeline.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace render {
 namespace pipeline{
@@ -40,6 +41,7 @@ void RenderPipeline::DefferedShading(RenderList& renderlist) {
 
 RenderPipeline* renderpipeline = nullptr;
 
+}
 }
 }
 }

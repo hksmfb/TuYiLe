@@ -1,5 +1,6 @@
 #include "platform_input_mouse.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace input {
 
@@ -34,5 +35,6 @@ void Mouse::SetPos(int x, int y) {
   posy_ = y;
 }
 
+}
 }
 }

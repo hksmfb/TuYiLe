@@ -15,6 +15,7 @@
 #include "platform_rhi_shader.h"
 #include "platform_rhi_mesh.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 
@@ -48,6 +49,7 @@ class GLInterface {
   
 };
 
+}
 }
 }
 

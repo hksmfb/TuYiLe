@@ -1,5 +1,6 @@
 #include "function_scene_main.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace scene {
 
@@ -20,5 +21,6 @@ void MainScene::Draw() {
   mesh_->Draw();
 }
 
+}
 }
 }

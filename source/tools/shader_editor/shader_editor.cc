@@ -1,9 +1,9 @@
 #include "shader_editor.h"
 
 int main() {
-  GlobalVarInit();
-  while (platformlayer::windowmanager->isRunning()) {
-    corelayer::thread::threadmanager->UpdateThreadPool();
+  TuYiLe::GlobalVarInit();
+  while (TuYiLe::platformlayer::window::windowmanager->isRunning()) {
+    TuYiLe::corelayer::thread::threadmanager->UpdateThreadPool();
   }
   return 0;
 }

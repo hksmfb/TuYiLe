@@ -12,7 +12,9 @@
 
 #include "platform_window_callback.h"
 
+namespace TuYiLe{
 namespace platformlayer {
+namespace window {
 
 class WindowManager {
  public:
@@ -82,6 +84,7 @@ class WindowManager {
 extern WindowManager* windowmanager;
 
 }
-
+}
+}
 
 #endif

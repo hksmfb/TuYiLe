@@ -5,6 +5,7 @@
 
 #include "platform_rhi_shader.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace opengl {
@@ -28,7 +29,7 @@ class OpenGLShader : public RHI::Shader {
 }
 }
 }
-
+}
 
 
 #endif

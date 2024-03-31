@@ -6,6 +6,7 @@
 #include "platform_rhi_mesh.h"
 #include "platform_rhi_shader.h"
 
+namespace TuYiLe {
 namespace resourcelayer {
 namespace component {
 
@@ -22,6 +23,7 @@ class ComponentBase {
   std::shared_ptr<platformlayer::RHI::Shader> shader_;
 };
 
+}
 }
 }
 

@@ -1,5 +1,6 @@
 #include "platform_rhi_rhi.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace RHI {
 
@@ -44,5 +45,6 @@ void CreateShaderBatch() {
   interface->CreateShaderBatch();
 }
 
+}
 }
 }

@@ -6,6 +6,7 @@
 #include <cstring>
 #include <iostream>
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace RHI {
 
@@ -22,6 +23,7 @@ class Shader {
   unsigned int id_;
 };
 
+}
 }
 }
 

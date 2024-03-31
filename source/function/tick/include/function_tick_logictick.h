@@ -3,6 +3,7 @@
 
 #include "function_tick_tickbase.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace tick {
 
@@ -15,6 +16,7 @@ class LogicTick : public TickBase {
   
 };
 
+}
 }
 }
 

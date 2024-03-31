@@ -11,11 +11,12 @@
 #include "platform_data_shadercode.h"
 #include "platform_data_path.h"
 
+namespace TuYiLe{
 namespace platformlayer{
 namespace datatype{
 
 
-
+}
 }
 }
 

@@ -14,6 +14,7 @@
 #include "platform_rhi_opengl_mesh.h"
 #include "platform_rhi_opengl_shader.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace RHI {
 
@@ -34,6 +35,7 @@ void ClearScreen();
 int GetViewportHeight();
 int GetViewportWidth();
 
+}
 }
 }
 

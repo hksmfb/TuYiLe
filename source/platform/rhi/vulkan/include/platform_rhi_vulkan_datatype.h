@@ -6,6 +6,7 @@
 
 #include "vulkan/vulkan.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace vulkan {
@@ -23,6 +24,7 @@ struct instance {
   VkQueue graphics_queue;
 };
 
+}
 }
 }
 }

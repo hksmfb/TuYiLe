@@ -10,6 +10,7 @@
 #include "platform_rhi_rhi.h"
 #include "core_math_vectransform.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace render {
 class MeshRender : public RenderBase{
@@ -35,6 +36,7 @@ class MeshRender : public RenderBase{
   std::unordered_map<std::string, glm::vec3> vec3list_;
 };
 
+}
 }
 }
 

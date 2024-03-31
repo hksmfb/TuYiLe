@@ -5,6 +5,7 @@
 
 #include "platform_data_vertex.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -24,6 +25,7 @@ class Mesh {
     std::vector<unsigned int> indices_;
 };
 
+}
 }
 }
 

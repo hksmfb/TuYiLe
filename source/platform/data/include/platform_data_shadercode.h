@@ -3,6 +3,7 @@
 
 #include <string>
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -11,6 +12,7 @@ struct shadercode {
   std::string fragment_shader_code;
 };
 
+}
 }
 }
 

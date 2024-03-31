@@ -15,6 +15,7 @@
 #include "platform_time_timer.h"
 #include "platform_rhi_rhi.h"
 
+namespace TuYiLe{
 namespace corelayer {
 namespace thread {
 
@@ -40,6 +41,7 @@ class ThreadManager {
 
 extern ThreadManager* threadmanager;
 
+}
 }
 }
 

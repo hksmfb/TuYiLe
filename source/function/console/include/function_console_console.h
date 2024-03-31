@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <functional>
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace console {
 
@@ -19,6 +20,7 @@ class Console {
   std::unordered_map<std::string, std::function<void()>> commandlist_;
 };
 
+}
 }
 }
 

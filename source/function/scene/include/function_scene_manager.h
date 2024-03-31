@@ -4,6 +4,7 @@
 #include "function_scene_main.h"
 #include "function_console_console.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace scene {
 
@@ -21,6 +22,7 @@ class SceneManager {
 
 extern SceneManager* scenemanager;
 
+}
 }
 }
 

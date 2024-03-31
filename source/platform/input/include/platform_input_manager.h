@@ -4,8 +4,10 @@
 #include "platform_input_keyboard.h"
 #include "platform_input_mouse.h"
 
+namespace TuYiLe{
 namespace platformlayer {
-
+namespace input {
+  
 class InputManager {
  public:
   InputManager();
@@ -30,6 +32,8 @@ class InputManager {
 
 extern InputManager* inputmanager;
 
+}
+}
 }
 
 #endif

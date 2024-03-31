@@ -10,17 +10,19 @@
 #include "core_guid_manager.h"
 #include "resource_manager_resourcemanager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace render {
 namespace resourceloader{
 
-corelayer::guid CreateShader(platformlayer::datatype::shadercode& shadercode);
-std::shared_ptr<platformlayer::RHI::Shader> GetShader(corelayer::guid guid);
+corelayer::guid::guid CreateShader(platformlayer::datatype::shadercode& shadercode);
+std::shared_ptr<platformlayer::RHI::Shader> GetShader(corelayer::guid::guid guid);
 void InitShader();
 void CreateMesh(platformlayer::datatype::Mesh& mesh);
-std::shared_ptr<platformlayer::RHI::Mesh> GetMesh(corelayer::guid guid);
+std::shared_ptr<platformlayer::RHI::Mesh> GetMesh(corelayer::guid::guid guid);
 void InitMesh();
 
+}
 }
 }
 }

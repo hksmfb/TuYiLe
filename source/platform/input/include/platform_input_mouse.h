@@ -5,6 +5,7 @@
 
 #include "platform_data_keystatus.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace input {
 
@@ -26,6 +27,7 @@ class Mouse {
   std::array<datatype::keystatus, 64> buttonstatus_;
 };
 
+}
 }
 }
 

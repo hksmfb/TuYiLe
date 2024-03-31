@@ -1,5 +1,6 @@
 #include "function_scene_manager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace scene {
 
@@ -30,5 +31,6 @@ void SceneManager::RunCommand(std::string command) {
 
 SceneManager* scenemanager = nullptr;
 
+}
 }
 }

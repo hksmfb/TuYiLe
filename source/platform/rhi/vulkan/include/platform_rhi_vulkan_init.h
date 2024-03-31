@@ -9,6 +9,7 @@
 
 #include "platform_rhi_vulkan_datatype.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace vulkan {
@@ -22,6 +23,7 @@ class VulkanInit {
  private:
 };
 
+}
 }
 }
 }

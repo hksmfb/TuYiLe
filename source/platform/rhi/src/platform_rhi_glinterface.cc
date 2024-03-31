@@ -1,5 +1,6 @@
 #include "platform_rhi_glinterface.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 
@@ -45,5 +46,6 @@ void GLInterface::CreateMeshBatch() {
   }
 }
 
+}
 }
 }

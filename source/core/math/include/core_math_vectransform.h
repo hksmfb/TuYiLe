@@ -6,6 +6,7 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+namespace TuYiLe{
 namespace corelayer {
 namespace math{
 
@@ -125,6 +126,6 @@ class VecTransform {
 
 }
 }
-
+}
 
 #endif

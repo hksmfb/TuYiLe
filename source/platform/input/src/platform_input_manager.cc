@@ -1,6 +1,8 @@
 #include "platform_input_manager.h"
 
+namespace TuYiLe{
 namespace platformlayer {
+namespace input {
 
 InputManager::InputManager() {
 
@@ -34,4 +36,6 @@ void InputManager::SetMousePos(int x, int y) {
 
 InputManager* inputmanager = nullptr;
 
+}
+}
 }

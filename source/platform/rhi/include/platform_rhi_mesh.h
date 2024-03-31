@@ -3,6 +3,7 @@
 
 #include <vector>
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace RHI {
 
@@ -14,6 +15,7 @@ class Mesh {
  private:
 };
 
+}
 }
 }
 

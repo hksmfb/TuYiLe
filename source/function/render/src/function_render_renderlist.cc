@@ -1,5 +1,6 @@
 #include "function_render_renderlist.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace render {
 
@@ -21,5 +22,6 @@ std::vector<RenderBase*> RenderList::GetRenderList() {
   return ret;
 }
 
+}
 }
 }

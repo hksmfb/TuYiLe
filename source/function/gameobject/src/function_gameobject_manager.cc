@@ -1,5 +1,6 @@
 #include "function_gameobject_manager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace gameobject {
 
@@ -40,5 +41,6 @@ void GameObjectManager::UpdateInsertPoint() {
   }
 }
 
+}
 }
 }

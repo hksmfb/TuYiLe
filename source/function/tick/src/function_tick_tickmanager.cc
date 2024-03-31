@@ -1,5 +1,6 @@
 #include "function_tick_tickmanager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace tick {
 
@@ -32,5 +33,6 @@ void TickManager::SetMaxTick(int max_tick) {
 
 TickManager* tickmanager = nullptr;
 
+}
 }
 }

@@ -12,6 +12,7 @@
 
 #include "platform_data_datatype.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace file{
 struct image {
@@ -34,6 +35,6 @@ datatype::Mesh MeshReader(platformlayer::datatype::Path path);
 
 }
 }
-
+}
 
 #endif

@@ -11,16 +11,18 @@
 #include "function_scene_manager.h"
 #include "function_scene_main.h"
 
+namespace TuYiLe {
 void GlobalVarInit() {
-  platformlayer::windowmanager = new platformlayer::WindowManager(800, 800, "TuYiLe");
+  platformlayer::window::windowmanager = new platformlayer::window::WindowManager(800, 800, "TuYiLe");
   platformlayer::graphicinterface::RhiInitializer("OpenGL");
-  platformlayer::inputmanager = new platformlayer::InputManager();
-  corelayer::guidmanager = new corelayer::GUIDManager();
+  platformlayer::input::inputmanager = new platformlayer::input::InputManager();
+  corelayer::guid::guidmanager = new corelayer::guid::GUIDManager();
   corelayer::thread::threadmanager = new corelayer::thread::ThreadManager();
   resourcelayer::manager::resourcemanager = new resourcelayer::manager::ResourceManager();
   functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();
   functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager();
   functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
+}
 }
 
 #endif

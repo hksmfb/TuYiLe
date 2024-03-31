@@ -5,6 +5,7 @@
 
 #include "platform_data_keystatus.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace input {
 
@@ -23,6 +24,7 @@ class KeyBoard {
   std::array<datatype::keystatus, 256> keystatus_;
 };
 
+}
 }
 }
 

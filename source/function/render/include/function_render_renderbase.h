@@ -8,25 +8,26 @@
 #include "core_math_vectransform.h"
 #include "resource_manager_resourcemanager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace render {
 class RenderBase {
  public:
   virtual void Draw() = 0;
-  void SetShader(corelayer::guid id);
+  void SetShader(corelayer::guid::guid id);
   void SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader);
-  corelayer::guid GetShaderId();
+  corelayer::guid::guid GetShaderId();
   std::shared_ptr<platformlayer::RHI::Shader> GetShader();
-  void SetMesh(corelayer::guid id);
+  void SetMesh(corelayer::guid::guid id);
   void SetMesh(std::shared_ptr<platformlayer::RHI::Mesh> mesh);
-  corelayer::guid GetMeshId();
+  corelayer::guid::guid GetMeshId();
   std::shared_ptr<platformlayer::RHI::Mesh> GetMesh();
-  corelayer::guid GetTexture();
-  corelayer::guid GetNormal();
+  corelayer::guid::guid GetTexture();
+  corelayer::guid::guid GetNormal();
  protected:
-  corelayer::guid shaderid_ {0};
+  corelayer::guid::guid shaderid_ {0};
   std::shared_ptr<platformlayer::RHI::Shader> shader_ {nullptr};
-  corelayer::guid meshid_ {0};
+  corelayer::guid::guid meshid_ {0};
   std::shared_ptr<platformlayer::RHI::Mesh> mesh_ {nullptr};
   corelayer::math::VecTransform transform_;
   std::unordered_map<std::string, float> floatlist_;
@@ -36,6 +37,7 @@ class RenderBase {
   std::unordered_map<std::string, glm::vec3> vec3list_;
 };
 
+}
 }
 }
 

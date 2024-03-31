@@ -5,6 +5,7 @@
 #include "function_render_resourceloader.h"
 #include "platform_rhi_rhi.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace scene {
 
@@ -19,6 +20,7 @@ class MainScene : public SceneBase {
   platformlayer::RHI::Shader* shader_;
 };
 
+}
 }
 }
 

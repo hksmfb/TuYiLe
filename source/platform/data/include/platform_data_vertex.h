@@ -1,6 +1,7 @@
 #ifndef PLATFORM_DATA_VERTEX_H_
 #define PLATFORM_DATA_VERTEX_H_
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -10,6 +11,7 @@ struct vertex {
   float coordinate[2];
 };
 
+}
 }
 }
 

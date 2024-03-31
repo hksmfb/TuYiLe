@@ -3,6 +3,7 @@
 
 #include "core_math_vectransform.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace camera {
 
@@ -12,6 +13,7 @@ class CameraBase {
   
 };
 
+}
 }
 }
 

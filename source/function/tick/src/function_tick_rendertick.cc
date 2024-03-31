@@ -1,5 +1,6 @@
 #include "function_tick_rendertick.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace tick{
 
@@ -16,7 +17,7 @@ void RenderTick::Update() {
   render::pipeline::renderpipeline->InitShader();
   render::pipeline::renderpipeline->InitMesh();
   render::pipeline::renderpipeline->ForwardRendering(drawbuffer_[current_status_index_]);
-  platformlayer::windowmanager->Update();
+  platformlayer::window::windowmanager->Update();
 }
 
 void RenderTick::UpdateDrawbuffer() {
@@ -39,5 +40,6 @@ void RenderTick::UpdateDrawbuffer() {
   }
 }
 
+}
 }
 }

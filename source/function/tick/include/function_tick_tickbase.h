@@ -9,6 +9,7 @@
 #include "platform_time_timer.h"
 #include "function_scene_manager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace tick {
 
@@ -26,6 +27,7 @@ class TickBase {
   bool shouldstop_ {false};
 };
 
+}
 }
 }
 

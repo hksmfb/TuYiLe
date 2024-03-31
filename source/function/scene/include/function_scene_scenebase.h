@@ -5,6 +5,7 @@
 #include "platform_file_filesystem.h"
 #include "function_gameobject_manager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace scene{
 
@@ -23,6 +24,7 @@ class SceneBase {
   gameobject::GameObjectManager GOmanager_;
 };
 
+}
 }
 }
 

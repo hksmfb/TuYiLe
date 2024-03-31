@@ -1,5 +1,6 @@
 #include "function_scene_scenebase.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace scene {
 
@@ -32,5 +33,6 @@ functionlayer::render::RenderList SceneBase::GetRenderList() {
   return renderlist_;
 }
 
+}
 }
 }

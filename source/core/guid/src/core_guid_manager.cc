@@ -1,13 +1,15 @@
 #include "core_guid_manager.h"
 
+namespace TuYiLe{
 namespace corelayer {
+namespace guid {
 
 GUIDManager::GUIDManager() {
-  resource_handler_ = new std::unordered_map<corelayer::guid, std::string>();
+  resource_handler_ = new std::unordered_map<guid, std::string>();
   std::vector<std::vector<std::string>> reserved = platformlayer::file::CsvReader("guid/reserved_value.csv");
   resource_handler_->reserve(reserved.size());
   for (auto& line : reserved) {
-    corelayer::guid id = std::stoull(line[0]);
+    guid id = std::stoull(line[0]);
     (*resource_handler_)[id] = line[1];
   }
 }
@@ -33,4 +35,6 @@ guid GUIDManager::RequestGUID() {
 
 GUIDManager* guidmanager = nullptr;
 
+}
+}
 }

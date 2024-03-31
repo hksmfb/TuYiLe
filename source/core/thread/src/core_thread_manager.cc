@@ -1,10 +1,11 @@
 #include "core_thread_manager.h"
 
+namespace TuYiLe{
 namespace corelayer {
 namespace thread {
 
 ThreadManager::ThreadManager() {
-  current_time_ = platformlayer::GetTime();
+  current_time_ = platformlayer::time::GetTime();
 }
 
 ThreadManager::~ThreadManager() {
@@ -22,10 +23,10 @@ void ThreadManager::AppendTask(std::function<void()> task) {
 
 void ThreadManager::SetRenderUpdate(std::function<void()> Run) {
   renderthread_.RunTask([](){
-    platformlayer::windowmanager->InitCurrentThreadContext();
-    platformlayer::windowmanager->SetCurrentThreadContext();
-    int width = platformlayer::windowmanager->GetWidth();
-    int height = platformlayer::windowmanager->GetHeight();
+    platformlayer::window::windowmanager->InitCurrentThreadContext();
+    platformlayer::window::windowmanager->SetCurrentThreadContext();
+    int width = platformlayer::window::windowmanager->GetWidth();
+    int height = platformlayer::window::windowmanager->GetHeight();
     platformlayer::RHI::SetViewport(0, 0, width, height);
   });
   while (renderthread_.IsOccupied()) {}
@@ -37,7 +38,7 @@ void ThreadManager::SetLogicUpdate(std::function<void()> Run) {
 }
 
 void ThreadManager::UpdateThreadPool() {
-  double time = current_time_ - platformlayer::GetTime();
+  double time = current_time_ - platformlayer::time::GetTime();
   if (time > dt) {
     
   }
@@ -45,5 +46,6 @@ void ThreadManager::UpdateThreadPool() {
 
 ThreadManager* threadmanager = NULL;
 
+}
 }
 }

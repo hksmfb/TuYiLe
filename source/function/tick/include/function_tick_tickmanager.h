@@ -5,6 +5,7 @@
 #include "function_tick_logictick.h"
 #include "core_thread_manager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace tick {
 
@@ -24,6 +25,7 @@ class TickManager {
 
 extern TickManager* tickmanager;
 
+}
 }
 }
 

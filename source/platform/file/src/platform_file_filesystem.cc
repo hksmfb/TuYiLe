@@ -1,5 +1,6 @@
 #include "platform_file_filesystem.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace file{
 
@@ -84,5 +85,6 @@ datatype::Mesh MeshReader(platformlayer::datatype::Path path) {
   return ret;
 }
 
+}
 }
 }

@@ -7,6 +7,7 @@
 #include "platform_rhi_opengl_mesh.h"
 #include "platform_rhi_opengl_shader.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace opengl {
@@ -23,6 +24,7 @@ class OpenGLInterface : public GLInterface {
  private:
 };
 
+}
 }
 }
 }

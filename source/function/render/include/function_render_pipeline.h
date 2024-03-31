@@ -9,6 +9,7 @@
 #include "function_render_renderlist.h"
 #include "function_render_resourceloader.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace render {
 namespace pipeline {
@@ -31,6 +32,7 @@ class RenderPipeline {
 
 extern RenderPipeline* renderpipeline;
 
+}
 }
 }
 }

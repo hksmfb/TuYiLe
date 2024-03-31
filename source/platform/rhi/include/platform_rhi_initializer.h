@@ -7,6 +7,7 @@
 #include "platform_rhi_opengl.h"
 #include "platform_rhi_vulkan.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 
@@ -17,6 +18,7 @@ class RhiInitializer {
  private:
 };
 
+}
 }
 }
 

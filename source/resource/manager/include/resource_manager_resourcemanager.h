@@ -12,6 +12,7 @@
 #include "platform_rhi_shader.h"
 #include "platform_rhi_mesh.h"
 
+namespace TuYiLe {
 namespace resourcelayer {
 namespace manager {
 
@@ -21,25 +22,26 @@ class ResourceManager {
   ~ResourceManager();
   void SetShaderProgram(std::shared_ptr<platformlayer::RHI::Shader> shader_program);
   void SetLoadedMesh(std::shared_ptr<platformlayer::RHI::Mesh> loaded_mesh);
-  void SetShader(corelayer::guid id, std::shared_ptr<platformlayer::RHI::Shader> shader_program);
-  std::shared_ptr<platformlayer::RHI::Shader>* GetShaderAddress(corelayer::guid id);
-  std::shared_ptr<platformlayer::RHI::Shader> GetShader(corelayer::guid id);
-  void SetMesh(corelayer::guid id, std::shared_ptr<platformlayer::RHI::Mesh> loaded_mesh);
-  std::shared_ptr<platformlayer::RHI::Mesh>* GetMeshAddress(corelayer::guid id);
-  std::shared_ptr<platformlayer::RHI::Mesh> GetMesh(corelayer::guid id);
+  void SetShader(corelayer::guid::guid id, std::shared_ptr<platformlayer::RHI::Shader> shader_program);
+  std::shared_ptr<platformlayer::RHI::Shader>* GetShaderAddress(corelayer::guid::guid id);
+  std::shared_ptr<platformlayer::RHI::Shader> GetShader(corelayer::guid::guid id);
+  void SetMesh(corelayer::guid::guid id, std::shared_ptr<platformlayer::RHI::Mesh> loaded_mesh);
+  std::shared_ptr<platformlayer::RHI::Mesh>* GetMeshAddress(corelayer::guid::guid id);
+  std::shared_ptr<platformlayer::RHI::Mesh> GetMesh(corelayer::guid::guid id);
  private:
-  std::unordered_map<corelayer::guid, std::string> resource_handler_;
-  std::unordered_map<corelayer::guid, platformlayer::datatype::Mesh*> meshlist_;
-  std::unordered_map<corelayer::guid, platformlayer::datatype::Texture*> texturelist_;
+  std::unordered_map<corelayer::guid::guid, std::string> resource_handler_;
+  std::unordered_map<corelayer::guid::guid, platformlayer::datatype::Mesh*> meshlist_;
+  std::unordered_map<corelayer::guid::guid, platformlayer::datatype::Texture*> texturelist_;
 
   std::mutex shader_program_list_lock_;
-  std::unordered_map<corelayer::guid, std::shared_ptr<platformlayer::RHI::Shader>> shader_program_list_;
+  std::unordered_map<corelayer::guid::guid, std::shared_ptr<platformlayer::RHI::Shader>> shader_program_list_;
   std::mutex loaded_mesh_list_lock_;
-  std::unordered_map<corelayer::guid, std::shared_ptr<platformlayer::RHI::Mesh>> loaded_mesh_list_;
+  std::unordered_map<corelayer::guid::guid, std::shared_ptr<platformlayer::RHI::Mesh>> loaded_mesh_list_;
 };
 
 extern ResourceManager* resourcemanager;
 
+}
 }
 }
 

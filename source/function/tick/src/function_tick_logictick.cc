@@ -1,5 +1,6 @@
 #include "function_tick_logictick.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace tick {
 
@@ -15,5 +16,6 @@ void LogicTick::Update() {
   scene::scenemanager->GetScene()->Update();
 }
 
+}
 }
 }

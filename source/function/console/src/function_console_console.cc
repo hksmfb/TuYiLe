@@ -1,5 +1,6 @@
 #include "function_console_console.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace console {
 
@@ -35,5 +36,6 @@ void Console::RegistCommand(std::string command, std::function<void()> func) {
   #endif
 }
 
+}
 }
 }

@@ -1,5 +1,6 @@
 #include "platform_data_mesh.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -64,5 +65,6 @@ std::vector<unsigned int>& Mesh::GetIndex() {
   return indices_;
 }
 
+}
 }
 }

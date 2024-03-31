@@ -1,5 +1,6 @@
 #include "platform_rhi_vulkan_init.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace vulkan {
@@ -126,6 +127,7 @@ void VulkanInit::SetInstance(instanceinfo info, instance& ins) {
 
 // }
   
+}
 }
 }
 }

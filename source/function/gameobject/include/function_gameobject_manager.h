@@ -7,6 +7,7 @@
 
 #include "function_gameobject_gameobjectbase.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace gameobject {
 
@@ -27,6 +28,7 @@ class GameObjectManager {
   std::map<gouid, std::shared_ptr<GameObjectBase>> golist_;
 };
 
+}
 }
 }
 

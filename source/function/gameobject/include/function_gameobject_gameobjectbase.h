@@ -4,17 +4,19 @@
 #include "core_guid_manager.h"
 #include "resource_manager_assetmanager.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace gameobject {
 
 class GameObjectBase {
  public:
-  void SetAsset(corelayer::guid id);
+  void SetAsset(corelayer::guid::guid id);
  private:
-  corelayer::guid asset_id_;
+  corelayer::guid::guid asset_id_;
   resourcelayer::asset::AssetBase* asset_ {nullptr};
 };
 
+}
 }
 }
 

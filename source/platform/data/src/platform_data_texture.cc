@@ -1,5 +1,6 @@
 #include "platform_data_texture.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype{
 
@@ -43,5 +44,6 @@ int Texture::GetNumChannels() {
   return nrChannels_;
 }
 
+}
 }
 }

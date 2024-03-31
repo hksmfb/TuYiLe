@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -21,6 +22,7 @@ class Path {
   std::vector<std::string> file_path_;
 };
 
+}
 }
 }
 

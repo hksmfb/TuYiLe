@@ -7,6 +7,7 @@
 
 #include "platform_window_manager.h"
 
+namespace TuYiLe{
 namespace corelayer {
 namespace thread{
 namespace threadpool {
@@ -29,6 +30,7 @@ class ThreadBase {
   std::thread thread_;
 };
 
+}
 }
 }
 }

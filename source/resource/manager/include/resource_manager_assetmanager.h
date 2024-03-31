@@ -8,6 +8,7 @@
 #include "resource_asset_assetbase.h"
 #include "resource_component_componentbase.h"
 
+namespace TuYiLe {
 namespace resourcelayer {
 namespace manager {
 
@@ -20,6 +21,7 @@ class AssetManager {
     std::vector<std::shared_ptr<asset::AssetBase>> assetlist_;
 };
 
+}
 }
 }
 

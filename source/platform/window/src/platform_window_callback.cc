@@ -1,6 +1,8 @@
 #include "platform_window_callback.h"
 
+namespace TuYiLe{
 namespace platformlayer {
+namespace window{
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
   // make sure the viewport matches the new window dimensions; note that width and 
@@ -15,17 +17,19 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 }
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
-  inputmanager->SetMousePos(xpos, ypos);
+  input::inputmanager->SetMousePos(xpos, ypos);
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
   std::cout << button << ", " << action << ", " << mods << std::endl;
-  inputmanager->SetMouseButton(button, button, action, mods);
+  input::inputmanager->SetMouseButton(button, button, action, mods);
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
   std::cout << key << ", " << scancode << ", " << action << ", " << mods << std::endl;
-  inputmanager->SetKeyBoard(key, scancode, action, mods);
+  input::inputmanager->SetKeyBoard(key, scancode, action, mods);
 }
 
+}
+}
 }

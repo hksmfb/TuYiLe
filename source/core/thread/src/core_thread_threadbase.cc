@@ -1,5 +1,6 @@
 #include "core_thread_threadbase.h"
 
+namespace TuYiLe{
 namespace corelayer {
 namespace thread{
 namespace threadpool {
@@ -49,6 +50,7 @@ void ThreadBase::loop() {
   }
 }
 
+}
 }
 }
 }

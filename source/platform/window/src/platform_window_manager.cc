@@ -1,6 +1,8 @@
 #include "platform_window_manager.h"
 
+namespace TuYiLe{
 namespace platformlayer {
+namespace window {
 
 // void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
 //   std::cout << button << ", " << action << ", " << mods << std::endl;
@@ -137,5 +139,5 @@ void WindowManager::CaptureMouse(char status) {
 WindowManager* windowmanager = NULL;
 
 }
-
-
+}
+}

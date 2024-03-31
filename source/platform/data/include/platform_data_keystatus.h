@@ -1,6 +1,7 @@
 #ifndef PLATFORM_DATA_KEYSTATUS_H_
 #define PLATFORM_DATA_KEYSTATUS_H_
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace datatype {
 
@@ -11,6 +12,7 @@ struct keystatus {
   unsigned char mods {0};
 };
 
+}
 }
 }
 

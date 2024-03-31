@@ -9,6 +9,7 @@
 #include "platform_rhi_rhi.h"
 #include "function_render_pipeline.h"
 
+namespace TuYiLe {
 namespace functionlayer {
 namespace tick {
 
@@ -25,6 +26,7 @@ class RenderTick : public TickBase {
   std::array<render::RenderList, 3> drawbuffer_;
 };
 
+}
 }
 }
 

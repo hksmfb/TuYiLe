@@ -1,12 +1,13 @@
 #include "platform_rhi_vulkan.h"
 
+namespace TuYiLe{
 namespace platformlayer {
 namespace graphicinterface {
 namespace vulkan {
 
 VulkanInterface::VulkanInterface() {
   interfacename_ = "Vulkan";
-  windowmanager->GlInterfaceInit("Vulkan");
+  window::windowmanager->GlInterfaceInit("Vulkan");
   VulkanInit init;
   instanceinfo info;
   init.SetInstance(info, ins_);
@@ -22,9 +23,9 @@ VulkanInterface::~VulkanInterface() {
 }
 
 void VulkanInterface::WindowInit() {
-  if (glfwCreateWindowSurface(ins_.instance, windowmanager->GetGLFWwindow(), nullptr, &surface_) != VK_SUCCESS) {
+  if (glfwCreateWindowSurface(ins_.instance, window::windowmanager->GetGLFWwindow(), nullptr, &surface_) != VK_SUCCESS) {
     std::cout << "failed to create window surface!" 
-    << glfwCreateWindowSurface(ins_.instance, windowmanager->GetGLFWwindow(), nullptr, &surface_) << std::endl;
+    << glfwCreateWindowSurface(ins_.instance, window::windowmanager->GetGLFWwindow(), nullptr, &surface_) << std::endl;
     uint32_t count;
     const char** extensions = glfwGetRequiredInstanceExtensions(&count);
     for(int i = 0; i < count; ++i) {
@@ -161,7 +162,7 @@ void VulkanInterface::CreateLogicalDevice() {
 
 }
 
-
+}
 }
 }
 }
