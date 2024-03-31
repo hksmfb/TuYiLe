@@ -1,8 +1,4 @@
-file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/guid)
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/guid/reserved/
-     DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/guid
-     FILES_MATCHING PATTERN "*")
-
+# Set Sources
 file(
     GLOB_RECURSE
     core
@@ -10,14 +6,41 @@ file(
     ${CMAKE_CURRENT_SOURCE_DIR}/math/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/thread/src/*.cc
 )
+# Set Headers
+set(
+    coreheader
+    ${CMAKE_CURRENT_SOURCE_DIR}/guid/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/math/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/thread/include/
+)
+# Set Data
+file(
+    GLOB_RECURSE
+    coredata
+    ${CMAKE_CURRENT_SOURCE_DIR}/guid/reserved/*
+)
+
+file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/guid)
+file(
+    COPY ${CMAKE_CURRENT_SOURCE_DIR}/guid/reserved/
+    DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/guid
+)
+
 add_library(
     coreLib STATIC
     ${core}
 )
 target_include_directories(
     coreLib INTERFACE PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/guid/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/math/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/thread/include
+    ${coreheader}
+)
+file(
+    COPY ${coreheader}
+    DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/include
+    FILES_MATCHING PATTERN "*"
 )
 target_link_libraries(coreLib PUBLIC 3rdpartyLib platformLib)
+set_target_properties(
+    coreLib PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/lib
+)

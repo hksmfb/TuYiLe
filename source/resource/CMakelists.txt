@@ -1,3 +1,21 @@
+# Set Sources
+file(
+    GLOB_RECURSE
+    resource
+    ${CMAKE_CURRENT_SOURCE_DIR}/manager/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/asset/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/component/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/texture/src/*.cc
+)
+# Set Headers
+set(
+    resourceheader
+    ${CMAKE_CURRENT_SOURCE_DIR}/manager/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/asset/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/component/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/texture/include/
+)
+# Set Data
 file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/shader)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/build_in/shader/
      DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/shader/
@@ -13,23 +31,21 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/build_in/texture/
         DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/texture/
         FILES_MATCHING PATTERN "*")
 
-file(
-    GLOB_RECURSE
-    resource
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/src/*.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/asset/src/*.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/component/src/*.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/texture/src/*.cc
-)
 add_library(
     resourceLib STATIC
     ${resource}
 )
 target_include_directories(
     resourceLib INTERFACE PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/asset/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/component/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/texture/include
+    ${resourceheader}
+)
+file(
+    COPY ${resourceheader}
+    DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/include
+    FILES_MATCHING PATTERN "*"
 )
 target_link_libraries(resourceLib PUBLIC 3rdpartyLib coreLib)
+set_target_properties(
+    resourceLib PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/lib
+)

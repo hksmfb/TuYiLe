@@ -1,3 +1,4 @@
+# Set Sources
 file(
     GLOB_RECURSE
     functions
@@ -8,17 +9,32 @@ file(
     ${CMAKE_CURRENT_SOURCE_DIR}/console/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/gameobject/src/*.cc
 )
+# Set Headers
+set(
+    functionheader
+    ${CMAKE_CURRENT_SOURCE_DIR}/tick/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/job/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/render/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/scene/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/console/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/gameobject/include/
+)
+
 add_library(
     functionLib STATIC
     ${functions}
 )
 target_include_directories(
     functionLib INTERFACE PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/tick/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/job/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/render/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/scene/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/console/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/gameobject/include
+    ${functionheader}
+)
+file(
+    COPY ${functionheader}
+    DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/include
+    FILES_MATCHING PATTERN "*"
 )
 target_link_libraries(functionLib PUBLIC 3rdpartyLib resourceLib)
+set_target_properties(
+    functionLib PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/lib
+)

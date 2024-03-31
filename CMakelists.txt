@@ -16,6 +16,8 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/source/resource)
 add_subdirectory(${PROJECT_SOURCE_DIR}/source/function)
 
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/TuYiLe/binaryfiles)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/TuYiLe/include)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/TuYiLe/lib)
 
 # TuYiLe
 set(

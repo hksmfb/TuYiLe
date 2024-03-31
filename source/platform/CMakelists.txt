@@ -1,3 +1,4 @@
+# Set Sources
 file(
     GLOB_RECURSE
     platform
@@ -10,20 +11,35 @@ file(
     ${CMAKE_CURRENT_SOURCE_DIR}/time/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/input/src/*.cc
 )
+# Set Headers
+set(
+    platformheader
+    ${PROJECT_SOURCE_DIR}/source/3rdparty/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/vulkan/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/opengl/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/window/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/data/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/file/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/time/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/input/include/
+)
+
 add_library(
     platformLib STATIC
     ${platform}
 )
 target_include_directories(
     platformLib INTERFACE PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/3rdparty
-    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/vulkan/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/rhi/opengl/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/window/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/data/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/file/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/time/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/input/include
+    ${platformheader}
+)
+file(
+    COPY ${platformheader}
+    DESTINATION ${PROJECT_BINARY_DIR}/TuYiLe/include
+    FILES_MATCHING PATTERN "*"
 )
 target_link_libraries(platformLib PUBLIC 3rdpartyLib)
+set_target_properties(
+    platformLib PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/lib
+)
