@@ -14,11 +14,13 @@ class SceneManager {
   SceneManager(SceneBase* scene);
   ~SceneManager();
   void SetScene(SceneBase* scene);
+  void RegistSceneType(SceneBase* Scene);
   SceneBase* GetScene();
   void RunCommand(std::string command);
  private:
   console::Console* console {nullptr};
   SceneBase* scene_ {nullptr};
+  std::vector<SceneBase*> scene_type_list_;
 };
 
 extern SceneManager* scenemanager;

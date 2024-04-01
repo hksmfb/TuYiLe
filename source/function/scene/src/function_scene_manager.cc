@@ -18,6 +18,20 @@ SceneManager::~SceneManager() {
   delete scene_;
 }
 
+void SceneManager::SetScene(SceneBase* scene) {
+  //todo
+  #ifdef DEVMOD
+    std::cout << "SceneManager::SetScene()\n";
+  #endif
+}
+
+void SceneManager::RegistSceneType(SceneBase* scene) {
+  //todo
+  #ifdef DEVMOD
+    std::cout << "SceneManager::RegistSceneType()\n";
+  #endif
+}
+
 SceneBase* SceneManager::GetScene() {
   return scene_;
 }
