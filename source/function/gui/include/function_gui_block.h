@@ -16,6 +16,8 @@ class Block {
   void SetShape(ShapeBase* shape);
   ShapeBase* GetShape();
   void SetTrigger(TriggerBase* trigger);
+  void DeleteTrigger(TriggerBase* trigger);
+  void DeleteTrigger(int index);
   TriggerBase* GetTrigger();
   void AppendSubBlock(Block* block);
   void PopSubBlock(Block* block);
@@ -26,7 +28,7 @@ class Block {
  private:
   glm::vec3 center {glm::vec3(0,0,0)};
   ShapeBase* shape_ {nullptr};
-  TriggerBase* trigger_ {nullptr};
+  std::vector<TriggerBase*> trigger_ {};
   std::vector<Block*> blocklist_ {};
   std::vector<Block*> posorderlist_ {};
 };

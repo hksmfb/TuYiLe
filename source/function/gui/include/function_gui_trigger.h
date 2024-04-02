@@ -20,6 +20,7 @@ class TriggerBase {
   glm::vec2 center_ {glm::vec2(0,0)};
   bool draggable_ {false};
   corelayer::math::VecTransform trans_ {};
+  corelayer::math::VecTransform invtrans_ {};
 };
 
 class RectTrigger : public TriggerBase {
