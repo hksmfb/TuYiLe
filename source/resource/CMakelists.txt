@@ -6,6 +6,8 @@ file(
     ${CMAKE_CURRENT_SOURCE_DIR}/asset/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/component/src/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/texture/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/mesh/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/shader/src/*.cc
 )
 # Set Headers
 set(
@@ -14,6 +16,8 @@ set(
     ${CMAKE_CURRENT_SOURCE_DIR}/asset/include/
     ${CMAKE_CURRENT_SOURCE_DIR}/component/include/
     ${CMAKE_CURRENT_SOURCE_DIR}/texture/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/mesh/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/shader/include/
 )
 # Set Data
 file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/TuYiLe/shader)

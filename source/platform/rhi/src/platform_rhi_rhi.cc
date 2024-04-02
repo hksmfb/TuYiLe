@@ -15,18 +15,20 @@ void ClearColor(int R, int G, int B, float Alpha) {
 }
 
 std::shared_ptr<Mesh> CreateMesh(datatype::Mesh mesh) {
-  printf("todo\n");
-  return nullptr;
+  return interface->CreateMesh(mesh);
+}
+
+std::shared_ptr<Shader> CreateShader(datatype::shadercode code) {
+  interface->CreateShader(code);
+  return interface->CreateShader(code);;
 }
 
 std::shared_ptr<Shader> CreateShader(std::string vertex, std::string fragment) {
-  printf("todo\n");
-  // if (interface->GetInterfaceName() == std::string("OpenGL")) {
-  //   return std::make_shared<graphicinterface::opengl::OpenGLShader>(vertex, fragment);
-  // } else {
-  //   return nullptr;
-  // }
-  return nullptr;
+  datatype::shadercode code;
+  code.vertex_shader_code = vertex;
+  code.fragment_shader_code = fragment;
+  interface->CreateShader(code);
+  return interface->CreateShader(code);;
 }
 
 void AppendMeshBatch(datatype::Mesh mesh, std::shared_ptr<RHI::Mesh>* dest) {

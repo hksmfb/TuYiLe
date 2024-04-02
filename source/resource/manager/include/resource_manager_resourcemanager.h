@@ -9,8 +9,10 @@
 #include "core_thread_manager.h"
 #include "core_guid_manager.h"
 #include "platform_data_datatype.h"
-#include "platform_rhi_shader.h"
 #include "platform_rhi_mesh.h"
+#include "resource_mesh_header.h"
+#include "platform_rhi_shader.h"
+#include "resource_shader_header.h"
 
 namespace TuYiLe {
 namespace resourcelayer {

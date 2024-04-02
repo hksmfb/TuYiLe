@@ -5,7 +5,8 @@ namespace resourcelayer {
 namespace manager {
 
 ResourceManager::ResourceManager() {
-
+  SetMesh(1000, platformlayer::RHI::CreateMesh(mesh::Rect()));
+  SetShader(3000, platformlayer::RHI::CreateShader(shader::Default()));
 }
 
 ResourceManager::~ResourceManager() {

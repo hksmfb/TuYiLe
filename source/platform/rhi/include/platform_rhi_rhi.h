@@ -23,6 +23,7 @@ extern graphicinterface::GLInterface* interface;
 void SetViewport(int posx, int posy, int width, int height);
 void ClearColor(int R, int G, int B, float Alpha);
 std::shared_ptr<Mesh> CreateMesh(datatype::Mesh mesh);
+std::shared_ptr<Shader> CreateShader(datatype::shadercode code);
 std::shared_ptr<Shader> CreateShader(std::string vertex, std::string fragment);
 void AppendMeshBatch(datatype::Mesh mesh, std::shared_ptr<RHI::Mesh>* dest);
 void CreateMeshBatch();
