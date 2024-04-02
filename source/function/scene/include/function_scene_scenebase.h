@@ -4,6 +4,8 @@
 #include "function_render_renderlist.h"
 #include "platform_file_filesystem.h"
 #include "function_gameobject_manager.h"
+#include "function_gui_manager.h"
+#include "function_hud_manager.h"
 
 namespace TuYiLe {
 namespace functionlayer {
@@ -12,6 +14,7 @@ namespace scene{
 class SceneBase {
  public:
   void Init();
+  void BasicUpdate();
   void Update();
   void Draw();
   gameobject::gouid CreateGameObject(std::shared_ptr<gameobject::GameObjectBase> object);
@@ -21,7 +24,9 @@ class SceneBase {
  protected:
   render::RenderList renderlist_;
  private:
-  gameobject::GameObjectManager GOmanager_;
+  gui::GuiManager scenegui {};
+  
+  gameobject::GameObjectManager GOmanager_ {};
 };
 
 }

@@ -8,10 +8,13 @@ void SceneBase::Init() {
 
 }
 
+void SceneBase::BasicUpdate() {
+  scenegui.Update();
+}
+
 void SceneBase::Update() {
   
 }
-
 
 void SceneBase::Draw() {
 

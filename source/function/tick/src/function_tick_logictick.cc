@@ -13,6 +13,7 @@ LogicTick::~LogicTick() {
 }
 
 void LogicTick::Update() {
+  scene::scenemanager->GetScene()->BasicUpdate();
   scene::scenemanager->GetScene()->Update();
 }
 

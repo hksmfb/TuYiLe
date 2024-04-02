@@ -14,6 +14,12 @@ namespace gui {
 
 class Block {
  public:
+  /**
+   * @brief bind block to TrackPoint.
+   * topleft,top,topright,left,center,right,bottomleft,bottom,bottomright.
+   * offset = src - dest + offset
+  */
+  void BindTrackPoint(std::string location);
   void SetShape(ShapeBase* shape);
   ShapeBase* GetShape();
   void SetTrigger(TriggerBase* trigger);
@@ -31,7 +37,9 @@ class Block {
   void Drag();
   void Drop();
  private:
-  glm::vec3 center {glm::vec3(0,0,0)};
+  glm::vec2 track_point_ {glm::vec2(0,0)};
+  glm::vec2 offset_ {glm::vec2(0,0)};
+  glm::vec3 center_ {glm::vec3(0,0,0)};
   ShapeBase* shape_ {nullptr};
   std::vector<TriggerBase*> trigger_ {};
   std::vector<Block*> blocklist_ {};

@@ -19,10 +19,6 @@ void TickManager::Run() {
 
 }
 
-void TickManager::LogicUpdate() {
-  
-}
-
 void TickManager::SetMaxFps(int max_fps) {
   rendertick_.SetTick(max_fps);
 }
