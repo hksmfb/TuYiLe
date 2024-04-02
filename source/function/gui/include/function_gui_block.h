@@ -30,7 +30,7 @@ class Block {
   ShapeBase* shape_ {nullptr};
   std::vector<TriggerBase*> trigger_ {};
   std::vector<Block*> blocklist_ {};
-  std::vector<Block*> posorderlist_ {};
+  std::vector<Block*> preorderlist_ {};
 };
 
 }

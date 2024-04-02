@@ -6,5 +6,6 @@
 #include "function_gui_shape.h"
 #include "function_gui_trigger.h"
 #include "function_gui_block.h"
+#include "function_gui_button.h"
 
 #endif
