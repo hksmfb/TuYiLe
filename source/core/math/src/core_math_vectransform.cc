@@ -65,7 +65,7 @@ VecTransform VecTransform::inverse() {
   VecTransform ret;
   ret.rotate_ = -rotate_;
   ret.scale_ = -scale_;
-  ret.translate_ = translate_;
+  ret.translate_ = -translate_;
   ret.transform_ = glm::inverse(transform_);
   ret.projection_ = projection_;
   ret.view_ = view_;
