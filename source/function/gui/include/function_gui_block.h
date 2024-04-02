@@ -2,6 +2,7 @@
 #define FUNCTION_GUI_BLOCK_H_
 
 #include <vector>
+#include <functional>
 
 #include "function_gui_shape.h"
 #include "function_gui_trigger.h"
@@ -21,8 +22,12 @@ class Block {
   TriggerBase* GetTrigger();
   void AppendSubBlock(Block* block);
   void PopSubBlock(Block* block);
-  bool OnHover();
-  bool OnClick();
+  bool IsHover();
+  void OnHover(std::function<void()> func);
+  void OffHover(std::function<void()> func);
+  bool IsClick();
+  void OnClick(std::function<void()> func);
+  void OffClick(std::function<void()> func);
   void Drag();
   void Drop();
  private:
