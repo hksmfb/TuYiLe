@@ -35,6 +35,14 @@ void Mouse::SetPos(int x, int y) {
   posy_ = y;
 }
 
+int Mouse::GetPosx() {
+  return posx_;
+}
+
+int Mouse::GetPosy() {
+  return posy_;
+}
+
 }
 }
 }

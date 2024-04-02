@@ -18,13 +18,17 @@ class InputManager {
     unsigned char action,
     unsigned char mods
   );
+  datatype::keystatus GetKeyBoard(unsigned short scancode);
   void SetMouseButton(
     unsigned short key,
     unsigned short scancode,
     unsigned char action,
     unsigned char mods
   );
+  datatype::keystatus GetMouseKey(unsigned short scancode);
   void SetMousePos(int x, int y);
+  int GetMousePosx();
+  int GetMousePosy();
  private:
   input::Mouse mousestatus_;
   input::KeyBoard keyboardstatus_;

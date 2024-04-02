@@ -21,6 +21,8 @@ class Mouse {
     unsigned char mods
   );
   void SetPos(int x, int y);
+  int GetPosx();
+  int GetPosy();
  private:
   int posx_;
   int posy_;
