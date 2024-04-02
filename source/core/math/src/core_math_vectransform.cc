@@ -61,6 +61,18 @@ VecTransform VecTransform::operator*(const float& f) {
   return ret;
 }
 
+VecTransform VecTransform::inverse() {
+  VecTransform ret;
+  ret.rotate_ = -rotate_;
+  ret.scale_ = -scale_;
+  ret.translate_ = translate_;
+  ret.transform_ = glm::inverse(transform_);
+  ret.projection_ = projection_;
+  ret.view_ = view_;
+  ret.model_ = model_;
+  return ret;
+}
+
 void VecTransform::Reset() {
   rotate_ = glm::vec3(0);
   scale_ = glm::vec3(0);

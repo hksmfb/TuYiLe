@@ -82,6 +82,7 @@ class VecTransform {
     VecTransform operator+(const VecTransform& trans);
     VecTransform operator-(const VecTransform& trans);
     VecTransform operator*(const float& f);
+    VecTransform inverse();
     void Reset();
     void Rotate(const float x, const float y, const float z);
     void Rotate(const floatvec3 rotate);
