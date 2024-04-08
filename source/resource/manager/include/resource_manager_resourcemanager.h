@@ -22,6 +22,7 @@ class ResourceManager {
  public:
   ResourceManager();
   ~ResourceManager();
+  void InitBuildinResource();
   void SetShaderProgram(std::shared_ptr<platformlayer::RHI::Shader> shader_program);
   void SetLoadedMesh(std::shared_ptr<platformlayer::RHI::Mesh> loaded_mesh);
   void SetShader(corelayer::guid::guid id, std::shared_ptr<platformlayer::RHI::Shader> shader_program);
@@ -31,6 +32,8 @@ class ResourceManager {
   std::shared_ptr<platformlayer::RHI::Mesh>* GetMeshAddress(corelayer::guid::guid id);
   std::shared_ptr<platformlayer::RHI::Mesh> GetMesh(corelayer::guid::guid id);
  private:
+  void LoadMesh(corelayer::guid::guid id, platformlayer::datatype::Mesh mesh);
+  void LoadShader(corelayer::guid::guid id, platformlayer::datatype::shadercode code);
   std::unordered_map<corelayer::guid::guid, std::string> resource_handler_;
   std::unordered_map<corelayer::guid::guid, platformlayer::datatype::Mesh*> meshlist_;
   std::unordered_map<corelayer::guid::guid, platformlayer::datatype::Texture*> texturelist_;

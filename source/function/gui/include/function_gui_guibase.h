@@ -27,6 +27,7 @@ class GuiBase {
    * Check if Drag or Drop.
   */
   void Update();
+  std::vector<render::RenderBase*> GetAllRender();
  protected:
   std::vector<Block*> blocklist_;
  private:
@@ -34,9 +35,9 @@ class GuiBase {
   std::vector<glm::vec2> track_point_ {{
     glm::vec2(-1,1), glm::vec2(0,1), glm::vec2(1,1),
     glm::vec2(-1,0), glm::vec2(0,0), glm::vec2(0,1),
-    glm::vec2(-1,-1), glm::vec2(0,-1), glm::vec2(-1,1)
+    glm::vec2(-1,-1), glm::vec2(0,-1), glm::vec2(1,-1)
   }};
-  functionlayer::camera::CameraBase* guicamera_ {nullptr};
+  functionlayer::camera::CameraBase guicamera_;
 };
 
 }

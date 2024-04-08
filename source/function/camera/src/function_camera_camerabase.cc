@@ -4,7 +4,9 @@ namespace TuYiLe {
 namespace functionlayer {
 namespace camera {
 
-
+glm::mat4 CameraBase::GetView() {
+  return view_;
+}
 
 }
 }

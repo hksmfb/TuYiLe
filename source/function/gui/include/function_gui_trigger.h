@@ -13,34 +13,46 @@ namespace gui {
 
 class TriggerBase {
  public:
-  virtual bool IsHover() = 0;
+  virtual void CheckHover() = 0;
+  bool IsHover();
   void OnHover(std::function<void()> func);
   void OffHover(std::function<void()> func);
   bool IsClick();
   void OnClick(std::function<void()> func);
   void OffClick(std::function<void()> func);
+  void SetPos(float x, float y);
+  void SetPos(glm::vec2 pos);
   glm::vec2 GetPos();
   void SetDraggable(bool b);
   void Drag();
   void Drop();
   void SetTransform(corelayer::math::VecTransform trans);
+ protected:
+  bool ishover_;
+  corelayer::math::VecTransform trans_ {};
+  corelayer::math::VecTransform invtrans_ {};
+  std::function<void()> onclick_func_ {[](){}};
+  std::function<void()> offclick_func_ {[](){}};
  private:
   glm::vec2 center_ {glm::vec2(0,0)};
   bool draggable_ {false};
-  corelayer::math::VecTransform trans_ {};
-  corelayer::math::VecTransform invtrans_ {};
 };
 
 class RectTrigger : public TriggerBase {
  public:
-  bool IsHover() = 0;
+  RectTrigger();
+  ~RectTrigger();
+  void SetSize(float x, float y);
+  void SetSize(glm::vec2 size);
+  void CheckHover();
  private:
   glm::vec2 size_ {glm::vec2(0,0)};
 };
 
 class CircleTrigger : public TriggerBase {
  public:
-  bool IsHover() = 0;
+  void CheckHover();
+  bool IsHover();
  private:
   float radius_ {0};
 };

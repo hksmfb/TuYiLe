@@ -22,10 +22,9 @@ class SceneBase {
   std::shared_ptr<gameobject::GameObjectBase> GetGameObject(gameobject::gouid id);
   render::RenderList GetRenderList();
  protected:
-  render::RenderList renderlist_;
- private:
   gui::GuiManager scenegui {};
-  
+  render::RenderList renderlist_;
+ private:  
   gameobject::GameObjectManager GOmanager_ {};
 };
 

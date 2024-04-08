@@ -25,6 +25,10 @@ void TickBase::SetTick(int ticks_ps) {
   dt_ = tick_ == 0 ? 0 : 1.0f/tick_;
 }
 
+void TickBase::SetDrawBuffer(DrawBuffer* drawbuffer) {
+  drawbuffer_ = drawbuffer;
+}
+
 }
 }
 }

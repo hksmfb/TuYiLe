@@ -10,6 +10,7 @@ void SceneBase::Init() {
 
 void SceneBase::BasicUpdate() {
   scenegui.Update();
+  renderlist_ = scenegui.GetCurrentRenderList();
 }
 
 void SceneBase::Update() {

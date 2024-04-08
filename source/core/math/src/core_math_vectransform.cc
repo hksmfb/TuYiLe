@@ -75,7 +75,7 @@ VecTransform VecTransform::inverse() {
 
 void VecTransform::Reset() {
   rotate_ = glm::vec3(0);
-  scale_ = glm::vec3(0);
+  scale_ = glm::vec3(1.0);
   translate_ = glm::vec3(0);
   transform_ = glm::mat4(1.0f);
   projection_ = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
@@ -101,7 +101,7 @@ void VecTransform::Rotate(floatvec3 rotate) {
 }
 
 void VecTransform::Rotate(const glm::vec3 rotate) {
-  rotate_ = rotate;
+  rotate_ += rotate;
 }
 
 void VecTransform::SetRotate(const float x, const float y, const float z) {
@@ -174,6 +174,10 @@ void VecTransform::SetTranslate(const glm::vec3 translate) {
   translate_ = translate;
 }
 
+void VecTransform::Transform(VecTransform trans) {
+  other_transform_ = trans.GetTransform();
+}
+
 void VecTransform::Projectionmod(int mod) {
   if(mod == 0) {
     projection_ = glm::mat4(1.0f);
@@ -183,7 +187,7 @@ void VecTransform::Projectionmod(int mod) {
   }
 }
 
-glm::mat4& VecTransform::GetTransform() {
+glm::mat4 VecTransform::GetTransform() {
   transform_ = glm::mat4(1.0f);
   transform_ = glm::translate(transform_, glm::vec3(translate_.x, translate_.y, translate_.z));
   transform_ = glm::rotate(transform_, glm::radians(rotate_.x), glm::vec3(1.0, 0.0, 0.0));

@@ -5,12 +5,16 @@ namespace resourcelayer {
 namespace manager {
 
 ResourceManager::ResourceManager() {
-  SetMesh(1000, platformlayer::RHI::CreateMesh(mesh::Rect()));
-  SetShader(3000, platformlayer::RHI::CreateShader(shader::Default()));
+  
 }
 
 ResourceManager::~ResourceManager() {
   
+}
+
+void ResourceManager::InitBuildinResource() {
+  LoadMesh(1000, mesh::Rect());
+  LoadShader(3000, shader::Default());
 }
 
 void ResourceManager::SetShaderProgram(std::shared_ptr<platformlayer::RHI::Shader> shader_program) {
@@ -49,6 +53,20 @@ std::shared_ptr<platformlayer::RHI::Mesh>* ResourceManager::GetMeshAddress(corel
 
 std::shared_ptr<platformlayer::RHI::Mesh> ResourceManager::GetMesh(corelayer::guid::guid id) {
   return loaded_mesh_list_.at(id);
+}
+
+void ResourceManager::LoadMesh(corelayer::guid::guid id, platformlayer::datatype::Mesh mesh) {
+  loaded_mesh_list_lock_.lock();
+  loaded_mesh_list_[id] = nullptr;
+  loaded_mesh_list_lock_.unlock();
+  platformlayer::RHI::AppendMeshBatch(mesh, &loaded_mesh_list_[id]);
+}
+
+void ResourceManager::LoadShader(corelayer::guid::guid id, platformlayer::datatype::shadercode code) {
+  shader_program_list_lock_.lock();
+  shader_program_list_[id];
+  shader_program_list_lock_.unlock();
+  platformlayer::RHI::AppendShaderBatch(code, &shader_program_list_[id]);
 }
 
 ResourceManager* resourcemanager = nullptr;

@@ -12,6 +12,10 @@ class ShapeBase {
  public:
   void SetPos(glm::vec2 pos);
   glm::vec2 GetPos();
+  void SetTransform(corelayer::math::VecTransform trans);
+  void AppendTransform(corelayer::math::VecTransform trans);
+  corelayer::math::VecTransform GetTransform();
+  render::RenderBase* GetRender();
  protected:
   render::MeshRender meshrender_ {};
   corelayer::math::VecTransform trans_ {};

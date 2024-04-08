@@ -11,8 +11,8 @@ namespace scene {
 class SceneManager {
  public:
   SceneManager();
-  SceneManager(SceneBase* scene);
   ~SceneManager();
+  void Init();
   void SetScene(SceneBase* scene);
   void RegistSceneType(SceneBase* Scene);
   SceneBase* GetScene();

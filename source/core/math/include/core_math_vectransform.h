@@ -102,8 +102,9 @@ class VecTransform {
     void SetTranslate(const float x, const float y, const float z);
     void SetTranslate(const floatvec3 translate);
     void SetTranslate(const glm::vec3 translate);
+    void Transform(VecTransform trans);
     void Perspective();
-    glm::mat4& GetTransform();
+    glm::mat4 GetTransform();
     glm::mat4& GetProjection();
     void SetProjection(glm::mat4& projection);
     void SetView(glm::mat4& mat);
@@ -116,9 +117,10 @@ class VecTransform {
       
   private:
     glm::vec3 rotate_ {glm::vec3(0)};
-    glm::vec3 scale_ {glm::vec3(0)};
+    glm::vec3 scale_ {glm::vec3(1.0)};
     glm::vec3 translate_ {glm::vec3(0)};
     // bool is_transform_updated_;
+    glm::mat4 other_transform_ {glm::mat4(1.0f)};
     glm::mat4 transform_ {glm::mat4(1.0f)};
     glm::mat4 projection_ {glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f)};
     glm::mat4 view_ {glm::mat4(1.0f)};

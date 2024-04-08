@@ -5,5 +5,6 @@
 #include "function_tick_tickbase.h"
 #include "function_tick_rendertick.h"
 #include "function_tick_tickbase.h"
+#include "function_tick_drawbuffer.h"
 
 #endif

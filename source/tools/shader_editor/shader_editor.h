@@ -22,7 +22,7 @@ void GlobalVarInit() {
   resourcelayer::manager::resourcemanager = new resourcelayer::manager::ResourceManager();
   functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
   functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();
-  functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager(new ShaderScene());
+  functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager();
 }
 
 }

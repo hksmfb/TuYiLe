@@ -5,6 +5,7 @@
 #include "platform_input_manager.h"
 #include "platform_rhi_initializer.h"
 #include "core_guid_manager.h"
+#include "core_math_random.h"
 #include "core_thread_manager.h"
 #include "resource_manager_resourcemanager.h"
 #include "function_tick_tickmanager.h"
@@ -17,6 +18,7 @@ void GlobalVarInit() {
   platformlayer::graphicinterface::RhiInitializer("OpenGL");
   platformlayer::input::inputmanager = new platformlayer::input::InputManager();
   corelayer::guid::guidmanager = new corelayer::guid::GUIDManager();
+  corelayer::math::randomgenerator = new corelayer::math::Random();
   corelayer::thread::threadmanager = new corelayer::thread::ThreadManager();
   resourcelayer::manager::resourcemanager = new resourcelayer::manager::ResourceManager();
   functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();

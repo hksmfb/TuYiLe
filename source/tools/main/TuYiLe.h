@@ -40,11 +40,15 @@ void Init(setting init_setting) {
   platformlayer::graphicinterface::RhiInitializer(init_setting.GL);
   platformlayer::input::inputmanager = new platformlayer::input::InputManager();
   corelayer::guid::guidmanager = new corelayer::guid::GUIDManager();
+  corelayer::math::randomgenerator = new corelayer::math::Random();
   corelayer::thread::threadmanager = new corelayer::thread::ThreadManager();
   resourcelayer::manager::resourcemanager = new resourcelayer::manager::ResourceManager();
   functionlayer::render::pipeline::renderpipeline = new functionlayer::render::pipeline::RenderPipeline();
   functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager();
   functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
+
+  resourcelayer::manager::resourcemanager->InitBuildinResource();
+  functionlayer::scene::scenemanager->Init();
   functionlayer::tick::tickmanager->SetMaxFps(init_setting.maxfps);
   functionlayer::tick::tickmanager->SetMaxTick(init_setting.tick);
 }
@@ -54,6 +58,7 @@ void SetInitialScene(functionlayer::scene::SceneBase* scene) {
 }
 
 void Run(float engine_dt) {
+  functionlayer::tick::tickmanager->Run();
   float time = 0;
   while (TuYiLe::platformlayer::window::windowmanager->isRunning()) {
     float curr_time = platformlayer::time::GetTime();

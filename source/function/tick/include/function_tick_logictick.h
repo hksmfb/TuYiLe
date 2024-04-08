@@ -12,6 +12,7 @@ class LogicTick : public TickBase {
   LogicTick();
   ~LogicTick();
   void Update();
+  render::RenderList GetRenderList();
  private:
   
 };

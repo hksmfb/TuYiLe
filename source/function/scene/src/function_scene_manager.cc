@@ -5,13 +5,12 @@ namespace functionlayer {
 namespace scene {
 
 SceneManager::SceneManager() {
-  scene_ = new MainScene();
   //init console
   //regist func;
 }
 
-SceneManager::SceneManager(SceneBase* scene) {
-  scene_ = scene;
+void SceneManager::Init() {
+  scene_ = new MainScene();
 }
 
 SceneManager::~SceneManager() {

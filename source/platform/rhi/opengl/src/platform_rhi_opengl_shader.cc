@@ -50,6 +50,27 @@ void OpenGLShader::Use() {
   glUseProgram(id_);
 }
 
+void OpenGLShader::SetFloat(std::string name, float f) {
+  glUniform1f(glGetUniformLocation(id_, name.c_str()), f);
+}
+
+void OpenGLShader::SetInt(std::string name, int i) {
+  glUniform1i(glGetUniformLocation(id_, name.c_str()), i);
+}
+
+void OpenGLShader::SetVec3(std::string name, glm::vec3 vec3) {
+  glUniform3fv(glGetUniformLocation(id_, name.c_str()),3, glm::value_ptr(vec3));
+}
+
+void OpenGLShader::SetVec3(std::string name, float x, float y, float z) {
+  glm::vec3 vec3 = glm::vec3(x, y, z);
+  glUniform3fv(glGetUniformLocation(id_, name.c_str()),3, glm::value_ptr(vec3));
+}
+
+void OpenGLShader::SetMat4(std::string name, glm::mat4 mat4) {
+  glUniformMatrix4fv(glGetUniformLocation(id_, name.c_str()), 1, GL_FALSE,glm::value_ptr(mat4));
+}
+
 }
 }
 }

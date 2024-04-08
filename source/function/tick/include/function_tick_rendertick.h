@@ -20,10 +20,10 @@ class RenderTick : public TickBase {
   void Update();
   void UpdateDrawbuffer();
  private:
-  unsigned int current_status_index_ {1};
-  unsigned int past_status_index_ {0};
-  unsigned int logic_status_index_ {2};
-  std::array<render::RenderList, 3> drawbuffer_;
+  // unsigned int current_status_index_ {1};
+  // unsigned int past_status_index_ {0};
+  // unsigned int logic_status_index_ {2};
+  // std::array<render::RenderList, 3> drawbuffer_;
 };
 
 }

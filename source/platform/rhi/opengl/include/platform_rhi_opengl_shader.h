@@ -2,6 +2,10 @@
 #define PLATFORM_RHI_OPENGL_SHADER_H_
 
 #include "glad/glad.h"
+#define GLM_FORCE_SIMD_AVX2
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
 #include "platform_rhi_shader.h"
 
@@ -18,12 +22,13 @@ class OpenGLShader : public RHI::Shader {
   );
   ~OpenGLShader();
   void Use();
-  void SetFloat();
-  void SetInt();
-  void SetVec3();
-  void SetMat4();
+  void SetFloat(std::string name, float f);
+  void SetInt(std::string name, int i);
+  void SetVec3(std::string name, glm::vec3 vec3);
+  void SetVec3(std::string name, float x, float y, float z);
+  void SetMat4(std::string name, glm::mat4 mat4);
  private:
-  unsigned int id_;
+  
 };
 
 }
