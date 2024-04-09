@@ -12,6 +12,11 @@ WindowManager::WindowManager(int width, int height, std::string title) {
   width_ = width;
   height_ = height;
   title_ = title;
+  glfwSetWindowSize(window_, width, height);
+}
+
+void WindowManager::Init() {
+  input::inputmanager->SetWindowSize(width_, height_);
 }
 
 WindowManager::~WindowManager() {
@@ -48,10 +53,11 @@ GLFWwindow* WindowManager::GetGLFWwindow() {
   return window_;
 }
 
-void WindowManager::SetSize(int widht, int height) {
-  width_ = widht;
+void WindowManager::SetSize(int width, int height) {
+  width_ = width;
   height_ = height;
-  glfwSetWindowSize(window_, widht, height);
+  glfwSetWindowSize(window_, width, height);
+  // input::inputmanager->SetWindowSize(width_, height_);
 }
 
 int WindowManager::GetWidth() {

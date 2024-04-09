@@ -12,6 +12,7 @@ class InputManager {
  public:
   InputManager();
   ~InputManager();
+  void SetWindowSize(int width, int height);
   void SetKeyBoard(
     unsigned short key,
     unsigned short scancode,
@@ -28,10 +29,14 @@ class InputManager {
   datatype::keystatus GetMouseKey(unsigned short scancode);
   void SetMousePos(int x, int y);
   int GetMousePosx();
+  float GetMousePosxFixed();
   int GetMousePosy();
+  float GetMousePosyFixed();
  private:
-  input::Mouse mousestatus_;
-  input::KeyBoard keyboardstatus_;
+  int window_width_ {1};
+  int window_height_ {1};
+  input::Mouse mousestatus_ {};
+  input::KeyBoard keyboardstatus_ {};
 };
 
 extern InputManager* inputmanager;

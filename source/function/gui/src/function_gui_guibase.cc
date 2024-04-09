@@ -16,7 +16,9 @@ void GuiBase::AppendBlockSet(Block* blockset) {
 }
 
 void GuiBase::Update() {
-  
+  for (auto& block : blocklist_) {
+    block->CheckHover();
+  }
 }
 
 std::vector<render::RenderBase*> GuiBase::GetAllRender() {

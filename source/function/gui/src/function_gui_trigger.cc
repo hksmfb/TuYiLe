@@ -9,34 +9,26 @@ bool TriggerBase::IsHover() {
 }
 
 void TriggerBase::OnHover(std::function<void()> func) {
-  if (IsHover()) {
-    func();
-  }
+  onhover_func_ = func;
 }
 
 void TriggerBase::OffHover(std::function<void()> func) {
-  if (!IsHover()) {
-    func();
-  }
+  offhover_func_ = func;
 }
 
 bool TriggerBase::IsClick() {
-  if (IsHover()&&platformlayer::input::inputmanager->GetMouseKey(1).mods) {
+  if (ishover_&&platformlayer::input::inputmanager->GetMouseKey(1).action) {
     return true;
   }
   return false;
 }
 
 void TriggerBase::OnClick(std::function<void()> func) {
-  if (IsClick()) {
-    func();
-  }
+  onclick_func_ = func;
 }
 
 void TriggerBase::OffClick(std::function<void()> func) {
-  if (!IsClick()) {
-    func();
-  }
+  offclick_func_ = func;
 }
 
 glm::vec2 TriggerBase::GetPos() {
@@ -54,7 +46,7 @@ std::cout << "function::gui::trigger::TriggerBase.Drag() in" <<std::endl;
   if (!draggable_) {
     return;
   }
-  if (IsHover()) {
+  if (ishover_) {
     if (platformlayer::input::inputmanager->GetMouseKey(1).action) {
       
     }
@@ -70,6 +62,21 @@ void TriggerBase::Drop() {
 
 void TriggerBase::SetTransform(corelayer::math::VecTransform trans) {
   trans_ = trans;
+  invtrans_ = trans_.inverse();
+}
+
+void TriggerBase::RunFuncs() {
+  if (IsHover()) {
+    // printf("onhover\n");
+    onhover_func_();
+    if (IsClick()) {
+      onclick_func_();
+    }
+  } else {
+    // printf("offhover\n");
+    offhover_func_();
+    offclick_func_();
+  }
 }
 
 RectTrigger::RectTrigger() {
@@ -93,8 +100,8 @@ void RectTrigger::SetSize(glm::vec2 size) {
 
 void RectTrigger::CheckHover() {
   glm::vec4 mousepos;
-  mousepos.x = platformlayer::input::inputmanager->GetMousePosx();
-  mousepos.y = platformlayer::input::inputmanager->GetMousePosy();
+  mousepos.x = platformlayer::input::inputmanager->GetMousePosxFixed();
+  mousepos.y = platformlayer::input::inputmanager->GetMousePosyFixed();
   mousepos.z = 0;
   mousepos.w = 1;
   mousepos = invtrans_.GetTransform()*mousepos;
@@ -103,10 +110,11 @@ void RectTrigger::CheckHover() {
     -1 <= mousepos.y && mousepos.y <= 1
   ) {
     ishover_ = true;
-    
+  } else {
+    ishover_ = false;
   }
-  ishover_ = false;
-
+  // std::cout << mousepos.x << "," <<mousepos.y << std::endl;
+  RunFuncs();
 }
 
 }

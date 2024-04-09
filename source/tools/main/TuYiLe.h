@@ -36,7 +36,6 @@ struct setting {
 
 void Init(setting init_setting) {
   platformlayer::window::windowmanager = new platformlayer::window::WindowManager(init_setting.width, init_setting.height, init_setting.title);
-  platformlayer::window::windowmanager->SetSize(init_setting.width, init_setting.height);
   platformlayer::graphicinterface::RhiInitializer(init_setting.GL);
   platformlayer::input::inputmanager = new platformlayer::input::InputManager();
   corelayer::guid::guidmanager = new corelayer::guid::GUIDManager();
@@ -47,6 +46,8 @@ void Init(setting init_setting) {
   functionlayer::scene::scenemanager = new functionlayer::scene::SceneManager();
   functionlayer::tick::tickmanager = new functionlayer::tick::TickManager();
 
+  // platformlayer::window::windowmanager->SetSize(init_setting.width, init_setting.height);
+  platformlayer::window::windowmanager->Init();
   resourcelayer::manager::resourcemanager->InitBuildinResource();
   functionlayer::scene::scenemanager->Init();
   functionlayer::tick::tickmanager->SetMaxFps(init_setting.maxfps);

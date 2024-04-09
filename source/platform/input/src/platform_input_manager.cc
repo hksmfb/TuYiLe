@@ -1,5 +1,5 @@
 #include "platform_input_manager.h"
-
+#include <iostream>
 namespace TuYiLe{
 namespace platformlayer {
 namespace input {
@@ -10,6 +10,11 @@ InputManager::InputManager() {
 
 InputManager::~InputManager() {
 
+}
+
+void InputManager::SetWindowSize(int width, int height) {
+  window_width_ = width;
+  window_height_ = height;
 }
 
 void InputManager::SetKeyBoard(
@@ -46,8 +51,16 @@ int InputManager::GetMousePosx() {
   return mousestatus_.GetPosx();
 }
 
+float InputManager::GetMousePosxFixed() {
+  return 2.0f*mousestatus_.GetPosx()/window_width_ - 1;
+}
+
 int InputManager::GetMousePosy() {
   return mousestatus_.GetPosy();
+}
+
+float InputManager::GetMousePosyFixed() {
+  return 2.0f*mousestatus_.GetPosy()/window_height_ - 1;
 }
 
 InputManager* inputmanager = nullptr;

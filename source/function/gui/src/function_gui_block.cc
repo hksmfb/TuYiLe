@@ -71,7 +71,7 @@ void Block::AppendSubBlock(Block* block) {
 }
 
 void Block::CheckHover() {
-  for (auto t : trigger_) {
+  for (auto& t : trigger_) {
     t->CheckHover();
   }
 }

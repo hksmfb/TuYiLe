@@ -20,6 +20,7 @@ class WindowManager {
  public:
   WindowManager(int width, int height, std::string title);
   ~WindowManager();
+  void Init();
   void GlInterfaceInit(std::string GL);
   GLFWwindow* GetGLFWwindow();
   void SetSize(int widht, int height);

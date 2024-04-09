@@ -14,6 +14,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
   } else { // when height is longer
       glViewport(0, (height-width)/2, width, width);
   }
+  input::inputmanager->SetWindowSize(width, height);
 }
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {

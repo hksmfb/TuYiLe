@@ -28,9 +28,12 @@ class TriggerBase {
   void Drop();
   void SetTransform(corelayer::math::VecTransform trans);
  protected:
+  void RunFuncs();
   bool ishover_;
   corelayer::math::VecTransform trans_ {};
   corelayer::math::VecTransform invtrans_ {};
+  std::function<void()> onhover_func_ {[](){}};
+  std::function<void()> offhover_func_ {[](){}};
   std::function<void()> onclick_func_ {[](){}};
   std::function<void()> offclick_func_ {[](){}};
  private:

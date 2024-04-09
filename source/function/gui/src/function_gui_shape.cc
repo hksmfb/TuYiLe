@@ -43,7 +43,7 @@ RectShape::~RectShape() {
 }
 
 void RectShape::SetSize(float width, float height) {
-  trans_.SetScale(width, height, 0);
+  trans_.SetScale(width, height, 1);
 }
 
 }

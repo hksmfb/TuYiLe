@@ -10,7 +10,8 @@ MainScene::MainScene() {
   gui::RectShape* shape = new gui::RectShape();
   shape->SetSize(0.5,0.5);
   gui::TriggerBase* trigger = new gui::RectTrigger();
-  trigger->OnHover([](){printf("hover\n");});
+  trigger->OnHover([](){printf("OOOOOOO\n");});
+  trigger->OffHover([](){printf("-------\n");});
   trigger->SetTransform(shape->GetTransform());
   rect->SetShape(shape);
   rect->AppendTrigger(trigger);

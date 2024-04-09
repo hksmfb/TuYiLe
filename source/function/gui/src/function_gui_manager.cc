@@ -15,9 +15,7 @@ GuiManager::~GuiManager() {
 }
 
 void GuiManager::Update() {
-  for (auto& block : blocklist_) {
-    block->CheckHover();
-  }
+  current_gui_->Update();
   current_renderlist_.clear();
   for (auto& render : current_gui_->GetAllRender()) {
     current_renderlist_.AppendRender(render);
