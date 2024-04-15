@@ -19,9 +19,6 @@ VecTransform& VecTransform::operator=(const VecTransform& trans) {
   scale_ = trans.scale_;
   translate_ = trans.translate_;
   transform_ = trans.transform_;
-  projection_ = trans.projection_;
-  view_ = trans.view_;
-  model_ = model_;
   return *this;
 }
 
@@ -31,9 +28,6 @@ VecTransform VecTransform::operator+(const VecTransform& trans) {
   ret.scale_ = scale_ + trans.scale_;
   ret.translate_ = translate_ + trans.translate_;
   ret.transform_ = transform_ + trans.transform_;
-  ret.projection_ = projection_;
-  ret.view_ = view_ + trans.view_;
-  model_ = model_;
   return ret;
 }
 
@@ -43,9 +37,6 @@ VecTransform VecTransform::operator-(const VecTransform& trans) {
   ret.scale_ = scale_ - trans.scale_;
   ret.translate_ = translate_ - trans.translate_;
   ret.transform_ = transform_ - trans.transform_;
-  ret.projection_ = projection_;
-  ret.view_ = view_ - trans.view_;
-  model_ = model_;
   return ret;
 }
 
@@ -55,9 +46,6 @@ VecTransform VecTransform::operator*(const float& f) {
   ret.scale_ = scale_ * f;
   ret.translate_ = translate_ * f;
   ret.transform_ = transform_ * f;
-  ret.projection_ = projection_;
-  ret.view_ = view_ * f;
-  model_ = model_;
   return ret;
 }
 
@@ -67,9 +55,6 @@ VecTransform VecTransform::inverse() {
   ret.scale_ = glm::vec3(1.0f/scale_.x, 1.0f/scale_.y, 1.0f/scale_.z);
   ret.translate_ = -translate_;
   ret.transform_ = glm::inverse(transform_);
-  ret.projection_ = projection_;
-  ret.view_ = view_;
-  ret.model_ = model_;
   return ret;
 }
 
@@ -78,9 +63,6 @@ void VecTransform::Reset() {
   scale_ = glm::vec3(1.0);
   translate_ = glm::vec3(0);
   transform_ = glm::mat4(1.0f);
-  projection_ = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
-  view_ = glm::mat4(1.0f);
-  model_ = glm::mat4(1.0f);
 }
 
 // void VecTransform::apply(platformlayer::Shader* shader) {
@@ -178,15 +160,6 @@ void VecTransform::Transform(VecTransform trans) {
   other_transform_ = trans.GetTransform();
 }
 
-void VecTransform::Projectionmod(int mod) {
-  if(mod == 0) {
-    projection_ = glm::mat4(1.0f);
-  }
-  else if(mod == 1) {
-    projection_ = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
-  }
-}
-
 glm::mat4 VecTransform::GetTransform() {
   transform_ = glm::mat4(1.0f);
   transform_ = glm::translate(transform_, glm::vec3(translate_.x, translate_.y, translate_.z));
@@ -195,26 +168,6 @@ glm::mat4 VecTransform::GetTransform() {
   transform_ = glm::rotate(transform_, glm::radians(rotate_.z), glm::vec3(0.0, 0.0, 1.0));
   transform_ = glm::scale(transform_, glm::vec3(scale_.x, scale_.y, scale_.z));
   return transform_;
-}
-
-glm::mat4& VecTransform::GetProjection() {
-  return projection_;
-}
-
-void VecTransform::SetProjection(glm::mat4& projection) {
-  projection_ = projection;
-}
-
-void VecTransform::SetView(glm::mat4& mat) {
-  view_ = mat;
-}
-
-glm::mat4& VecTransform::GetView() {
-  return view_;
-}
-
-void VecTransform::Perspective() {
-  projection_ = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
 }
 
 }

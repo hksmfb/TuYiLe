@@ -10,7 +10,7 @@
 #define GLFW_INCLUDE_VULKAN
 #include "GLFW/glfw3.h"
 
-#include "platform_window_manager.h"
+// #include "platform_window_manager.h"
 #include "platform_data_datatype.h"
 #include "platform_rhi_shader.h"
 #include "platform_rhi_mesh.h"
@@ -24,6 +24,10 @@ class GLInterface {
   virtual void WindowInit() = 0;
   virtual void ClearColor(int R, int G, int B, float Alpha) = 0;
   virtual void SetViewport(int posx, int posy, int width, int height) = 0;
+  virtual int GetViewportPosy() = 0;
+  virtual int GetViewportPosx() = 0;
+  virtual int GetViewportHieght() = 0;
+  virtual int GetViewportWidth() = 0;
   virtual std::shared_ptr<RHI::Mesh> CreateMesh(datatype::Mesh mesh) = 0;
   virtual std::shared_ptr<RHI::Shader> CreateShader(datatype::shadercode shadercode) = 0;
   std::string GetInterfaceName();

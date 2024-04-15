@@ -7,6 +7,7 @@
 #include "GLFW/glfw3.h"
 
 #include "platform_input_manager.h"
+#include "platform_rhi_rhi.h"
 
 namespace TuYiLe{
 namespace platformlayer {

@@ -19,9 +19,17 @@ class OpenGLInterface : public GLInterface {
   void WindowInit();
   void ClearColor(int R, int G, int B, float Alpha);
   void SetViewport(int posx, int posy, int width, int height);
+  int GetViewportPosx();
+  int GetViewportPosy();
+  int GetViewportHieght();
+  int GetViewportWidth();
   std::shared_ptr<RHI::Mesh> CreateMesh(datatype::Mesh);
   std::shared_ptr<RHI::Shader> CreateShader(datatype::shadercode shadercode);
  private:
+  int viewport_posx_ {0};
+  int viewport_posy_ {0};
+  int viewport_width_ {1};
+  int viewport_height_ {1};
 };
 
 }

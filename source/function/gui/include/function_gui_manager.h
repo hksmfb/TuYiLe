@@ -29,6 +29,11 @@ class GuiManager {
   void AppendBlockSet(Block* blockset);
   render::RenderList GetCurrentRenderList();
  private:
+  void UpdateWindowSize();
+  int window_width_;
+  int window_height_;
+  int viewport_width_;
+  int viewport_height_;
   GuiBase* current_gui_ {nullptr};
   render::RenderList current_renderlist_;
   std::vector<GuiBase*> guilist_ {};

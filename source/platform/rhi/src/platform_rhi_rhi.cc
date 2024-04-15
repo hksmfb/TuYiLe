@@ -6,8 +6,36 @@ namespace RHI {
 
 graphicinterface::GLInterface* interface = nullptr;
 
+void Init() {
+  RHI::interface = new graphicinterface::vulkan::VulkanInterface();
+}
+
+void Init(std::string graphiclib) {
+  if (graphiclib == std::string("OpenGL")) {
+    RHI::interface = new graphicinterface::opengl::OpenGLInterface();
+  } else {
+    RHI::interface = new graphicinterface::vulkan::VulkanInterface();
+  }
+}
+
 void SetViewport(int posx, int posy, int width, int height) {
   interface->SetViewport(posx, posy, width, height);
+}
+
+int GetViewportPosy() {
+  return interface->GetViewportPosy();
+}
+
+int GetViewportPosx() {
+  return interface->GetViewportPosx();
+}
+
+int GetViewportHeight() {
+  return interface->GetViewportHieght();
+}
+
+int GetViewportWidth() {
+  return interface->GetViewportWidth();
 }
 
 void ClearColor(int R, int G, int B, float Alpha) {

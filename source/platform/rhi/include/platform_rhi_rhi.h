@@ -10,7 +10,9 @@
 #include <unordered_map>
 
 #include "platform_data_datatype.h"
-#include "platform_rhi_glinterface.h"
+// #include "platform_rhi_glinterface.h"
+#include "platform_rhi_opengl.h"
+#include "platform_rhi_vulkan.h"
 #include "platform_rhi_opengl_mesh.h"
 #include "platform_rhi_opengl_shader.h"
 
@@ -20,7 +22,13 @@ namespace RHI {
 
 extern graphicinterface::GLInterface* interface;
 
+void Init();
+void Init(std::string graphiclib);
 void SetViewport(int posx, int posy, int width, int height);
+int GetViewportPosy();
+int GetViewportPosx();
+int GetViewportHeight();
+int GetViewportWidth();
 void ClearColor(int R, int G, int B, float Alpha);
 std::shared_ptr<Mesh> CreateMesh(datatype::Mesh mesh);
 std::shared_ptr<Shader> CreateShader(datatype::shadercode code);
@@ -33,8 +41,7 @@ void CreateShaderBatch();
 void DepthTest(bool b);
 void WireframeMode(bool b);
 void ClearScreen();
-int GetViewportHeight();
-int GetViewportWidth();
+
 
 }
 }

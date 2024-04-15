@@ -10,9 +10,11 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
   // when width is longer
   //glviewport(bottomleft.x, bottomleft.y, width, height);
   if (width >= height) {
-      glViewport((width-height)/2, 0, height, height);
+      // glViewport((width-height)/2, 0, height, height);
+      RHI::interface->SetViewport((width-height)/2, 0, height, height);
   } else { // when height is longer
-      glViewport(0, (height-width)/2, width, width);
+      // glViewport(0, (height-width)/2, width, width);
+      RHI::interface->SetViewport(0, (height-width)/2, width, width);
   }
   input::inputmanager->SetWindowSize(width, height);
 }

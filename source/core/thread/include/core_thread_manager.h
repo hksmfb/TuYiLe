@@ -23,6 +23,7 @@ class ThreadManager {
  public:
   ThreadManager();
   ~ThreadManager();
+  void Init();
   template<typename Function, typename... Args> 
   void Run(Function&& func, Args&&... args);
   void AppendTask(std::function<void()> task);

@@ -79,8 +79,16 @@ void TriggerBase::RunFuncs() {
   }
 }
 
-RectTrigger::RectTrigger() {
+void TriggerBase::SetViewportTrans(int windowwidth, int windowheight, int viewportwidth, int viewportheight) {
+  corelayer::math::VecTransform viewport {};
+  float wratio = viewportwidth/windowwidth;
+  float hratio = viewportheight/windowheight;
+  viewport.SetScale(wratio,hratio,1);
+  viewport_trans_ = viewport.GetTransform();
+}
 
+RectTrigger::RectTrigger() {
+  
 }
 
 RectTrigger::~RectTrigger() {
@@ -104,7 +112,7 @@ void RectTrigger::CheckHover() {
   mousepos.y = platformlayer::input::inputmanager->GetMousePosyFixed();
   mousepos.z = 0;
   mousepos.w = 1;
-  mousepos = invtrans_.GetTransform()*mousepos;
+  mousepos = viewport_trans_*invtrans_.GetTransform()*mousepos;
   if (
     -1 <= mousepos.x && mousepos.x <= 1 &&
     -1 <= mousepos.y && mousepos.y <= 1

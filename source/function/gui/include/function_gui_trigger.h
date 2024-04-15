@@ -4,8 +4,10 @@
 #include <iostream>
 #include <functional>
 
-#include "core_math_vectransform.h"
+#include "core_math_vectransformstatic.h"
 #include "platform_input_header.h"
+#include "platform_window_manager.h"
+#include "platform_rhi_rhi.h"
 
 namespace TuYiLe {
 namespace functionlayer {
@@ -27,11 +29,13 @@ class TriggerBase {
   void Drag();
   void Drop();
   void SetTransform(corelayer::math::VecTransform trans);
+  void SetViewportTrans(int windowwidth, int windowheight, int viewportwidth, int viewportheight);
  protected:
   void RunFuncs();
   bool ishover_;
   corelayer::math::VecTransform trans_ {};
   corelayer::math::VecTransform invtrans_ {};
+  glm::mat4 viewport_trans_ {glm::mat4(1.0f)};
   std::function<void()> onhover_func_ {[](){}};
   std::function<void()> offhover_func_ {[](){}};
   std::function<void()> onclick_func_ {[](){}};

@@ -7,7 +7,7 @@ namespace vulkan {
 
 VulkanInterface::VulkanInterface() {
   interfacename_ = "Vulkan";
-  window::windowmanager->GlInterfaceInit("Vulkan");
+  // window::windowmanager->GlInterfaceInit("Vulkan");
   VulkanInit init;
   instanceinfo info;
   init.SetInstance(info, ins_);
@@ -23,16 +23,16 @@ VulkanInterface::~VulkanInterface() {
 }
 
 void VulkanInterface::WindowInit() {
-  if (glfwCreateWindowSurface(ins_.instance, window::windowmanager->GetGLFWwindow(), nullptr, &surface_) != VK_SUCCESS) {
-    std::cout << "failed to create window surface!" 
-    << glfwCreateWindowSurface(ins_.instance, window::windowmanager->GetGLFWwindow(), nullptr, &surface_) << std::endl;
-    uint32_t count;
-    const char** extensions = glfwGetRequiredInstanceExtensions(&count);
-    for(int i = 0; i < count; ++i) {
-      printf("%s\n", extensions[i]);
-    }
-    // throw std::runtime_error("failed to create window surface!");
-  }
+  // if (glfwCreateWindowSurface(ins_.instance, window::windowmanager->GetGLFWwindow(), nullptr, &surface_) != VK_SUCCESS) {
+  //   std::cout << "failed to create window surface!" 
+  //   << glfwCreateWindowSurface(ins_.instance, window::windowmanager->GetGLFWwindow(), nullptr, &surface_) << std::endl;
+  //   uint32_t count;
+  //   const char** extensions = glfwGetRequiredInstanceExtensions(&count);
+  //   for(int i = 0; i < count; ++i) {
+  //     printf("%s\n", extensions[i]);
+  //   }
+  //   // throw std::runtime_error("failed to create window surface!");
+  // }
 }
 
 void VulkanInterface::ClearColor(int R, int G, int B, float Alpha) {
@@ -40,6 +40,22 @@ void VulkanInterface::ClearColor(int R, int G, int B, float Alpha) {
 }
 
 void VulkanInterface::SetViewport(int posx, int posy, int width, int height) {
+  
+}
+
+int VulkanInterface::GetViewportPosx() {
+
+}
+
+int VulkanInterface::GetViewportPosy() {
+
+}
+
+int VulkanInterface::GetViewportHieght() {
+
+}
+
+int VulkanInterface::GetViewportWidth() {
   
 }
 

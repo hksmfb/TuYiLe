@@ -6,6 +6,13 @@ namespace thread {
 
 ThreadManager::ThreadManager() {
   current_time_ = platformlayer::time::GetTime();
+}
+
+ThreadManager::~ThreadManager() {
+
+}
+
+void ThreadManager::Init() {
   renderthread_.RunTask([](){
     platformlayer::window::windowmanager->InitCurrentThreadContext();
     platformlayer::window::windowmanager->SetCurrentThreadContext();
@@ -14,10 +21,6 @@ ThreadManager::ThreadManager() {
     platformlayer::RHI::SetViewport(0, 0, width, height);
   });
   while (renderthread_.IsOccupied()) {}
-}
-
-ThreadManager::~ThreadManager() {
-
 }
 
 template<typename Function, typename ... Args>

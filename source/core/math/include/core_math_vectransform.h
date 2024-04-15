@@ -75,56 +75,44 @@ struct floatvec3 {
 };
 
 class VecTransform {
-  public:
-    VecTransform();
-    ~VecTransform();
-    VecTransform& operator=(const VecTransform& trans);
-    VecTransform operator+(const VecTransform& trans);
-    VecTransform operator-(const VecTransform& trans);
-    VecTransform operator*(const float& f);
-    VecTransform inverse();
-    void Reset();
-    void Rotate(const float x, const float y, const float z);
-    void Rotate(const floatvec3 rotate);
-    void Rotate(const glm::vec3 rotate);
-    void SetRotate(const float x, const float y, const float z);
-    void SetRotate(const floatvec3 rotate);
-    void SetRotate(const glm::vec3 rotate);
-    void Scale(const float x, const float y, const float z);
-    void Scale(const floatvec3 scale);
-    void Scale(const glm::vec3 scale);
-    void SetScale(const float x, const float y, const float z);
-    void SetScale(const floatvec3 scale);
-    void SetScale(const glm::vec3 scale);
-    void Translate(const float x, const float y, const float z);
-    void Translate(const floatvec3 translate);
-    void Translate(const glm::vec3 translate);
-    void SetTranslate(const float x, const float y, const float z);
-    void SetTranslate(const floatvec3 translate);
-    void SetTranslate(const glm::vec3 translate);
-    void Transform(VecTransform trans);
-    void Perspective();
-    glm::mat4 GetTransform();
-    glm::mat4& GetProjection();
-    void SetProjection(glm::mat4& projection);
-    void SetView(glm::mat4& mat);
-    glm::mat4& GetView();
-    /**
-     * @brief set projection mod
-     * @param int 0: Orthographic正交, 1: Perspective透视
-    */
-    void Projectionmod(int mod);
-      
-  private:
-    glm::vec3 rotate_ {glm::vec3(0)};
-    glm::vec3 scale_ {glm::vec3(1.0)};
-    glm::vec3 translate_ {glm::vec3(0)};
-    // bool is_transform_updated_;
-    glm::mat4 other_transform_ {glm::mat4(1.0f)};
-    glm::mat4 transform_ {glm::mat4(1.0f)};
-    glm::mat4 projection_ {glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f)};
-    glm::mat4 view_ {glm::mat4(1.0f)};
-    glm::mat4 model_ {glm::mat4(1.0f)};
+ public:
+  VecTransform();
+  ~VecTransform();
+  VecTransform& operator=(const VecTransform& trans);
+  VecTransform operator+(const VecTransform& trans);
+  VecTransform operator-(const VecTransform& trans);
+  VecTransform operator*(const float& f);
+  VecTransform inverse();
+  void Reset();
+  void Rotate(const float x, const float y, const float z);
+  void Rotate(const floatvec3 rotate);
+  void Rotate(const glm::vec3 rotate);
+  void SetRotate(const float x, const float y, const float z);
+  void SetRotate(const floatvec3 rotate);
+  void SetRotate(const glm::vec3 rotate);
+  void Scale(const float x, const float y, const float z);
+  void Scale(const floatvec3 scale);
+  void Scale(const glm::vec3 scale);
+  void SetScale(const float x, const float y, const float z);
+  void SetScale(const floatvec3 scale);
+  void SetScale(const glm::vec3 scale);
+  void Translate(const float x, const float y, const float z);
+  void Translate(const floatvec3 translate);
+  void Translate(const glm::vec3 translate);
+  void SetTranslate(const float x, const float y, const float z);
+  void SetTranslate(const floatvec3 translate);
+  void SetTranslate(const glm::vec3 translate);
+  void Transform(VecTransform trans);
+  glm::mat4 GetTransform();
+    
+ private:
+  bool static_ {false};
+  glm::vec3 rotate_ {glm::vec3(0)};
+  glm::vec3 scale_ {glm::vec3(1.0)};
+  glm::vec3 translate_ {glm::vec3(0)};
+  // bool is_transform_updated_;
+  glm::mat4 other_transform_ {glm::mat4(1.0f)};
+  glm::mat4 transform_ {glm::mat4(1.0f)};
 };
 
 }

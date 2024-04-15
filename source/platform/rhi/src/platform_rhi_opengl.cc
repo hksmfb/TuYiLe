@@ -7,8 +7,6 @@ namespace opengl {
 
 OpenGLInterface::OpenGLInterface() {
   interfacename_ = "OpenGL";
-  window::windowmanager->GlInterfaceInit("OpenGL");
-  WindowInit();
 }
 
 OpenGLInterface::~OpenGLInterface() {
@@ -26,6 +24,26 @@ void OpenGLInterface::ClearColor(int R, int G, int B, float Alpha) {
 
 void OpenGLInterface::SetViewport(int posx, int posy, int width, int height) {
   glViewport(posx, posy, width, height);
+  viewport_posx_ = posx;
+  viewport_posy_ = posy;
+  viewport_width_ = width;
+  viewport_height_ = height;
+}
+
+int OpenGLInterface::GetViewportPosx() {
+  return viewport_posx_;
+}
+
+int OpenGLInterface::GetViewportPosy() {
+  return viewport_posy_;
+}
+
+int OpenGLInterface::GetViewportWidth() {
+  return viewport_width_;
+}
+
+int OpenGLInterface::GetViewportHieght() {
+  return viewport_width_;
 }
 
 std::shared_ptr<RHI::Mesh> OpenGLInterface::CreateMesh(datatype::Mesh mesh) {

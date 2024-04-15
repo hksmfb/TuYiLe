@@ -18,7 +18,7 @@ out vec3 Normal;
 out vec2 Coord;
 
 void main() {
-  gl_Position = UniformTransform*vec4(inPosition, 1.0);
+  gl_Position = UniformProjection*UniformTransform*vec4(inPosition, 1.0);
   Normal = inNormal;
   Coord = inCoord;
 }
