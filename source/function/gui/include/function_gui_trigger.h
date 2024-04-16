@@ -15,7 +15,7 @@ namespace gui {
 
 class TriggerBase {
  public:
-  virtual void CheckHover() = 0;
+  virtual void CheckHover(glm::vec4& mousepos) = 0;
   bool IsHover();
   void OnHover(std::function<void()> func);
   void OffHover(std::function<void()> func);
@@ -51,14 +51,14 @@ class RectTrigger : public TriggerBase {
   ~RectTrigger();
   void SetSize(float x, float y);
   void SetSize(glm::vec2 size);
-  void CheckHover();
+  void CheckHover(glm::vec4& mousepos);
  private:
   glm::vec2 size_ {glm::vec2(0,0)};
 };
 
 class CircleTrigger : public TriggerBase {
  public:
-  void CheckHover();
+  void CheckHover(glm::vec4& mousepos);
   bool IsHover();
  private:
   float radius_ {0};

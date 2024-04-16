@@ -31,7 +31,6 @@ class Block {
   TriggerBase* GetTrigger();
   void AppendSubBlock(Block* block);
   void PopSubBlock(Block* block);
-  void CheckHover();
   bool IsHover();
   void OnHover(std::function<void()> func);
   void OffHover(std::function<void()> func);
@@ -40,6 +39,7 @@ class Block {
   void OffClick(std::function<void()> func);
   void Drag();
   void Drop();
+  void CheckHover(glm::vec4& mousepos);
  private:
   float width {1.0f};
   float height {1.0f};

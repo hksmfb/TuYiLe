@@ -16,7 +16,9 @@ GuiManager::~GuiManager() {
 
 void GuiManager::Update() {
   UpdateWindowSize();
-  current_gui_->Update();
+  mousepos_.x = widthratio_*platformlayer::input::inputmanager->GetMousePosxFixed();
+  mousepos_.y = heightratio_*platformlayer::input::inputmanager->GetMousePosyFixed();
+  current_gui_->Update(mousepos_);
   current_renderlist_.clear();
   for (auto& render : current_gui_->GetAllRender()) {
     current_renderlist_.AppendRender(render);
@@ -46,11 +48,20 @@ void GuiManager::UpdateWindowSize() {
   int windowheight = platformlayer::window::windowmanager->GetHeight();
   int viewportwidth = platformlayer::RHI::GetViewportWidth()-platformlayer::RHI::GetViewportPosx();
   int viewportheight = platformlayer::RHI::GetViewportHeight()-platformlayer::RHI::GetViewportPosy();
-  bool change = false;
-  window_height_ = window_height_ == windowheight ? windowheight : windowheight;
-  window_width_ = window_width_ == windowwidth ? windowwidth : windowwidth;
-  viewport_height_ = viewport_height_ == viewportheight ? viewportheight : viewportheight;
-  viewport_width_ = viewportwidth == viewportwidth ? viewportwidth : viewportwidth;
+  float wratio = (float)windowheight/viewportwidth;
+  float hratio = (float)windowheight/viewportheight;
+  bool changeflag = false;
+  if (widthratio_ != wratio) {
+    changeflag = true;
+    widthratio_ = wratio;
+  }
+  if (heightratio_ != hratio) {
+    changeflag = true;
+    heightratio_ = hratio;
+  }
+  if (changeflag) {
+    
+  }
 }
 
 }

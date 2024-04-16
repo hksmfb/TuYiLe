@@ -26,7 +26,7 @@ class GuiBase {
    * Check if should run Hover or Click.
    * Check if Drag or Drop.
   */
-  void Update();
+  void Update(glm::vec4& mousepos);
   std::vector<render::RenderBase*> GetAllRender();
  protected:
   std::vector<Block*> blocklist_;

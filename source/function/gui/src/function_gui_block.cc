@@ -70,9 +70,9 @@ void Block::AppendSubBlock(Block* block) {
   blocklist_.push_back(block);
 }
 
-void Block::CheckHover() {
+void Block::CheckHover(glm::vec4& mousepos) {
   for (auto& t : trigger_) {
-    t->CheckHover();
+    t->CheckHover(mousepos);
   }
 }
 

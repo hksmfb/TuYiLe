@@ -106,16 +106,11 @@ void RectTrigger::SetSize(glm::vec2 size) {
   invtrans_ = trans_.inverse();
 }
 
-void RectTrigger::CheckHover() {
-  glm::vec4 mousepos;
-  mousepos.x = platformlayer::input::inputmanager->GetMousePosxFixed();
-  mousepos.y = platformlayer::input::inputmanager->GetMousePosyFixed();
-  mousepos.z = 0;
-  mousepos.w = 1;
-  mousepos = viewport_trans_*invtrans_.GetTransform()*mousepos;
+void RectTrigger::CheckHover(glm::vec4& mousepos) {
+  glm::vec4 pos = invtrans_.GetTransform()*mousepos;
   if (
-    -1 <= mousepos.x && mousepos.x <= 1 &&
-    -1 <= mousepos.y && mousepos.y <= 1
+    -1 <= pos.x && pos.x <= 1 &&
+    -1 <= pos.y && pos.y <= 1
   ) {
     ishover_ = true;
   } else {

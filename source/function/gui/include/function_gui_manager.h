@@ -7,6 +7,7 @@
 #include "function_camera_camerabase.h"
 #include "function_gui_guibase.h"
 #include "function_gui_block.h"
+#include "core_math_vectransform.h"
 
 namespace TuYiLe {
 namespace functionlayer {
@@ -30,10 +31,13 @@ class GuiManager {
   render::RenderList GetCurrentRenderList();
  private:
   void UpdateWindowSize();
-  int window_width_;
-  int window_height_;
-  int viewport_width_;
-  int viewport_height_;
+  int window_width_ {1};
+  int window_height_ {1};
+  int viewport_width_ {1};
+  int viewport_height_ {1};
+  float widthratio_ {1};
+  float heightratio_ {1};
+  glm::vec4 mousepos_ {glm::vec4(0,0,0,1)};
   GuiBase* current_gui_ {nullptr};
   render::RenderList current_renderlist_;
   std::vector<GuiBase*> guilist_ {};

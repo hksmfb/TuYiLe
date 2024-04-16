@@ -15,9 +15,9 @@ void GuiBase::AppendBlockSet(Block* blockset) {
   blocklist_.push_back(blockset);
 }
 
-void GuiBase::Update() {
+void GuiBase::Update(glm::vec4& mousepos) {
   for (auto& block : blocklist_) {
-    block->CheckHover();
+    block->CheckHover(mousepos);
   }
 }
 
