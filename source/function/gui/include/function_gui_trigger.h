@@ -29,13 +29,18 @@ class TriggerBase {
   void Drag();
   void Drop();
   void SetTransform(corelayer::math::VecTransform trans);
-  void SetViewportTrans(int windowwidth, int windowheight, int viewportwidth, int viewportheight);
+  void SetParentTrans(glm::mat4 trans);
+  glm::mat4 GetParentTrans();
+  corelayer::math::VecTransform& GetLocalTrans();
+  glm::mat4 GetTransform();
  protected:
   void RunFuncs();
   bool ishover_;
-  corelayer::math::VecTransform trans_ {};
-  corelayer::math::VecTransform invtrans_ {};
-  glm::mat4 viewport_trans_ {glm::mat4(1.0f)};
+  bool parent_trans_flag_ {true};
+  glm::mat4 parent_trans_ {glm::mat4(1.0f)};
+  corelayer::math::VecTransform local_trans_ {};
+  glm::mat4 final_trans_ {glm::mat4(1.0f)};
+  glm::mat4 invtrans_ {glm::mat4(1.0f)};
   std::function<void()> onhover_func_ {[](){}};
   std::function<void()> offhover_func_ {[](){}};
   std::function<void()> onclick_func_ {[](){}};
@@ -49,7 +54,7 @@ class RectTrigger : public TriggerBase {
  public:
   RectTrigger();
   ~RectTrigger();
-  void SetSize(float x, float y);
+  void SetSize(float width, float height);
   void SetSize(glm::vec2 size);
   void CheckHover(glm::vec4& mousepos);
  private:

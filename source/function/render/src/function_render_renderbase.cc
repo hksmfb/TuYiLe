@@ -52,7 +52,7 @@ void RenderBase::SetTransform(corelayer::math::VecTransform trans) {
   transform_ = trans;
 }
 
-corelayer::math::VecTransform RenderBase::GetTransform() {
+corelayer::math::VecTransform& RenderBase::GetTransform() {
   return transform_;
 }
 

@@ -13,6 +13,7 @@ class Button : public Block {
   ~Button();
   
  private:
+  std::vector<ShapeBase*> shapelist;
 };
 
 }

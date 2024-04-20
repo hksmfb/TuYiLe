@@ -31,6 +31,15 @@ void TriggerBase::OffClick(std::function<void()> func) {
   offclick_func_ = func;
 }
 
+void TriggerBase::SetPos(float x, float y) {
+  center_.x = x;
+  center_.y = y;
+}
+
+void TriggerBase::SetPos(glm::vec2 pos) {
+  center_ = pos;
+}
+
 glm::vec2 TriggerBase::GetPos() {
   return center_;
 }
@@ -61,8 +70,30 @@ void TriggerBase::Drop() {
 }
 
 void TriggerBase::SetTransform(corelayer::math::VecTransform trans) {
-  trans_ = trans;
-  invtrans_ = trans_.inverse();
+  local_trans_ = trans;
+  parent_trans_flag_ = true;
+}
+
+void TriggerBase::SetParentTrans(glm::mat4 trans) {
+  parent_trans_ = trans;
+  parent_trans_flag_ = true;
+}
+
+glm::mat4 TriggerBase::GetParentTrans() {
+  return parent_trans_;
+}
+
+corelayer::math::VecTransform& TriggerBase::GetLocalTrans() {
+  return local_trans_;
+}
+
+glm::mat4 TriggerBase::GetTransform() {
+  if (parent_trans_flag_ || local_trans_.IsChange()) {
+    final_trans_ = parent_trans_*local_trans_.GetTransform();
+    invtrans_ = glm::inverse(final_trans_);
+    parent_trans_flag_ = false;
+  }
+  return final_trans_;
 }
 
 void TriggerBase::RunFuncs() {
@@ -79,14 +110,6 @@ void TriggerBase::RunFuncs() {
   }
 }
 
-void TriggerBase::SetViewportTrans(int windowwidth, int windowheight, int viewportwidth, int viewportheight) {
-  corelayer::math::VecTransform viewport {};
-  float wratio = viewportwidth/windowwidth;
-  float hratio = viewportheight/windowheight;
-  viewport.SetScale(wratio,hratio,1);
-  viewport_trans_ = viewport.GetTransform();
-}
-
 RectTrigger::RectTrigger() {
   
 }
@@ -95,19 +118,23 @@ RectTrigger::~RectTrigger() {
 
 }
 
-void RectTrigger::SetSize(float x, float y) {
-  SetSize(glm::vec2(x, y));
+void RectTrigger::SetSize(float width, float height) {
+  SetSize(glm::vec2(width, height));
 }
 
 void RectTrigger::SetSize(glm::vec2 size) {
   size_.x = size.x/2;
   size_.y = size.y/2;
-  trans_.SetScale(glm::vec3(size,0));
-  invtrans_ = trans_.inverse();
+  local_trans_.SetScale(glm::vec3(size,0));
 }
 
 void RectTrigger::CheckHover(glm::vec4& mousepos) {
-  glm::vec4 pos = invtrans_.GetTransform()*mousepos;
+  if (parent_trans_flag_ || local_trans_.IsChange()) {
+    final_trans_ = parent_trans_*local_trans_.GetTransform();
+    invtrans_ = glm::inverse(final_trans_);
+    parent_trans_flag_ = false;
+  }
+  glm::vec4 pos = invtrans_*mousepos;
   if (
     -1 <= pos.x && pos.x <= 1 &&
     -1 <= pos.y && pos.y <= 1

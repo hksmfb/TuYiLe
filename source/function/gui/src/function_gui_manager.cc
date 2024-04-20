@@ -50,17 +50,11 @@ void GuiManager::UpdateWindowSize() {
   int viewportheight = platformlayer::RHI::GetViewportHeight()-platformlayer::RHI::GetViewportPosy();
   float wratio = (float)windowheight/viewportwidth;
   float hratio = (float)windowheight/viewportheight;
-  bool changeflag = false;
   if (widthratio_ != wratio) {
-    changeflag = true;
     widthratio_ = wratio;
   }
   if (heightratio_ != hratio) {
-    changeflag = true;
     heightratio_ = hratio;
-  }
-  if (changeflag) {
-    
   }
 }
 

@@ -31,7 +31,6 @@ struct renderdata {
 
 class RenderBase {
  public:
-  virtual void Draw() = 0;
   void SetShader(corelayer::guid::guid id);
   void SetShader(std::shared_ptr<platformlayer::RHI::Shader> shader);
   corelayer::guid::guid GetShaderId();
@@ -43,7 +42,7 @@ class RenderBase {
   corelayer::guid::guid GetTexture();
   corelayer::guid::guid GetNormal();
   void SetTransform(corelayer::math::VecTransform trans);
-  corelayer::math::VecTransform GetTransform();
+  corelayer::math::VecTransform& GetTransform();
   renderdata GetRenderData();
   template<typename T> void SetVal(std::string name, T val);
   void SetInt(std::string name, int val);

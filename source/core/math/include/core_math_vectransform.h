@@ -82,6 +82,7 @@ class VecTransform {
   VecTransform operator+(const VecTransform& trans);
   VecTransform operator-(const VecTransform& trans);
   VecTransform operator*(const float& f);
+  bool operator==(const VecTransform& trans);
   VecTransform inverse();
   void Reset();
   void Rotate(const float x, const float y, const float z);
@@ -103,10 +104,11 @@ class VecTransform {
   void SetTranslate(const floatvec3 translate);
   void SetTranslate(const glm::vec3 translate);
   void Transform(VecTransform trans);
+  bool IsChange();
   glm::mat4 GetTransform();
     
  private:
-  bool static_ {false};
+  bool changeflag_ {true};
   glm::vec3 rotate_ {glm::vec3(0)};
   glm::vec3 scale_ {glm::vec3(1.0)};
   glm::vec3 translate_ {glm::vec3(0)};

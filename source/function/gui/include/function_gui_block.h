@@ -14,12 +14,12 @@ namespace gui {
 
 class Block {
  public:
+  Block();
+  ~Block();
   void SetTransform(corelayer::math::VecTransform trans);
-  /**
-   * @brief bind block to TrackPoint.
-   * topleft,top,topright,left,center,right,bottomleft,bottom,bottomright.
-   * offset = src - dest + offset
-  */
+  void SetPos(float x, float y);
+  void SetPos(glm::vec2 pos);
+  glm::vec3 GetPos();
   void BindTrackPoint(std::string location);
   void SetTrackPoint(glm::vec2 point);
   void SetShape(ShapeBase* shape);
@@ -41,14 +41,12 @@ class Block {
   void Drop();
   void CheckHover(glm::vec4& mousepos);
  private:
-  float width {1.0f};
-  float height {1.0f};
   float aspect_ratio_ {1.0f};
   corelayer::math::VecTransform trans_ {};
   glm::vec2 track_point_ {glm::vec2(0,0)};
   glm::vec2 offset_ {glm::vec2(0,0)};
   glm::vec3 center_ {glm::vec3(0,0,0)};
-  ShapeBase* shape_ {nullptr};
+  std::vector<ShapeBase*> shape_ {};
   std::vector<TriggerBase*> trigger_ {};
   std::vector<Block*> blocklist_ {};
   std::vector<Block*> preorderlist_ {};

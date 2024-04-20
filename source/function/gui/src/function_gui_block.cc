@@ -4,8 +4,34 @@ namespace TuYiLe {
 namespace functionlayer {
 namespace gui {
 
+Block::Block() {
+
+}
+
+Block::~Block() {
+  for (auto& shape : shape_) {
+    delete shape;
+  }
+  for (auto& trigger : trigger_) {
+    delete trigger;
+  }
+}
+
 void Block::SetTransform(corelayer::math::VecTransform trans) {
   trans_ = trans;
+}
+
+void Block::SetPos(float x, float y) {
+  center_.x = x;
+  center_.y = y;
+}
+
+void Block::SetPos(glm::vec2 pos) {
+  SetPos(pos.x, pos.y);
+}
+
+glm::vec3 Block::GetPos() {
+  return center_;
 }
 
 void Block::BindTrackPoint(std::string location) {
@@ -43,11 +69,11 @@ void Block::SetTrackPoint(glm::vec2 point) {
 }
 
 void Block::SetShape(ShapeBase* shape) {
-  shape_ = shape;
+  shape_.push_back(shape);
 }
 
 ShapeBase* Block::GetShape() {
-  return shape_;
+  return shape_[0];
 }
 
 void Block::AppendTrigger(TriggerBase* trigger) {
